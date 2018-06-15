@@ -9,28 +9,23 @@ with open('config.json', 'r') as f:
 
 difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target for blocks
 genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
+max_number_of_data_blocks_in_blockchain = config['BLOCKCHAIN'][
+    'MAX_NUMBER_OF_BLOCKS_IN_BLOCKCHAIN']  # Capacity of a Blockchain
 
 
-class Block:
+class Block:  # Main class for defining Blocks and all their attributes and methods
     result = str
 
-    def __init__(self, index, data, previous_hash,block_type):
+    def __init__(self, index, data, previous_hash, block_type):
         self.nonce = int
         self.index = index
         self.timestamp = date.datetime.utcnow()
         self.data = data
         self.previous_hash = previous_hash
         self.current_hash = str
-        self.block_type = block_type # Not included in the content for hash generation
+        self.block_type = block_type  # Not included in the content for hash generation
         self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
                        str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8')
-
-
-    def set_hash(self, hash):
-        self.current_hash = hash
-
-    def get_currnet_hash(self):
-        return self.current_hash
 
     def set_hash(self, hash):
         self.current_hash = hash
@@ -38,9 +33,13 @@ class Block:
     def set_nonce(self, nonce):
         self.nonce = nonce
 
+    def get_currnet_hash(self):
+        return self.current_hash
+
     def stringify_block(self):
         block_string = (
-            self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,self.block_type)
+            self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
+            self.block_type)
         return block_string
 
     def hasher(self, passed_nonce):
@@ -60,37 +59,9 @@ class Block:
         self.nonce = potential_nonce
 
 
-def create_new_block(type, lastblock=None, passed_data=None):
-    block_type = type
-
-    if block_type == "DB":  # creates a data block
-        new_index = lastblock.index + 1
-        new_data = passed_data
-        new_previous_hash = lastblock.current_hash
-        newBlock = Block(new_index, new_data, new_previous_hash,block_type)
-        newBlock.mine()
-        return newBlock
-
-    if block_type == "GB":  # creates a genesis block
-        new_index = 0
-        new_data = str("Genesis Block")
-        new_previous_hash = genesis_hash
-        newBlock = Block(new_index, new_data, new_previous_hash,block_type)
-        newBlock.mine()
-        return newBlock
-
-
-    if block_type == "TB":  # creates a terminal block
-        new_index = lastblock.index + 1
-        new_data = passed_data
-        new_previous_hash = lastblock.current_hash
-        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
-        newBlock.mine()
-        return newBlock
-
-
-class TerminalBlock(Block):
-    def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,block_index_from,block_index_to):
+class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
+    def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
+                 block_index_from, block_index_to):
         self.nonce = int
         self.index = index
         self.timestamp = date.datetime.utcnow()
@@ -102,19 +73,25 @@ class TerminalBlock(Block):
         self.timestamp_to = timestamp_to
         self.block_index_from = block_index_from
         self.block_index_to = block_index_to
-        self.block_type = block_type     # Not included in the content for hash generation
+        self.block_type = block_type  # Not included in the content for hash generation
         self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
-                       str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8') + str(self.aggr_hash).encode('utf-8') + \
+                       str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8') + str(
+            self.aggr_hash).encode('utf-8') + \
                        str(self.timestamp_from).encode('utf-8') + str(self.timestamp_to).encode('utf-8') + \
                        str(self.block_index_from).encode('utf-8') + str(self.block_index_to).encode('utf-8')
 
+
 class CircledBlockchain:
-    def __init__(self):
-        self.index = int
-        self.chain = []
+    chain = []
+
+    def __init__(self, index, block_size):
+        self.index = index
+        self.chain[:block_size]
 
     def add_block_to_CB(self, passed_block):
-            self.chain.append(passed_block)
+        self.chain.append(passed_block)
+        # if len(c) > block_size:
+        #     raise Exception('Circledblock has no more space for new blocks!')
 
     # def stringify_CB(self):
     #     CB_string = (
@@ -123,3 +100,29 @@ class CircledBlockchain:
     #
 
 
+def create_new_block(type, lastblock=None, passed_data=None):
+    block_type = type
+
+    if block_type == "DB":  # creates a data block
+        new_index = lastblock.index + 1
+        new_data = passed_data
+        new_previous_hash = lastblock.current_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
+
+    if block_type == "GB":  # creates a genesis block
+        new_index = 0
+        new_data = str("Genesis Block")
+        new_previous_hash = genesis_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
+
+    if block_type == "TB":  # creates a terminal block
+        new_index = lastblock.index + 1
+        new_data = passed_data
+        new_previous_hash = lastblock.current_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
