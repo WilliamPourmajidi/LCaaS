@@ -155,7 +155,7 @@ class Index:
 
 class LogChain:
     ind = Index()  # This will be used as main index counter throughout the lifecycle of instances of this class
-    cb_array = []
+    cb_array = []  # This array holds the indexes for all CircledBlockchain in this class
 
     def __init__(self, cid):
         self.customer_id = cid
@@ -164,6 +164,7 @@ class LogChain:
     def create_new_circledblockchain(self, index):
         self.index = index
         self.CB = CircledBlockchain(index, max_number_of_data_blocks_in_circledblockchain)
+        self.cb_array.append(self.cb_array)
 
     def return_circledblockchain_index(self):
         return self.CB.index

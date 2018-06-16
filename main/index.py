@@ -42,11 +42,12 @@ def blockify(current_index_value, data):  # Helper function
     if (current_index_value == 0):  # we need to generate genesis block first
         print("Log: An Absolute Genesis Block (AGB) is needed")
         LCaaS.create_new_circledblockchain(LCaaS.ind.get_current_index())
+       )
         genesis_block = create_new_block(type="AGB")
         LCaaS.CB.add_block_to_CB(genesis_block)
         print(LCaaS.CB.chain[0].stringify_block())
         print(LCaaS.return_circledblockchain_index())
-        print(LCaaS.CB.)
+        print(LCaaS.B.)
 
     #     LCaaS.ind.increase_index()
     #     # print(LCaaS.ind.get_current_index())
