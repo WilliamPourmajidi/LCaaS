@@ -19,6 +19,7 @@ max_number_of_data_blocks_in_circledblockchain = config['BLOCKCHAIN'][
 
 LCaaS = LogChain(500747320)
 
+
 @app.route('/')
 def displayStatus():
     return '<h2>Logchain-as-a-Service (LCaaS)has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
@@ -30,48 +31,45 @@ def get_blocks():
 
 
 @app.route('/submit_raw', methods=['POST'])
-
 def submit_raw():
-    # print("We recieved: ", request.get_json())
+    # print("We received: ", request.get_json())
     received_data = (request.get_json())
-    blockify(LCaaS.ind.get_current_index(),received_data)
+    blockify(LCaaS.blocks_index.get_current_index(), received_data)
     return 'A new record has been succesfully recieved', 202
+
 
 def blockify(current_index_value, data):  # Helper function
 
     if (current_index_value == 0):  # we need to generate genesis block first
         print("Log: An Absolute Genesis Block (AGB) is needed")
-        LCaaS.create_new_circledblockchain(LCaaS.ind.get_current_index())
-       )
+        LCaaS.create_new_circledblockchain(LCaaS.blocks_index.get_current_index())
         genesis_block = create_new_block(type="AGB")
-        LCaaS.CB.add_block_to_CB(genesis_block)
-        print(LCaaS.CB.chain[0].stringify_block())
-        print(LCaaS.return_circledblockchain_index())
-        print(LCaaS.B.)
+        LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(
+            genesis_block)  # add genesis block to the current CB
+        print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index()].stringify_block())
+        LCaaS.blocks_index.increase_index()
+        print(LCaaS.blocks_index.get_current_index())
+        previous_block = genesis_block
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(new_block)  # add data block to the current CB
+        print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index()].stringify_block())
+        LCaaS.blocks_index.increase_index()
 
-    #     LCaaS.ind.increase_index()
-    #     # print(LCaaS.ind.get_current_index())
-    #     previous_block = genesis_block
-    #     new_block_data_element = data
-    #     new_block = create_new_block("DB", previous_block, new_block_data_element)
-    #     LCaaS.CB.add_block_to_CB(new_block)
-    #     print(LCaaS.CB.chain[LCaaS.ind.get_current_index()].stringify_block())
-    #     LCaaS.ind.increase_index()
-    #     # print(LCaaS.ind.get_current_index())
-    #
-    #
-    # else:
-    #     if(len(LCaaS.CB.chain) < max_number_of_data_blocks_in_circledblockchain):
-    #         previous_block = LCaaS.CB.chain[LCaaS.ind.get_current_index()-1]
-    #         new_block_data_element = data
-    #         new_block = create_new_block("DB", previous_block, new_block_data_element)
-    #         LCaaS.CB.add_block_to_CB(new_block)
-    #         print(LCaaS.CB.chain[LCaaS.ind.get_current_index()].stringify_block())
-    #         LCaaS.ind.increase_index()
-    #
-    #
+    elif (len(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain) < max_number_of_data_blocks_in_circledblockchain):
+        print("woow wer are here .....")
+        previous_block = LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index() -1 ]
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(new_block)  # add data block to the current CB
+        print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index()].stringify_block())
+        LCaaS.blocks_index.increase_index()
 
 
+        # new_block = create_new_block("DB", previous_block, new_block_data_element)
+        # LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(new_block)  # add data block to the current CB
+        # print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[2].stringify_block())
+        # LCaaS.blocks_index.increase_index()
 
 # block_count = 0
 # current_index = 0
