@@ -155,6 +155,7 @@ class Index:
 
 class LogChain:
     ind = Index()  # This will be used as main index counter throughout the lifecycle of instances of this class
+    cb_array = []
 
     def __init__(self, cid):
         self.customer_id = cid
