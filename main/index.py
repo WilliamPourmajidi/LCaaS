@@ -57,13 +57,17 @@ def blockify(current_index_value, data):  # Helper function
         LCaaS.blocks_index.increase_index()
 
     elif (len(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain) < max_number_of_data_blocks_in_circledblockchain):
-        print("woow wer are here .....")
         previous_block = LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index() -1 ]
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(new_block)  # add data block to the current CB
         print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[LCaaS.blocks_index.get_current_index()].stringify_block())
         LCaaS.blocks_index.increase_index()
+    else:
+        print("So far we added all of these to CB",LCaaS.cbs_index.get_current_index())
+        # LCaaS.cbs_index.increase_index()
+
+
 
 
         # new_block = create_new_block("DB", previous_block, new_block_data_element)
