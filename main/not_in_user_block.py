@@ -3,6 +3,7 @@ import datetime as date
 import hashlib
 import json
 
+
 # Loading configuration
 with open('config.json', 'r') as f:
     config = json.load(f)
@@ -11,6 +12,8 @@ difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target fo
 genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
 max_number_of_data_blocks_in_blockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_BLOCKCHAIN']  # Capacity of a Blockchain
+
+
 
 
 class Block:  # Main class for defining Blocks and all their attributes and methods
@@ -126,3 +129,44 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
         return newBlock
+
+
+
+def blockify(data, tcb): # helper function. It takes data and adds it to LCaaS and return required details to be sent back to the consumer of API
+    if (tcb == 0):
+        block_count = 0
+        current_index = 0
+        gb = create_new_block("GB")
+        FirstCB = CircledBlockchain(current_index, max_number_of_data_blocks_in_blockchain)
+        FirstCB.add_block_to_CB(gb)
+        print(FirstCB.chain[current_index].stringify_block())
+        previous_block = gb
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        FirstCB.add_block_to_CB(new_block)
+        current_index += 1
+        tcb += 1
+    else:
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        FirstCB.add_block_to_CB(new_block)
+        current_index += 1
+        tcb += 1
+
+
+    print(FirstCB.chain[current_index].stringify_block())
+
+
+class Index:
+    def __init__(self):
+        self.index = 0
+
+    def increase_index(self):
+        self.index +=1
+
+    def get_current_index(self):
+        return self.index
+
+
+
+

@@ -1,14 +1,23 @@
 # This  is the Main file for the LCaaS project
 import csv
 import json
-
 from pip._vendor.pyparsing import _ForwardNoRecurse
-
 from block import *
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Loading configuration
+# difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target for blocks
+# genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
+# data_storage_option = config['BLOCK']['DATA_STORAGE_OPTION']  # option to store actual data in the block or hash of data
+
+data_storage_option = config['BLOCK'][
+    'DATA_STORAGE_OPTION']  # option to store actual data in the block or store hash of data(more privacy)
+max_number_of_data_blocks_in_circledblockchain = config['BLOCKCHAIN'][
+    'MAX_NUMBER_OF_BLOCKS_IN_BLOCKCHAIN']  # Capacity of a Blockchain
+
+LCaaS = LogChain(500747320)
 
 @app.route('/')
 def displayStatus():
@@ -21,30 +30,47 @@ def get_blocks():
 
 
 @app.route('/submit_raw', methods=['POST'])
-def set_blocks():
-    print("We recieved: ", request.get_json())
-    block_count = 0
-    current_index = 0
-    gb = create_new_block("GB")
-    block_to_add = gb
-    print(gb.stringify_block())
-    FirstCB = CircledBlockchain(current_index, max_number_of_data_blocks_in_blockchain)
-    FirstCB.add_block_to_CB(block_to_add)
+
+def submit_raw():
+    # print("We recieved: ", request.get_json())
+    received_data = (request.get_json())
+    blockify(LCaaS.ind.get_current_index(),received_data)
     return 'A new record has been succesfully recieved', 202
 
-# Delete later........
-# with open('config.json', 'r') as f:
-#     config = json.load(f)
+def blockify(current_index_value, data):  # Helper function
 
-# Loading configuration
-# difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target for blocks
-# genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
-# data_storage_option = config['BLOCK']['DATA_STORAGE_OPTION']  # option to store actual data in the block or hash of data
+    if (current_index_value == 0):  # we need to generate genesis block first
+        print("Log: An Absolute Genesis Block (AGB) is needed")
+        LCaaS.create_new_circledblockchain(LCaaS.ind.get_current_index())
+        genesis_block = create_new_block(type="AGB")
+        LCaaS.CB.add_block_to_CB(genesis_block)
+        print(LCaaS.CB.chain[0].stringify_block())
+        print(LCaaS.return_circledblockchain_index())
+        print(LCaaS.CB.)
 
-data_storage_option = config['BLOCK'][
-    'DATA_STORAGE_OPTION']  # option to store actual data in the block or store hash of data(more privacy)
-max_number_of_data_blocks_in_blockchain = config['BLOCKCHAIN'][
-    'MAX_NUMBER_OF_BLOCKS_IN_BLOCKCHAIN']  # Capacity of a Blockchain
+    #     LCaaS.ind.increase_index()
+    #     # print(LCaaS.ind.get_current_index())
+    #     previous_block = genesis_block
+    #     new_block_data_element = data
+    #     new_block = create_new_block("DB", previous_block, new_block_data_element)
+    #     LCaaS.CB.add_block_to_CB(new_block)
+    #     print(LCaaS.CB.chain[LCaaS.ind.get_current_index()].stringify_block())
+    #     LCaaS.ind.increase_index()
+    #     # print(LCaaS.ind.get_current_index())
+    #
+    #
+    # else:
+    #     if(len(LCaaS.CB.chain) < max_number_of_data_blocks_in_circledblockchain):
+    #         previous_block = LCaaS.CB.chain[LCaaS.ind.get_current_index()-1]
+    #         new_block_data_element = data
+    #         new_block = create_new_block("DB", previous_block, new_block_data_element)
+    #         LCaaS.CB.add_block_to_CB(new_block)
+    #         print(LCaaS.CB.chain[LCaaS.ind.get_current_index()].stringify_block())
+    #         LCaaS.ind.increase_index()
+    #
+    #
+
+
 
 # block_count = 0
 # current_index = 0
@@ -59,7 +85,6 @@ max_number_of_data_blocks_in_blockchain = config['BLOCKCHAIN'][
 # FirstCB.add_block_to_CB(new_block)
 # previous_block = new_block
 # #             block_count += 1
-
 
 
 #
