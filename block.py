@@ -151,6 +151,9 @@ class Index:
 
     def get_current_index(self):
         return self.index
+    def reset_current_index(self):
+        self.index = 0
+        return self.index
 
 
 class LogChain:
