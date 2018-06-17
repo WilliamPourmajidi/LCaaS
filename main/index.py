@@ -14,8 +14,8 @@ app = Flask(__name__)
 
 data_storage_option = config['BLOCK'][
     'DATA_STORAGE_OPTION']  # option to store actual data in the block or store hash of data(more privacy)
-max_number_of_data_blocks_in_circledblockchain = config['BLOCKCHAIN'][
-    'MAX_NUMBER_OF_BLOCKS_IN_BLOCKCHAIN']  # Capacity of a Blockchain
+max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
+    'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 
 LCaaS = LogChain(500747320)
 
@@ -49,7 +49,6 @@ def blockify(current_index_value, data):  # Helper function
         print(LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[
                   LCaaS.blocks_index.get_current_index()].stringify_block())
         LCaaS.blocks_index.increase_index()
-        print(LCaaS.blocks_index.get_current_index())
         previous_block = genesis_block
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
@@ -60,7 +59,7 @@ def blockify(current_index_value, data):  # Helper function
         LCaaS.blocks_index.increase_index()
 
     elif (len(LCaaS.cb_array[
-                  LCaaS.cbs_index.get_current_index()].chain) < max_number_of_data_blocks_in_circledblockchain):
+                  LCaaS.cbs_index.get_current_index()].chain) < max_number_of_blocks_in_circledblockchain):
         previous_block = LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].chain[
             LCaaS.blocks_index.get_current_index() - 1]
         new_block_data_element = data
@@ -71,8 +70,10 @@ def blockify(current_index_value, data):  # Helper function
                   LCaaS.blocks_index.get_current_index()].stringify_block())
         LCaaS.blocks_index.increase_index()
     else:
-        print("So far we added all of these to CB", LCaaS.cbs_index.get_current_index())
-        # LCaaS.cbs_index.increase_index()
+        print("So far we added all of these to CB with index", LCaaS.cbs_index.get_current_index())
+        LCaaS.cbs_index.increase_index()
+        LCaaS.create_new_circledblockchain(LCaaS.blocks_index.get_current_index())
+        print("Now we increase the CB index ", LCaaS.cbs_index.get_current_index())
 
         # new_block = create_new_block("DB", previous_block, new_block_data_element)
         # LCaaS.cb_array[LCaaS.cbs_index.get_current_index()].add_block_to_CB(new_block)  # add data block to the current CB
