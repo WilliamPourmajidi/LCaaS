@@ -125,7 +125,15 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock.mine()
         return newBlock
 
-    if block_type == "AGB":  # creates an Absolute Genesis Block
+    if block_type == "AGB":  # creates an Absolute Genesis Block (AGB)
+        new_index = 0
+        new_data = str("Genesis Block")
+        new_previous_hash = genesis_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
+
+    if block_type == "RGB":  # creates an Relative Genesis Block (RGB)
         new_index = 0
         new_data = str("Genesis Block")
         new_previous_hash = genesis_hash
