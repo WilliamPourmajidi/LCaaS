@@ -35,6 +35,11 @@ def get_blocks():
 def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
+    print("This is before we blockify----------------------------")
+    print("block_index", LCaaS.block_index.get_current_index())
+    print("cb_index", LCaaS.cb_index.get_current_index())
+    print("This is before we blockify-----------------------------")
+
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
     return 'A new record has been succesfully recieved', 202
 
@@ -46,6 +51,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index(),
                                            max_number_of_blocks_in_circledblockchain)  # create a circled blockchain  using index of cb
+        print("*B4********Log: Length of CB ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
         absolute_genesis_block = create_new_block(type="AGB")
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             absolute_genesis_block)  # add genesis block to the current CB
@@ -54,6 +60,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.block_index.get_current_index()].stringify_block())
         LCaaS.block_index.increase_index()
+        print("*After********Log: Length of CB ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
         previous_block = absolute_genesis_block
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
@@ -65,9 +72,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                   LCaaS.block_index.get_current_index()].stringify_block())
         LCaaS.block_index.increase_index()
 
-    elif ((current_block_index_value != 0) and (
-            current_cb_index_value == 0 ) and (len(LCaaS.cb_array[
-                                                     LCaaS.cb_index.get_current_index()].chain) < max_number_of_blocks_in_circledblockchain)):  # we need to generate data block for the current Circled Blockchain
+
+    elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
+                                                        LCaaS.cb_index.get_current_index()].chain) < max_number_of_blocks_in_circledblockchain)):  # we need to generate data block for the current Circled Blockchain
+
         print("Log: A new data block is needed in the same CircledBlockchain")
         previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
             LCaaS.block_index.get_current_index() - 1]
@@ -81,47 +89,29 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                   LCaaS.block_index.get_current_index()].stringify_block())
         LCaaS.block_index.increase_index()
 
-    elif ((current_block_index_value == 0) and (
-            current_cb_index_value != 0 ) and (len(LCaaS.cb_array[
-                                                     LCaaS.cb_index.get_current_index()].chain) < max_number_of_blocks_in_circledblockchain)):
-        # we need to generate a relative genesis block
+
+    elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
+                                                      LCaaS.cb_index.get_current_index()].chain) == max_number_of_blocks_in_circledblockchain)):
+
         print("Log: It's time for a new CircledBlockchain and a Relative Genesis Block (RGB)")
-        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-        LCaaS.block_index.get_current_index() - 1]
-        print("righ before RGB, current_cbs_index = ", LCaaS.cb_index.get_current_index())
-        print("current blocks_index = ", LCaaS.block_index.get_current_index())
-        relative_genesis_block = create_new_block("DB", previous_block)
-        LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
-        relative_genesis_block)  # add relative genesis block to the current CB
-        print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-        LCaaS.block_index.get_current_index()].stringify_block())
-
-
-
-    else:
-        print("Log: All previous blocks were added to CB with index: ", LCaaS.cb_index.get_current_index())
-
+        print("*B4********Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("*B4********Log: The block index is : ", LCaaS.block_index.get_current_index())
+        print("*B4********Log: Length of CB ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
         LCaaS.cb_index.increase_index()
-        print("Log: The CB index is now increased and is : ", LCaaS.cb_index.get_current_index())
 
-        LCaaS.block_index.reset_current_index()
-        print("Log: The block index is now reset and is   : ", LCaaS.block_index.get_current_index())
+        print("*after********Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("*after********Log: The block index is : ", LCaaS.block_index.get_current_index())
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index(),
                                            max_number_of_blocks_in_circledblockchain)
 
-        print("Log: A new CircledBlockchain and a Relative Genesis Block (RGB) is needed")
-        LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index(),
-                                           max_number_of_blocks_in_circledblockchain)
-
-
-        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()-1].chain[-1]
-        print("you remember previous block? ", previous_block.stringify_block())
-        relative_genesis_block = create_new_block("RGB",previous_block)
-        print("Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
-        print("Log: The block index is : ", LCaaS.block_index.get_current_index())
+        print("a new CB is created and its length is ",len(LCaaS.cb_array[
+                                                      LCaaS.cb_index.get_current_index()].chain))
+        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index() - 1].chain[-1]
+        relative_genesis_block = create_new_block("RGB", previous_block)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             relative_genesis_block)  # add relative genesis block to the current CB
-        print(LCaaS.cb_array[1].chain[
+        print("*after********Log: Length of CB ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[0]))
+        print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.block_index.get_current_index()].stringify_block())
         LCaaS.block_index.increase_index()
         previous_block = relative_genesis_block
@@ -129,9 +119,46 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
+        print("Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The block index is : ", LCaaS.block_index.get_current_index())
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.block_index.get_current_index()].stringify_block())
         LCaaS.block_index.increase_index()
+        print("Log: The block index at the END is  : ", LCaaS.block_index.get_current_index())
+
+    #
+    # elif ((len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) == max_number_of_blocks_in_circledblockchain)):
+    #     print("Log: All previous blocks were added to CB with index: ", LCaaS.cb_index.get_current_index())
+    #
+    #     LCaaS.cb_index.increase_index()
+    #     print("Log: The CB index is now increased and is : ", LCaaS.cb_index.get_current_index())
+    #
+    #     LCaaS.block_index.reset_current_index()
+    #     print("Log: The block index is now reset and is   : ", LCaaS.block_index.get_current_index())
+    #     LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index(),
+    #                                        max_number_of_blocks_in_circledblockchain)
+    #
+    #     print("Log: A new CircledBlockchain and a Relative Genesis Block (RGB) is needed")
+    #     LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index(),
+    #                                        max_number_of_blocks_in_circledblockchain)
+    #
+    #     previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index() - 1].chain[-1]
+    #     print("you remember previous block? ", previous_block.stringify_block())
+    #     relative_genesis_block = create_new_block("RGB", previous_block)
+    #     print("Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+    #     print("Log: The block index is : ", LCaaS.block_index.get_current_index())
+    #     LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+    #         relative_genesis_block)  # add relative genesis block to the current CB
+    #     print("this is the problem", LCaaS.cb_array[2].chain[0].stringify_block())
+    #     LCaaS.block_index.increase_index()
+    #     previous_block = relative_genesis_block
+    #     new_block_data_element = data
+    #     new_block = create_new_block("DB", previous_block, new_block_data_element)
+    #     LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+    #         new_block)  # add data block to the current CB
+    #     print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+    #               LCaaS.block_index.get_current_index()].stringify_block())
+    #     LCaaS.block_index.increase_index()
 
         # elif (len(LCaaS.cb_array[
         # LCaaS.cb_index.get_current_index()].chain) < max_number_of_blocks_in_circledblockchain):
@@ -157,9 +184,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         #           LCaaS.blocks_index.get_current_index()].stringify_block())
         # LCaaS.blocks_index.increase_index()
         #
-
-
-
 
         # new_block = create_new_block("DB", previous_block, new_block_data_element)
 
@@ -217,6 +241,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
     # previous_block = block_to_add
     # current_number_of_blocks += 1
     # print("Current number", block_count)
+
 
 if __name__ == '__main__':
     app.run()

@@ -26,10 +26,10 @@ class LogChain:
         self.customer_id = cid
         self.SBC = SuperBlockchain(index=cid)
 
-    def create_new_CircledBlockchain(self, index,length):
-        self.index = index
-        self.CB = CircledBlockchain(index, length)
-        self.cb_array.append(self.CB)
+    # def create_new_CircledBlockchain(self, index,length):
+    #     self.index = index
+    #     self.CB = CircledBlockchain(index, length)
+    #     self.cb_array.append(self.CB)
 
     def return_CircledBlockchain_index(self):
         return self.CB.index
@@ -51,6 +51,7 @@ class CircledBlockchain:
         CB_string = (
             self.index)
         return CB_string
+
 
 
 class SuperBlockchain:

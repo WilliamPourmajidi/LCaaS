@@ -79,13 +79,13 @@ def create_new_block(type, lastblock=None, passed_data=None):
         return newBlock
 
     elif block_type == "RGB":  # creates a Relative Genesis Block (RGB)
-        print("you won lottery")
-        rgb_new_index = lastblock.index + 1
-        rgb_new_data = str("Relative Genesis Block")
-        rgb_new_previous_hash = lastblock.current_hash
-        rgb_newBlock = Block(rgb_new_index, rgb_new_data, rgb_new_previous_hash, block_type)
-        rgb_newBlock.mine()
-        return rgb_newBlock
+
+        new_index = lastblock.index + 1
+        new_data = str("Relative Genesis Block")
+        new_previous_hash = lastblock.current_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
 
     elif block_type == "TB":  # creates a terminal block
         print("you lost lottery")
