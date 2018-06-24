@@ -88,7 +88,6 @@ def create_new_block(type, lastblock=None, passed_data=None):
         return newBlock
 
     elif block_type == "TB":  # creates a terminal block
-        print("you lost lottery")
         new_index = lastblock.index + 1
         new_data = passed_data
         new_previous_hash = lastblock.current_hash
