@@ -16,6 +16,7 @@ class Index:
 class LogChain:
     block_index = Index()  # This will be used as main index counter for blocks in the lifecycle of instances of this class
     cb_index =  Index()  # This will be used as main index counter for Circledblocks in the lifecycle of instances of this class
+    internal_block_counter = Index()
     cb_array = []  # This array holds the indexes for all CircledBlockchain in this class
 
     def __init__(self, cid):
@@ -31,16 +32,23 @@ class LogChain:
     #     self.CB = CircledBlockchain(index, length)
     #     self.cb_array.append(self.CB)
 
-    def return_CircledBlockchain_index(self):
-        return self.CB.index
+    def create_new_CircledBlockchain(self, index):
+        self.index = index
+        self.CB = CircledBlockchain(index)
+        self.cb_array.append(self.CB)
+
 
 
 class CircledBlockchain:
-    chain = []
+    # chain = []
 
-    def __init__(self, index, cb_size):
+    # def __init__(self, index, length):
+    #     self.index = index
+    #     self.chain[:length]
+
+    def __init__(self, index):
         self.index = index
-        self.chain[:cb_size]
+        self.chain = []
 
     def add_block_to_CB(self, passed_block):
         self.chain.append(passed_block)
@@ -68,26 +76,45 @@ class SuperBlockchain:
             CBC_string = "replace with the code that gets the content of each supoerblock"
         return CBC_string
 
+class TB_data():
 
-class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
-    def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
-                 block_index_from, block_index_to):
-        self.nonce = int
-        self.index = index
-        self.timestamp = date.datetime.utcnow()
-        self.data = data
-        self.previous_hash = previous_hash
-        self.current_hash = str
-        self.aggr_hash = aggr_hash
+    def __init__(self, aggr_hash,timestamp_from,timestamp_to,block_index_from, block_index_to ):
+
+        self.aggr_hash= aggr_hash
         self.timestamp_from = timestamp_from
         self.timestamp_to = timestamp_to
-        self.block_index_from = block_index_from
+        self.block_index_from= block_index_from
         self.block_index_to = block_index_to
-        self.block_type = block_type  # Not included in the content for hash generation
-        self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
-                       str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8') + str(
-            self.aggr_hash).encode('utf-8') + \
-                       str(self.timestamp_from).encode('utf-8') + str(self.timestamp_to).encode('utf-8') + \
-                       str(self.block_index_from).encode('utf-8') + str(self.block_index_to).encode('utf-8')
+#
+# def stringify_block(self,tb_index):
+#     terminalblock_string = (
+#         index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
+#         self.block_type)
+#     return block_string
 
 
+
+
+#
+# class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
+#     def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
+#                  block_index_from, block_index_to):
+#         self.nonce = int
+#         self.index = index
+#         self.timestamp = date.datetime.utcnow()
+#         self.data = TB_data()
+#         self.previous_hash = previous_hash
+#         self.current_hash = str
+#         self.aggr_hash = aggr_hash
+#         self.timestamp_from = timestamp_from
+#         self.timestamp_to = timestamp_to
+#         self.block_index_from = block_index_from
+#         self.block_index_to = block_index_to
+#         self.block_type = block_type  # Not included in the content for hash generation
+#         self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
+#                        str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8') + str(
+#             self.aggr_hash).encode('utf-8') + \
+#                        str(self.timestamp_from).encode('utf-8') + str(self.timestamp_to).encode('utf-8') + \
+#                        str(self.block_index_from).encode('utf-8') + str(self.block_index_to).encode('utf-8')
+#
+#
