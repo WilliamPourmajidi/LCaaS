@@ -3,8 +3,28 @@ import csv
 import json
 from pip._vendor.pyparsing import _ForwardNoRecurse
 from blockchain import *
+import pyrebase
 from LC import *
 from flask import Flask, jsonify, request
+
+### Firebase Settings ####
+config = {
+    "apiKey": "AIzaSyAmXGisFxk0xJmAT_KpFDvCmfqH-YBP_04",
+    "authDomain": "bcaas-2018.firebaseapp.com",
+    "databaseURL": "https://bcaas-2018.firebaseio.com",
+    "storageBucket": "",
+    "messagingSenderId": "568088402855",
+    "serviceAccount": "serviceAccountCredentials.json"
+}
+
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+# # authenticate a user
+user = auth.sign_in_with_email_and_password("william.pourmajidi@gmail.com", "bcaas2018Pass")
+
+# user['idToken']
+db = firebase.database()
+
 
 app = Flask(__name__)
 
@@ -171,17 +191,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
-    # print(LCaaS.cb_array[1].internal_index.get_current_index())
-    #
-    # print(LCaaS.cb_array[1].chain[LCaaS.cb_array[1].internal_index.get_current_index()].stringify_block())
-        print("+++++++++++++++++++++++++++++++++++++++++++")
-        print(LCaaS.cb_array[0].chain[0].stringify_block())
-        print(LCaaS.cb_array[0].chain[1].stringify_block())
-        print(LCaaS.cb_array[0].chain[2].stringify_block())
-        print(LCaaS.cb_array[0].chain[3].stringify_block())
-        print(LCaaS.cb_array[0].chain[4].stringify_block())
-        print(LCaaS.cb_array[1].chain[0].stringify_block())
-        print(LCaaS.cb_array[1].chain[1].stringify_block())
 
         print("+++++++++++++++++++++++++++++++++++++++++++")
 
