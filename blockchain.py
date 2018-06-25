@@ -36,6 +36,12 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
     def get_currnet_hash(self):
         return self.current_hash
 
+    def get_current_index(self):
+        return self.index
+
+    def get_timestamp(self):
+        return self.timestamp
+
     def stringify_block(self):
         block_string = (
             self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,

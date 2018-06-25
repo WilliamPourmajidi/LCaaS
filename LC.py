@@ -85,6 +85,16 @@ class TB_data():
         self.timestamp_to = timestamp_to
         self.block_index_from= block_index_from
         self.block_index_to = block_index_to
+
+
+
+    def stringify_terminalblock(self):
+        block_string = (
+            self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
+            self.block_type)
+        return block_string
+
+
 #
 # def stringify_block(self,tb_index):
 #     terminalblock_string = (
