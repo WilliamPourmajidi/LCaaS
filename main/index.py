@@ -32,10 +32,6 @@ db = firebase.database()
 
 app = Flask(__name__)
 
-# Loading configuration
-# difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target for blocks
-# genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
-# data_storage_option = config['BLOCK']['DATA_STORAGE_OPTION']  # option to store actual data in the block or hash of data
 
 with open('config.json', 'r') as f:
     config = json.load(f)
@@ -62,7 +58,8 @@ def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
-    return 'A new record has been succesfully recieved', 202
+    return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
+    return return_string, 202
 
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
@@ -90,6 +87,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.internal_block_counter.increase_index()
 
         previous_block = absolute_genesis_block
+        #### Important : Add logic here to handle the actual or hash condition for data storage
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
