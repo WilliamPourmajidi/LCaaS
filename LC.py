@@ -1,4 +1,5 @@
 from blockchain import *
+import datetime as date
 
 class Index:
     def __init__(self):
@@ -88,11 +89,18 @@ class TB_data():
 
 
 
-def stringify_terminalblock(self):
-    block_string = (
-        self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
-        self.block_type)
-    return block_string
+def stringify_terminalblock(passed_block):
+    terminalblock_string = (
+        passed_block.get_index(), passed_block.get_timestamp().isoformat(), passed_block.get_data(),passed_block.get_current_hash(), passed_block.get_previous_hash(), passed_block.get_nonce(),
+        passed_block.get_block_type())
+    return terminalblock_string
+
+
+
+
+
+
+
 
 
 #

@@ -8,6 +8,9 @@ from flask import Flask, jsonify, request
 import pyrebase
 
 ### Firebase Settings ####
+# Link: https://bcaas-2018.firebaseio.com/Blocks.json
+# Link: https://console.firebase.google.com/u/0/project/bcaas-2018/database/bcaas-2018/data
+# You will need to change the following settings to your own Firebase instance
 
 config = {
     "apiKey": "AIzaSyAmXGisFxk0xJmAT_KpFDvCmfqH-YBP_04",
@@ -26,6 +29,7 @@ user = auth.sign_in_with_email_and_password("william.pourmajidi@gmail.com", "bca
 # user['idToken']
 db = firebase.database()
 
+
 app = Flask(__name__)
 
 # Loading configuration
@@ -40,6 +44,8 @@ data_storage_option = config['BLOCK'][
 max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 
+
+# Instantiate a new object from LogChain
 LCaaS = LogChain(500747320)
 
 
@@ -49,8 +55,9 @@ def displayStatus():
 
 
 @app.route('/verify_blocks')
-def get_blocks():
-    return jsonify(Circledblock)
+
+# def get_blocks():
+#     return jsonify(Circledblock)
 
 
 @app.route('/submit_raw', methods=['POST'])
@@ -143,11 +150,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         while (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 1):
             if (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 2):
                 aggregated_hash = aggregated_hash + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                    count].get_currnet_hash() + ","
+                    count].get_current_hash() + ","
                 count += 1
             else:
                 aggregated_hash = aggregated_hash + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                    count].get_currnet_hash()
+                    count].get_current_hash()
                 count += 1
 
         print("Log: Aggregated_hash for this CB is: ", aggregated_hash)
@@ -178,6 +185,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_TB_data = TB_data(aggregated_hash, timestamp_from, timestamp_to, block_index_from, block_index_to)
         new_TerminalBlock = create_new_block("TB", previous_block, new_TB_data)
         # let's add the TB to the CB
+        print("++++++",stringify_terminalblock(new_TerminalBlock))
+
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_TerminalBlock)
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(),'Type':"TB" ,

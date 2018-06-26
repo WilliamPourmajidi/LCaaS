@@ -48,11 +48,16 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
     def get_previous_hash(self):
         return self.previous_hash
 
-    def get_currnet_hash(self):
+    def get_current_hash(self):
         return self.current_hash
 
     def get_data(self):
         return self.data
+
+    def get_block_type(self):
+        return self.block_type
+
+
 
     def stringify_block(self):
         block_string = (
