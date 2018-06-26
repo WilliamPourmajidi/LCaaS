@@ -159,9 +159,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             -1].get_timestamp())
 
         print("Block_from", LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-            0].get_current_index())
+            0].get_index())
         print("Block_to", LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-            -1].get_current_index())
+            -1].get_index())
 
         timestamp_from = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
             0].get_timestamp()
@@ -170,10 +170,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             -1].get_timestamp()
 
         block_index_from = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-            0].get_current_index()
+            0].get_index()
 
         block_index_to = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-            -1].get_current_index()
+            -1].get_index()
         previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[-1]
         new_TB_data = TB_data(aggregated_hash, timestamp_from, timestamp_to, block_index_from, block_index_to)
         new_TerminalBlock = create_new_block("TB", previous_block, new_TB_data)
