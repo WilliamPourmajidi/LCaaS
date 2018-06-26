@@ -1,6 +1,7 @@
 from blockchain import *
 import datetime as date
 
+
 class Index:
     def __init__(self):
         self.index = 0
@@ -10,13 +11,15 @@ class Index:
 
     def get_current_index(self):
         return self.index
+
     def reset_current_index(self):
         self.index = 0
         return self.index
 
+
 class LogChain:
     block_index = Index()  # This will be used as main index counter for blocks in the lifecycle of instances of this class
-    cb_index =  Index()  # This will be used as main index counter for Circledblocks in the lifecycle of instances of this class
+    cb_index = Index()  # This will be used as main index counter for Circledblocks in the lifecycle of instances of this class
     internal_block_counter = Index()
     cb_array = []  # This array holds the indexes for all CircledBlockchain in this class
 
@@ -37,7 +40,6 @@ class LogChain:
         self.index = index
         self.CB = CircledBlockchain(index)
         self.cb_array.append(self.CB)
-
 
 
 class CircledBlockchain:
@@ -62,7 +64,6 @@ class CircledBlockchain:
         return CB_string
 
 
-
 class SuperBlockchain:
 
     def __init__(self, index):
@@ -77,31 +78,29 @@ class SuperBlockchain:
             CBC_string = "replace with the code that gets the content of each supoerblock"
         return CBC_string
 
+
 class TB_data():
 
-    def __init__(self, aggr_hash,timestamp_from,timestamp_to,block_index_from, block_index_to ):
-
-        self.aggr_hash= aggr_hash
+    def __init__(self, aggr_hash, timestamp_from, timestamp_to, index_from, index_to):
+        self.aggr_hash = aggr_hash
         self.timestamp_from = timestamp_from
         self.timestamp_to = timestamp_to
-        self.block_index_from= block_index_from
-        self.block_index_to = block_index_to
-
+        self.index_from = index_from
+        self.index_to = index_to
 
 
 def stringify_terminalblock(passed_block):
     terminalblock_string = (
-        passed_block.get_index(), passed_block.get_timestamp().isoformat(), passed_block.get_data(),passed_block.get_current_hash(), passed_block.get_previous_hash(), passed_block.get_nonce(),
+        passed_block.get_index(), passed_block.get_timestamp().isoformat(),
+        "aggr_hash: " + passed_block.get_data().aggr_hash,
+        "timestamp_from: " +
+        passed_block.get_data().timestamp_from.isoformat(),
+        "timestamp_to: " + passed_block.get_data().timestamp_to.isoformat(),
+        "index_from: " + str(passed_block.get_data().index_from),
+        "index_to: " + str(passed_block.get_data().index_to),
+        passed_block.get_current_hash(), passed_block.get_previous_hash(), passed_block.get_nonce(),
         passed_block.get_block_type())
     return terminalblock_string
-
-
-
-
-
-
-
-
 
 #
 # def stringify_block(self,tb_index):
@@ -109,8 +108,6 @@ def stringify_terminalblock(passed_block):
 #         index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
 #         self.block_type)
 #     return block_string
-
-
 
 
 #
