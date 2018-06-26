@@ -27,17 +27,14 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
         self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
                        str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8')
 
-
     # Setters
     def set_hash(self, hash):
         self.current_hash = hash
 
-
     def set_nonce(self, nonce):
         self.nonce = nonce
 
-
-    #Getters
+    # Getters
 
     def get_nonce(self):
         return self.nonce
@@ -48,15 +45,14 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
     def get_timestamp(self):
         return self.timestamp
 
+    def get_previous_hash(self):
+        return self.previous_hash
+
     def get_currnet_hash(self):
         return self.current_hash
 
     def get_data(self):
         return self.data
-
-
-
-
 
     def stringify_block(self):
         block_string = (

@@ -88,11 +88,11 @@ class TB_data():
 
 
 
-    def stringify_terminalblock(self):
-        block_string = (
-            self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
-            self.block_type)
-        return block_string
+def stringify_terminalblock(self):
+    block_string = (
+        self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
+        self.block_type)
+    return block_string
 
 
 #
