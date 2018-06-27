@@ -74,18 +74,11 @@ def submit_digest():
     passed_digest_value  = received_data['digest']
     print(passed_digest_value)
     if (len(passed_digest_value)==64):
-        print("yesss")
+        blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
     else:
-        print("noooo")
+        LCaaS.return_string = "Received data is not in correct SHA256 format"
 
-    #
-    # if len(str(passed_digest_value)==64):
-    #     print("You sent a proper hash , ineee", passed_digest_value)
-    # else:
-    #     print("Are you sure this is hash? I got :  ", passed_digest_value)
-
-    # blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
-    return LCaaS.return_string, 202
+        return LCaaS.return_string, 202
 
 
 
