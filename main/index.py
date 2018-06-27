@@ -43,6 +43,7 @@ data_storage_option = config['BLOCK'][
 max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 
+
 # Instantiate a new object from LogChain
 LCaaS = LogChain(500747320)
 
@@ -63,6 +64,29 @@ def submit_raw():
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
     # return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
     return LCaaS.return_string, 202
+
+
+@app.route('/submit_digest', methods=['POST'])
+def submit_digest():
+    # print("We received: ", request.get_json())
+    received_data = request.get_json()
+    print(received_data)
+    passed_digest_value  = received_data['digest']
+    print(passed_digest_value)
+    if (len(passed_digest_value)==64):
+        print("yesss")
+    else:
+        print("noooo")
+
+    #
+    # if len(str(passed_digest_value)==64):
+    #     print("You sent a proper hash , ineee", passed_digest_value)
+    # else:
+    #     print("Are you sure this is hash? I got :  ", passed_digest_value)
+
+    # blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
+    return LCaaS.return_string, 202
+
 
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
