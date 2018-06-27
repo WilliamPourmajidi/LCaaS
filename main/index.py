@@ -32,7 +32,6 @@ db = firebase.database()
 
 app = Flask(__name__)
 
-
 with open('config.json', 'r') as f:
     config = json.load(f)
 data_storage_option = config['BLOCK'][
@@ -58,8 +57,8 @@ def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
-    return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
-    return return_string, 202
+    # return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
+    return LCaaS.return_string, 202
 
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
@@ -91,7 +90,13 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
-            new_block)  # add data block to the current CB
+            new_block)  # add the first data block to the current CB
+
+        LCaaS.return_string = str(
+            "An AGB was created for the new circle block. AGB details are as follows:\n" + str(
+                absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to LogChain with following details:\n" + str(
+                new_block.stringify_block()))
+
 
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
@@ -117,6 +122,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
+
+        LCaaS.return_string = str(
+            "The new record has been successfully received and added to LogChain with following details:\n" + str(
+                new_block.stringify_block()))
+
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
@@ -180,6 +190,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_TerminalBlock)  # add terminal block to CB
+
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
                                 user[

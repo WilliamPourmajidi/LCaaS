@@ -22,6 +22,8 @@ class LogChain:
     cb_index = Index()  # This will be used as main index counter for Circledblocks in the lifecycle of instances of this class
     internal_block_counter = Index()
     cb_array = []  # This array holds the indexes for all CircledBlockchain in this class
+    return_string = ""
+
 
     def __init__(self, cid):
         """
