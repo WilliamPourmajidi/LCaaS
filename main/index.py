@@ -53,7 +53,8 @@ LCaaS = LogChain(500747320)
 def displayStatus():
     return '<h2>Logchain-as-a-Service (LCaaS)has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
 
-@app.route('/submit_raw', methods=['POST'])
+
+@app.route('/submit_raw', methods=['POST'])    # handles raw_digest method
 def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
@@ -62,7 +63,7 @@ def submit_raw():
     return LCaaS.return_string, 202
 
 
-@app.route('/submit_digest', methods=['POST'])
+@app.route('/submit_digest', methods=['POST'])  # handles submit_digest method
 def submit_digest():
     # print("We received: ", request.get_json())
 
@@ -79,21 +80,12 @@ def submit_digest():
         return LCaaS.return_string, 202
 
 
-
-@app.route('/verify_raw')
-def submit_raw():
+@app.route('/verify_raw', methods=['POST'])
+def verify_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
     search_raw(received_data)
     return LCaaS.return_string, 202
-
-
-
-
-
-
-
-
 
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
@@ -317,14 +309,33 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
 
 def search_raw(passed_raw):
-    count = 0
+    cb_counter = 0
+    b_counter = 0
+    search_result = ""
 
-    while (count <= len(LCaaS.cb_array)):
-        for i in LCaaS.cb_array[count]:
-            print(i.stringify_block)
-        count += 1
-    LCaaS.return_string = "have a nice day"
+    while (cb_counter < len(LCaaS.cb_array)):
+        while (b_counter < len(LCaaS.cb_array[cb_counter].chain)):
+            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_data() == passed_raw):
+                print("An exact match for submitted raw data has been found:")
+                print(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+                search_result +=  "\nAn exact match for submitted raw data has been found\n" + str(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+                b_counter += 1
+
+            else:
+                print("No match was found for the received data!!!\n")
+                b_counter += 1
+                continue
+            #     search_result = "No match was found for the received data!!!"
+
+        b_counter  = 0
+        cb_counter += 1
+
+    if (len(search_result) == 0):
+        LCaaS.return_string = "No match was found for the received data!!!"
+    else:
+        LCaaS.return_string = search_result
 
 
+#data element of TB is the hash of all CB block current_hashes
 if __name__ == '__main__':
     app.run()
