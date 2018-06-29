@@ -1,7 +1,9 @@
 # This  is the Main file for the LCaaS project
-# Designed and implemented by William Pourmajidi - June 2018 - Canada Ontario
-# Departament of Computer Science
-# As partial fulfillment for  Doctorate of Philosophy in Computer Science (Ph.D)
+# Designed and implemented by William Pourmajidi - 2018 - Canada Ontario
+
+# TODO: Verify functions
+# TODO: SB and SBCs
+
 
 import csv
 import json
@@ -43,7 +45,6 @@ data_storage_option = config['BLOCK'][
 max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 
-
 # Instantiate a new object from LogChain
 LCaaS = LogChain(500747320)
 
@@ -51,11 +52,6 @@ LCaaS = LogChain(500747320)
 @app.route('/')
 def displayStatus():
     return '<h2>Logchain-as-a-Service (LCaaS)has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
-
-
-@app.route('/verify_blocks')
-# def get_blocks():
-#     return jsonify(Circledblock)
 
 @app.route('/submit_raw', methods=['POST'])
 def submit_raw():
@@ -69,16 +65,34 @@ def submit_raw():
 @app.route('/submit_digest', methods=['POST'])
 def submit_digest():
     # print("We received: ", request.get_json())
+
     received_data = request.get_json()
     print(received_data)
-    passed_digest_value  = received_data['digest']
+    passed_digest_value = received_data['digest']
     print(passed_digest_value)
-    if (len(passed_digest_value)==64):
+    if (len(passed_digest_value) == 64):
         blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
+        return LCaaS.return_string, 202
     else:
         LCaaS.return_string = "Received data is not in correct SHA256 format"
 
         return LCaaS.return_string, 202
+
+
+
+@app.route('/verify_raw')
+def submit_raw():
+    # print("We received: ", request.get_json())
+    received_data = (request.get_json())
+    search_raw(received_data)
+    return LCaaS.return_string, 202
+
+
+
+
+
+
+
 
 
 
@@ -113,9 +127,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add the first data block to the current CB
 
-
-
-
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
@@ -146,7 +157,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
-
 
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
@@ -212,10 +222,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         # let's add the TB to the CB
         print("Log: Terminal block is : ", stringify_terminalblock(new_TerminalBlock))
 
-
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_TerminalBlock)  # add terminal block to CB
-
 
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
@@ -224,7 +232,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.return_string = str(
             "A new Terminal Block has been successfully created and added to LogChain with following details:\n" + str(
                 stringify_terminalblock(new_TerminalBlock)))
-
 
         # terminalBlock_data_string = (
         #     new_TerminalBlock.data.aggr_hash, new_TerminalBlock.data.timestamp_to, new_TerminalBlock.data.timestamp_to,
@@ -272,7 +279,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                 user['idToken'])  # push data to Firebase
 
-
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.internal_block_counter.get_current_index()].stringify_block())
 
@@ -308,6 +314,16 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
+
+
+def search_raw(passed_raw):
+    count = 0
+
+    while (count <= len(LCaaS.cb_array)):
+        for i in LCaaS.cb_array[count]:
+            print(i.stringify_block)
+        count += 1
+    LCaaS.return_string = "have a nice day"
 
 
 if __name__ == '__main__':
