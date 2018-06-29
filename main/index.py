@@ -4,7 +4,6 @@
 # TODO: Verify functions
 # TODO: SB and SBCs
 
-
 import csv
 import json
 from pip._vendor.pyparsing import _ForwardNoRecurse
@@ -54,7 +53,7 @@ def displayStatus():
     return '<h2>Logchain-as-a-Service (LCaaS)has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
 
 
-@app.route('/submit_raw', methods=['POST'])    # handles raw_digest method
+@app.route('/submit_raw', methods=['POST'])  # handles submit_raw method
 def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
@@ -80,11 +79,27 @@ def submit_digest():
         return LCaaS.return_string, 202
 
 
-@app.route('/verify_raw', methods=['POST'])
+@app.route('/verify_raw', methods=['POST'])  # handles verify_raw method
 def verify_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
-    search_raw(received_data)
+    search_b(received_data)
+    return LCaaS.return_string, 202
+
+
+@app.route('/verify_digest', methods=['POST'])  # handles verify_digest method
+def verify_digest():
+    received_data = (request.get_json())
+    search_b(received_data)
+    return LCaaS.return_string, 202
+
+
+@app.route('/verify_tb', methods=['POST'])  # handles verify_tb method
+def verify_tb():
+    received_data = (request.get_json())
+    passed_tb_hash_value = received_data['tb_hash']
+    search_tb(passed_tb_hash_value)
+
     return LCaaS.return_string, 202
 
 
@@ -203,7 +218,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         block_index_to = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
             -1].get_index()
 
-        # Here we convert the co
+        # Here we make a hash of all hashes in the current CB
 
         hash_of_hashes = (hashlib.sha256(str(concatinated_hashes).encode('utf-8'))).hexdigest()
 
@@ -308,17 +323,20 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.internal_block_counter.increase_index()
 
 
-def search_raw(passed_raw):
+def search_b(passed_data):
     cb_counter = 0
     b_counter = 0
     search_result = ""
 
     while (cb_counter < len(LCaaS.cb_array)):
         while (b_counter < len(LCaaS.cb_array[cb_counter].chain)):
-            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_data() == passed_raw):
+            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_data() == passed_data):
                 print("An exact match for submitted raw data has been found:")
                 print(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
-                search_result +=  "\nAn exact match for submitted raw data has been found\n" + str(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+                search_result += "\nAn exact match for the submitted value has been found\n" + str(
+                    LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+
+
                 b_counter += 1
 
             else:
@@ -327,7 +345,7 @@ def search_raw(passed_raw):
                 continue
             #     search_result = "No match was found for the received data!!!"
 
-        b_counter  = 0
+        b_counter = 0
         cb_counter += 1
 
     if (len(search_result) == 0):
@@ -336,6 +354,41 @@ def search_raw(passed_raw):
         LCaaS.return_string = search_result
 
 
-#data element of TB is the hash of all CB block current_hashes
+def search_tb(passed_data):
+    cb_counter = 0
+    b_counter = 0
+    search_result = ""
+
+    # LCaaS.cb_array[cb_counter].chain[b_counter].get_data().aggr_hash == passed_data and
+
+    while (cb_counter < len(LCaaS.cb_array)):
+        while (b_counter < len(LCaaS.cb_array[cb_counter].chain)):
+            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_block_type() == "TB" and LCaaS.cb_array[cb_counter].chain[b_counter].get_data().aggr_hash == passed_data):
+                print("An exact TB  for the submitted hash data has been found:")
+
+                # print(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+                # search_result += "\nA matching Terminal Block for the submitted hash has been fou" \
+                #                  "nd\n" + str(
+                #     LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
+
+                search_result += "\nAn exact match for the submitted value has been found\n" + str(
+                    stringify_terminalblock(LCaaS.cb_array[cb_counter].chain[b_counter]))
+                b_counter += 1
+            else:
+                print("No match was found for the received data!!!\n")
+                b_counter += 1
+                continue
+                search_result = "No match was found for the received data!!!"
+
+        b_counter = 0
+        cb_counter += 1
+
+    if (len(search_result) == 0):
+        LCaaS.return_string = "No match was found for the received data!!!"
+    else:
+        LCaaS.return_string = search_result
+
+
+# data element of TB is the hash of all CB block current_hashes
 if __name__ == '__main__':
     app.run()

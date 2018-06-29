@@ -91,6 +91,9 @@ class TB_data():
         self.index_to = index_to
 
 
+    def get_tb_data_aggr_hash(self):
+        return self.aggr_hash
+
 def stringify_terminalblock(passed_block):
     terminalblock_string = (
         passed_block.get_index(), passed_block.get_timestamp().isoformat(),
