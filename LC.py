@@ -19,11 +19,11 @@ class Index:
 
 class LogChain:
     block_index = Index()  # This will be used as main index counter for blocks in the lifecycle of instances of this class
-    cb_index = Index()  # This will be used as main index counter for Circledblocks in the lifecycle of instances of this class
-    internal_block_counter = Index()
-    cb_array = []  # This array holds the indexes for all CircledBlockchain in this class
+    cb_index = Index()  # This will be used as main index counter for Circled blockchains in the lifecycle of instances of this class
+    sbc_index = Index()  # TBD
+    internal_block_counter = Index()  # This will hold the internal counter for the count of existing blocks in a CB
+    cb_array = []  # This array holds the indexes for all circled blockchains in this class
     return_string = ""
-
 
     def __init__(self, cid):
         """
@@ -31,12 +31,9 @@ class LogChain:
         :rtype: object
         """
         self.customer_id = cid
-        self.SBC = SuperBlockchain(index=cid)
-
-    # def create_new_CircledBlockchain(self, index,length):
-    #     self.index = index
-    #     self.CB = CircledBlockchain(index, length)
-    #     self.cb_array.append(self.CB)
+        self.SBC = SuperBlockchain(index=0)
+        # SBC_gensis = create_new_block("SBC-GB")
+        # self.SBC.add_block_to_SBC(SBC_gensis)
 
     def create_new_CircledBlockchain(self, index):
         self.index = index
@@ -45,11 +42,6 @@ class LogChain:
 
 
 class CircledBlockchain:
-    # chain = []
-
-    # def __init__(self, index, length):
-    #     self.index = index
-    #     self.chain[:length]
 
     def __init__(self, index):
         self.index = index
@@ -57,28 +49,16 @@ class CircledBlockchain:
 
     def add_block_to_CB(self, passed_block):
         self.chain.append(passed_block)
-        # if len(c) > block_size:
-        #     raise Exception('Circledblock has no more space for new blocks!')
-
-    def stringify_CB(self):
-        CB_string = (
-            self.index)
-        return CB_string
 
 
 class SuperBlockchain:
 
     def __init__(self, index):
         self.index = index
-        self.chain = []
+        self.superchain = []
 
     def add_block_to_SBC(self, passed_superblock):
-        self.chain.append(passed_superblock)
-
-    def stringify_SBC(self):
-        for i in range(0, self.index):
-            CBC_string = "replace with the code that gets the content of each supoerblock"
-        return CBC_string
+        self.superchain.append(passed_superblock)
 
 
 class TB_data():
@@ -90,9 +70,9 @@ class TB_data():
         self.index_from = index_from
         self.index_to = index_to
 
-
     def get_tb_data_aggr_hash(self):
         return self.aggr_hash
+
 
 def stringify_terminalblock(passed_block):
     terminalblock_string = (
@@ -107,15 +87,8 @@ def stringify_terminalblock(passed_block):
         passed_block.get_block_type())
     return terminalblock_string
 
-#
-# def stringify_block(self,tb_index):
-#     terminalblock_string = (
-#         index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
-#         self.block_type)
-#     return block_string
 
 
-#
 # class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
 #     def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
 #                  block_index_from, block_index_to):

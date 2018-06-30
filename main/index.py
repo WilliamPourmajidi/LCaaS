@@ -1,8 +1,6 @@
 # This  is the Main file for the LCaaS project
 # Designed and implemented by William Pourmajidi - 2018 - Canada Ontario
 
-# TODO: Verify functions
-# TODO: SB and SBCs
 
 import csv
 import json
@@ -11,6 +9,8 @@ from blockchain import *
 from LC import *
 from flask import Flask, jsonify, request
 import pyrebase
+
+# TODO: change SB block types from DB
 
 ### Firebase Settings ####
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
@@ -128,7 +128,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.internal_block_counter.increase_index()
 
         previous_block = absolute_genesis_block
-        #### Important : Add logic here to handle the actual or hash condition for data storage
+
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
@@ -155,7 +155,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
     elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                         LCaaS.cb_index.get_current_index()].chain) < (
-                                                        max_number_of_blocks_in_circledblockchain - 1))):  # we need to generate data block for the current Circled Blockchain
+                                                        max_number_of_blocks_in_circledblockchain - 2))):  # we just need to generate data block for the current Circled Blockchain
 
         print("Log: A new data block is needed in the same CircledBlockchain")
         previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
@@ -186,25 +186,43 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
     elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                         LCaaS.cb_index.get_current_index()].chain) < (
 
-                                                        max_number_of_blocks_in_circledblockchain))):  # we need to generate terminal block for the  Circled Blockchain
-
+                                                        max_number_of_blocks_in_circledblockchain - 1))):  # we need to generate the last data block and a terminal block for the  Circled Blockchain
+        print("Log: Last block of this CB needs to be created and added")
         print("Log: A new Terminal block is needed")
-        # create a terminal block
+        # create the last data block for this CB
 
-        concatinated_hashes = ""
+        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+            LCaaS.internal_block_counter.get_current_index() - 1]
+
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+            new_block)  # add the last  data block to the current CB
+
+        db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+                                            'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                user['idToken'])  # push data to firebase
+
+        LCaaS.block_index.increase_index()
+        LCaaS.internal_block_counter.increase_index()
+
+        # create a terminal block as the last block of this CB
+
+        concatenated_hashes = ""
         count = 0
 
         while (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 1):
             if (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 2):
-                concatinated_hashes = concatinated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                concatenated_hashes = concatenated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                     count].get_current_hash() + ","
                 count += 1
             else:
-                concatinated_hashes = concatinated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                concatenated_hashes = concatenated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                     count].get_current_hash()
                 count += 1
 
-        print("Log: Aggregated_hash for all blocks of this CB is ", concatinated_hashes)
+        print("Log: Aggregated_hash for all blocks of this CB is ", concatenated_hashes)
 
         timestamp_from = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
             0].get_timestamp()
@@ -220,7 +238,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         # Here we make a hash of all hashes in the current CB
 
-        hash_of_hashes = (hashlib.sha256(str(concatinated_hashes).encode('utf-8'))).hexdigest()
+        hash_of_hashes = (hashlib.sha256(str(concatenated_hashes).encode('utf-8'))).hexdigest()
 
         previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[-1]
         new_TB_data = TB_data(hash_of_hashes, timestamp_from, timestamp_to, block_index_from, block_index_to)
@@ -230,28 +248,73 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         print("Log: Terminal block is : ", stringify_terminalblock(new_TerminalBlock))
 
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+
             new_TerminalBlock)  # add terminal block to CB
 
         db.child("Blocks").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
                                 user[
                                     'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
-        LCaaS.return_string = str(
-            "A new Terminal Block has been successfully created and added to LogChain with following details:\n" + str(
-                stringify_terminalblock(new_TerminalBlock)))
 
-        # terminalBlock_data_string = (
-        #     new_TerminalBlock.data.aggr_hash, new_TerminalBlock.data.timestamp_to, new_TerminalBlock.data.timestamp_to,
-        #     new_TerminalBlock.data.index_from, new_TerminalBlock.data.index_to)
-        # print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
-        # print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
-        # print("Log: The current internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
-        #
-        # # print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-        # #           LCaaS.internal_block_counter.get_current_index()].stringify_block())
-        # print(terminalBlock_data_string)
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
+
+        # add terminal block content to the data element of a SB and add the SB to the SBC
+        #########################################################
+        if (len(LCaaS.SBC.superchain) == 0):
+            SBC_gensis = create_new_block("SBC-GB")
+            LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
+
+            db.child("SupoerBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+
+            LCaaS.sbc_index.increase_index()
+
+            previous_super_block = SBC_gensis
+            new_super_block_data_element = stringify_terminalblock(
+                new_TerminalBlock)  # adding the entire terminal block as data element for supoerblock
+            new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
+            LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+            print("Log: a new SB is created: " + str(
+                LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
+            db.child("SupoerBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+
+            LCaaS.sbc_index.increase_index()
+
+        else:
+
+            previous_super_block = LCaaS.SBC.superchain[
+                LCaaS.sbc_index.get_current_index() - 1]  # this is the previous superblock in the superblockchain for this instance of Logchain
+            new_super_block_data_element = stringify_terminalblock(
+                new_TerminalBlock)  # adding the entire terminal block as data element for supoerblock
+
+            new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
+            LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+
+            print("cooool" + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
+            db.child("SupoerBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+            LCaaS.sbc_index.increase_index()
+
+        # LCaaS.return_string = str(
+        #     "The last data block for this CB is generated:\n" + str(
+        #         new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
+        #
+        #         stringify_terminalblock(new_TerminalBlock)))
+        #
+
+
+
 
     elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                         LCaaS.cb_index.get_current_index()].chain) == max_number_of_blocks_in_circledblockchain)):
@@ -336,7 +399,6 @@ def search_b(passed_data):
                 search_result += "\nAn exact match for the submitted value has been found\n" + str(
                     LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())
 
-
                 b_counter += 1
 
             else:
@@ -363,7 +425,8 @@ def search_tb(passed_data):
 
     while (cb_counter < len(LCaaS.cb_array)):
         while (b_counter < len(LCaaS.cb_array[cb_counter].chain)):
-            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_block_type() == "TB" and LCaaS.cb_array[cb_counter].chain[b_counter].get_data().aggr_hash == passed_data):
+            if (LCaaS.cb_array[cb_counter].chain[b_counter].get_block_type() == "TB" and
+                    LCaaS.cb_array[cb_counter].chain[b_counter].get_data().aggr_hash == passed_data):
                 print("An exact TB  for the submitted hash data has been found:")
 
                 # print(LCaaS.cb_array[cb_counter].chain[b_counter].stringify_block())

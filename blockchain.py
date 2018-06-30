@@ -101,6 +101,14 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock.mine()
         return newBlock
 
+    elif block_type == "SBC-GB":  # creates a Genesis Block (GB) for a Superblolchain
+        new_index = 0
+        new_data = str("A Genesis Block for Superblockchain")
+        new_previous_hash = genesis_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
+
     elif block_type == "RGB":  # creates a Relative Genesis Block (RGB)
 
         new_index = lastblock.index + 1
@@ -117,3 +125,12 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
         return newBlock
+
+    elif block_type == "SB":  # creates a super block
+        new_index = lastblock.index + 1
+        new_data = passed_data
+        new_previous_hash = lastblock.current_hash
+        newBlock = Block(new_index, new_data, new_previous_hash, block_type)
+        newBlock.mine()
+        return newBlock
+
