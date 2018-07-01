@@ -57,8 +57,6 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
     def get_block_type(self):
         return self.block_type
 
-
-
     def stringify_block(self):
         block_string = (
             self.index, self.timestamp.isoformat(), self.data, self.current_hash, self.previous_hash, self.nonce,
@@ -133,4 +131,3 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
         return newBlock
-

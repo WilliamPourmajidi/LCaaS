@@ -87,8 +87,6 @@ def stringify_terminalblock(passed_block):
         passed_block.get_block_type())
     return terminalblock_string
 
-
-
 # class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
 #     def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
 #                  block_index_from, block_index_to):
