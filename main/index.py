@@ -2,13 +2,10 @@
 # Designed and implemented by William Pourmajidi - 2018 - Canada Ontario
 
 
-import csv
-import json
-from pip._vendor.pyparsing import _ForwardNoRecurse
-from blockchain import *
 from LC import *
 from flask import Flask, jsonify, request
 import pyrebase
+from ethereum import *
 
 # TODO: change SB block types from DB
 
@@ -266,7 +263,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             SBC_gensis = create_new_block("SBC-GB")
             LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
 
-            db.child("SupoerBlocks").push(
+            db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -276,12 +273,12 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             previous_super_block = SBC_gensis
             new_super_block_data_element = stringify_terminalblock(
-                new_TerminalBlock)  # adding the entire terminal block as data element for supoerblock
+                new_TerminalBlock)  # adding the entire terminal block as data element for superblock
             new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
-            db.child("SupoerBlocks").push(
+            db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -301,13 +298,13 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             previous_super_block = LCaaS.SBC.superchain[
                 LCaaS.sbc_index.get_current_index() - 1]  # this is the previous superblock in the superblockchain for this instance of Logchain
             new_super_block_data_element = stringify_terminalblock(
-                new_TerminalBlock)  # adding the entire terminal block as data element for supoerblock
+                new_TerminalBlock)  # adding the entire terminal block as data element for superblock
 
             new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
 
-            print("cooool" + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
-            db.child("SupoerBlocks").push(
+            print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
+            db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
