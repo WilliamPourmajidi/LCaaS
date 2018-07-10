@@ -54,6 +54,7 @@ def displayStatus():
 def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
+
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
     # return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
     return LCaaS.return_string, 202
@@ -260,8 +261,26 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         # add terminal block content to the data element of a SB and add the SB to the SBC
         #########################################################
         if (len(LCaaS.SBC.superchain) == 0):
-            SBC_gensis = create_new_block("SBC-GB")
+            SBC_gensis = create_new_block("SBC-GB")   # create a genesis block for the SBC
             LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
+            ################################ Code for Ethereum integram #############################
+            LCE = LC_Ethereum
+            # LTest.send_ether_to_contract(0.03)
+
+            if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
+                print("The client has already paid the membership fee and is authorized to use LogChain")
+                print(SBC_gensis.stringify_block())
+                LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1)
+
+
+            else:
+                LCE.send_ether_to_contract(0.03)
+                print("The membership fee is now paid and the client is authorized to use LogChain")
+                print(SBC_gensis.stringify_block())
+                LCE.submit_a_superblock('all the way to here', 0.1)
+
+            ##########################################################################################
+
 
             db.child("SuperBlocks").push(
                 json.dumps(
