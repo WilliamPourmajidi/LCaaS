@@ -264,29 +264,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         if (len(LCaaS.SBC.superchain) == 0):
             SBC_gensis = create_new_block("SBC-GB")  # create a genesis block for the SBC
             LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
-            ################################ Code for Ethereum integration #############################
+            SB_GB_submission = ""
             SB_submission = ""
-
-            if (push_to_ethereum=='Yes'):
-
-                LCE = LC_Ethereum
-                # LTest.send_ether_to_contract(0.03)
-
-                if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
-                    print(
-                        "Log: The client has already paid the membership fee and is authorized to use LogChain and Ethereum connection")
-                    SB_submission =  "\nThe Superblock is added to the Ethereum network " + str(LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
-                    print(SB_submission)
-
-                else:
-                    LCE.send_ether_to_contract(0.03)  ## membership fee
-                    print(
-                        "Log: The membership fee is now paid and the client is authorized to use LogChain and Ethereum connection")
-                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
-                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
-                    print(SB_submission)
-
-            ##########################################################################################
 
             db.child("SuperBlocks").push(
                 json.dumps(
@@ -301,6 +280,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 new_TerminalBlock)  # adding the entire terminal block as data element for superblock
             new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+
+
+
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
             db.child("SuperBlocks").push(
@@ -309,11 +291,40 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
                 user['idToken'])  # push super block to Firebase
 
+            ################################ Code for Ethereum integration #############################
+
+            if (push_to_ethereum == 'Yes'):
+
+                LCE = LC_Ethereum
+
+                if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
+                    print(
+                        "Log: The client has already paid the membership fee and is authorized to use LogChain and Ethereum connection")
+                    SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_GB_submission)
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+                else:
+                    LCE.send_ether_to_contract(0.03)  ## membership fee
+                    print(
+                        "Log: The membership fee is now paid and the client is authorized to use LogChain and Ethereum connection")
+                    SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_GB_submission)
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+            ##########################################################################################
+
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
                     new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
-                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_submission))
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_GB_submission)+str(SB_submission))
 
             LCaaS.sbc_index.increase_index()
 
@@ -365,7 +376,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 "The last data block for this CB is generated:\n" + str(
                     new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
-                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())+str(SB_submission))
 
             LCaaS.sbc_index.increase_index()
 
