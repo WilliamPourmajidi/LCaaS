@@ -62,7 +62,6 @@ class LC_Ethereum:
         contract_address = "0x6c6bf111b5d9d9060e53c5d967e0a7389d15634b"
         contract_address = w3.toChecksumAddress(contract_address)
         contract = w3.eth.contract(address=contract_address, abi=contract_abi.abi)
-        print("you called me now....")
         wallet_address = w3.toChecksumAddress(sender_address)
         return contract.functions.isApproved(wallet_address).call()
 
