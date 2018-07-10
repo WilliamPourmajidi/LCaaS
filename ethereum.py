@@ -94,8 +94,6 @@ class LC_Ethereum:
             'nonce': nonce,
         })
 
-
-
         signed_txn = w3.eth.account.signTransaction(txn_dict, private_key=wallet_private_key)
 
         result = w3.eth.sendRawTransaction(signed_txn.rawTransaction)

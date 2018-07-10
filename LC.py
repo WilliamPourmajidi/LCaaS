@@ -1,6 +1,7 @@
 from blockchain import *
 import datetime as date
 
+
 class Index:
     def __init__(self):
         self.index = 0

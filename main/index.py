@@ -7,7 +7,6 @@ from flask import Flask, jsonify, request
 import pyrebase
 from ethereum import *
 
-
 ### Firebase Settings ####
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
 # Link: https://console.firebase.google.com/u/0/project/bcaas-2018/database/bcaas-2018/data
@@ -280,8 +279,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
 
-
-
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
             db.child("SuperBlocks").push(
@@ -323,7 +320,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 "The last data block for this CB is generated:\n" + str(
                     new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
-                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_GB_submission)+str(SB_submission))
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(
+                    SB_GB_submission) + str(SB_submission))
 
             LCaaS.sbc_index.increase_index()
 
@@ -363,7 +361,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             ##########################################################################################
 
-
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
             db.child("SuperBlocks").push(
                 json.dumps(
@@ -375,7 +372,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 "The last data block for this CB is generated:\n" + str(
                     new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
-                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())+str(SB_submission))
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_submission))
 
             LCaaS.sbc_index.increase_index()
 
