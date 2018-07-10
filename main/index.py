@@ -40,6 +40,7 @@ data_storage_option = config['BLOCK'][
     'DATA_STORAGE_OPTION']  # option to store actual data in the block or store hash of data(more privacy)
 max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
+push_to_ethereum = config['BLOCK']['PUSH_TO_ETHEREUM']
 
 # Instantiate a new object from LogChain
 LCaaS = LogChain(500747320)
@@ -261,26 +262,31 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         # add terminal block content to the data element of a SB and add the SB to the SBC
         #########################################################
         if (len(LCaaS.SBC.superchain) == 0):
-            SBC_gensis = create_new_block("SBC-GB")   # create a genesis block for the SBC
+            SBC_gensis = create_new_block("SBC-GB")  # create a genesis block for the SBC
             LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
-            ################################ Code for Ethereum integram #############################
-            LCE = LC_Ethereum
-            # LTest.send_ether_to_contract(0.03)
+            ################################ Code for Ethereum integration #############################
+            SB_submission = ""
 
-            if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
-                print("The client has already paid the membership fee and is authorized to use LogChain")
-                print(SBC_gensis.stringify_block())
-                LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1)
+            if (push_to_ethereum=='Yes'):
 
+                LCE = LC_Ethereum
+                # LTest.send_ether_to_contract(0.03)
 
-            else:
-                LCE.send_ether_to_contract(0.03)
-                print("The membership fee is now paid and the client is authorized to use LogChain")
-                print(SBC_gensis.stringify_block())
-                LCE.submit_a_superblock('all the way to here', 0.1)
+                if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
+                    print(
+                        "Log: The client has already paid the membership fee and is authorized to use LogChain and Ethereum connection")
+                    SB_submission =  "\n The Superblock is added to the Ethereum network " + str(LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_submission)
+
+                else:
+                    LCE.send_ether_to_contract(0.03)  ## membership fee
+                    print(
+                        "Log: The membership fee is now paid and the client is authorized to use LogChain and Ethereum connection")
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_submission)
 
             ##########################################################################################
-
 
             db.child("SuperBlocks").push(
                 json.dumps(
@@ -307,7 +313,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 "The last data block for this CB is generated:\n" + str(
                     new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
-                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_submission))
 
             LCaaS.sbc_index.increase_index()
 

@@ -118,7 +118,7 @@ class LC_Ethereum:
 
         print(processed_receipt)
 
-        output = "Address {} broadcasted the opinion: {}" \
+        output = "Address {} Submitted a Superblock to ethereum : {}" \
             .format(processed_receipt[0].args._sender, processed_receipt[0].args._superblock)
         print(output)
 
