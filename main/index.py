@@ -7,7 +7,6 @@ from flask import Flask, jsonify, request
 import pyrebase
 from ethereum import *
 
-# TODO: change SB block types from DB
 
 ### Firebase Settings ####
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
@@ -278,7 +277,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             previous_super_block = SBC_gensis
             new_super_block_data_element = stringify_terminalblock(
                 new_TerminalBlock)  # adding the entire terminal block as data element for superblock
-            new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
+            new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
 
 
@@ -336,7 +335,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             new_super_block_data_element = stringify_terminalblock(
                 new_TerminalBlock)  # adding the entire terminal block as data element for superblock
 
-            new_super_block = create_new_block("DB", previous_super_block, new_super_block_data_element)
+            new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
 
             ################################ Code for Ethereum integration #############################
