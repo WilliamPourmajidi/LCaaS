@@ -101,8 +101,11 @@ def verify_tb():
 
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
-    blockname = "Circledblockchain-" + str(LCaaS.sbc_index.get_current_index())
 
+    if (LCaaS.sbc_index.get_current_index()<1):
+        blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index())
+    else:
+        blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index()-1)
     if ((current_block_index_value == 0) and (
             current_cb_index_value == 0)):  # we need to generate an absolute genesis block first
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")
@@ -111,6 +114,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         absolute_genesis_block = create_new_block(type="AGB")
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             absolute_genesis_block)  # add absolute genesis block to the current CB
+
+        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+
         db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
@@ -131,6 +137,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add the first data block to the current CB
+        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
 
         db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
