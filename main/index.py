@@ -1,9 +1,8 @@
 # This  is the Main file for the LCaaS project
 # Designed and implemented by William Pourmajidi - 2018 - Canada Ontario
 
-
 from LC import *
-from flask import Flask, jsonify, request
+from flask import Flask, request
 import pyrebase
 from ethereum import *
 
