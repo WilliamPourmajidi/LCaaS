@@ -18,7 +18,7 @@ class Index:
 
 class LogChain:
     block_index = Index()  # This will be used as main index counter for blocks in the lifecycle of instances of this class
-    cb_index = Index()  # This will be used as main index counter for Circled blockchains in the lifecycle of instances of this class
+    cb_index = Index()  # This will be used as main index counter for circled blockchains in the lifecycle of instances of this class
     sbc_index = Index()  # TBD
     internal_block_counter = Index()  # This will hold the internal counter for the count of existing blocks in a CB
     cb_array = []  # This array holds the indexes for all circled blockchains in this class

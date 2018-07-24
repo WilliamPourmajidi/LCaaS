@@ -45,8 +45,7 @@ LCaaS = LogChain(500747320)
 
 @app.route('/')
 def displayStatus():
-    return '<h2>Logchain-as-a-Service (LCaaS)has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
-
+    return '<h2>Logchain-as-a-Service (LCaaS) has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
 
 @app.route('/submit_raw', methods=['POST'])  # handles submit_raw method
 def submit_raw():
@@ -109,7 +108,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             current_cb_index_value == 0)):  # we need to generate an absolute genesis block first
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index())
-        # create a circled blockchain  using index of cb
+        # create a circled blockchain using index of cb
         absolute_genesis_block = create_new_block(type="AGB")
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             absolute_genesis_block)  # add absolute genesis block to the current CB
@@ -144,7 +143,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                                  user['idToken'])  # push data to firebase
 
         LCaaS.return_string = str(
-            "An AGB was created for the new circle block. AGB details are as follows:\n" + str(
+            "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
                 absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to LogChain with following details:\n" + str(
                 new_block.stringify_block()))
 
@@ -442,7 +441,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                                  user['idToken'])  # push data to Firebase
 
         LCaaS.return_string = str(
-            "An RGB was created for the new circle block. RGB details are as follows:\n" + str(
+            "An RGB was created for the new circled blockchain. RGB details are as follows:\n" + str(
                 relative_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to LogChain with following details:\n" + str(
                 new_block.stringify_block()))
 
