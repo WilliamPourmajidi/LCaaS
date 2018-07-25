@@ -39,7 +39,7 @@ max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 push_to_ethereum = config['BLOCK']['PUSH_TO_ETHEREUM']
 
-# Instantiate a new object from LogChain
+# Instantiate a new object from Logchain
 LCaaS = LogChain(500747320)
 
 
@@ -53,7 +53,7 @@ def submit_raw():
     received_data = (request.get_json())
 
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
-    # return_string = str(" new record has been successfully received and added to LogChain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
+    # return_string = str(" new record has been successfully received and added to Logchain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
     return LCaaS.return_string, 202
 
 
@@ -144,7 +144,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.return_string = str(
             "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
-                absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to LogChain with following details:\n" + str(
+                absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to Logchain with following details:\n" + str(
                 new_block.stringify_block()))
 
         print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
@@ -174,7 +174,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
                                  user['idToken'])  # push data to Firebase
         LCaaS.return_string = str(
-            "The new record has been successfully received and added to LogChain with following details:\n" + str(
+            "The new record has been successfully received and added to Logchain with following details:\n" + str(
                 new_block.stringify_block()))
 
         print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
@@ -300,7 +300,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
                 if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
                     print(
-                        "Log: The client has already paid the membership fee and is authorized to use LogChain and Ethereum connection")
+                        "Log: The client has already paid the membership fee and is authorized to use Logchain and Ethereum connection")
                     SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
                         LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
                     print(SB_GB_submission)
@@ -311,7 +311,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 else:
                     LCE.send_ether_to_contract(0.03)  ## membership fee
                     print(
-                        "Log: The membership fee is now paid and the client is authorized to use LogChain and Ethereum connection")
+                        "Log: The membership fee is now paid and the client is authorized to use Logchain and Ethereum connection")
                     SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
                         LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
                     print(SB_GB_submission)
@@ -323,7 +323,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
-                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
+                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to Logchain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
                     LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(
                     SB_GB_submission) + str(SB_submission))
@@ -351,7 +351,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
                 if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
                     print(
-                        "Log: The client has already paid the membership fee and is authorized to use LogChain and Ethereum connection")
+                        "Log: The client has already paid the membership fee and is authorized to use Logchain and Ethereum connection")
                     SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
                         LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
                     print(SB_submission)
@@ -359,7 +359,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 else:
                     LCE.send_ether_to_contract(0.03)  ## membership fee
                     print(
-                        "Log: The membership fee is now paid and the client is authorized to use LogChain and Ethereum connection")
+                        "Log: The membership fee is now paid and the client is authorized to use Logchain and Ethereum connection")
                     SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
                         LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
                     print(SB_submission)
@@ -375,7 +375,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
-                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to LogChain with following details\n" + str(
+                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to Logchain with following details\n" + str(
                     stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
                     LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_submission))
 
@@ -442,7 +442,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.return_string = str(
             "An RGB was created for the new circled blockchain. RGB details are as follows:\n" + str(
-                relative_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to LogChain with following details:\n" + str(
+                relative_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to Logchain with following details:\n" + str(
                 new_block.stringify_block()))
 
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
