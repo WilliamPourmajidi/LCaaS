@@ -10,7 +10,9 @@ from ethereum import *
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
 # Link: https://console.firebase.google.com/u/0/project/bcaas-2018/database/bcaas-2018/data
 # Link: https://passwordsgenerator.net/sha256-hash-generator/
+# Link: https://ropsten.etherscan.io/
 # You will need to change the following settings to your own Firebase instance
+#
 
 config = {
     "apiKey": "AIzaSyAmXGisFxk0xJmAT_KpFDvCmfqH-YBP_04",
@@ -47,13 +49,13 @@ LCaaS = LogChain(500747320)
 def displayStatus():
     return '<h2>Logchain-as-a-Service (LCaaS) has been succesfully initiated! Use our RESTful API to interact with it!</h2>'
 
+
 @app.route('/submit_raw', methods=['POST'])  # handles submit_raw method
 def submit_raw():
     # print("We received: ", request.get_json())
     received_data = (request.get_json())
 
     blockify(LCaaS.block_index.get_current_index(), LCaaS.cb_index.get_current_index(), received_data)
-    # return_string = str(" new record has been successfully received and added to Logchain" + "\ncurrent CB_Index: " + str(LCaaS.cb_index.get_current_index())+ "\ncurrent Block_Index: " + str(LCaaS.block_index.get_current_index()))
     return LCaaS.return_string, 202
 
 
@@ -100,10 +102,10 @@ def verify_tb():
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
 
-    if (LCaaS.sbc_index.get_current_index()<1):
+    if (LCaaS.sbc_index.get_current_index() < 1):
         blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index())
     else:
-        blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index()-1)
+        blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index() - 1)
     if ((current_block_index_value == 0) and (
             current_cb_index_value == 0)):  # we need to generate an absolute genesis block first
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")

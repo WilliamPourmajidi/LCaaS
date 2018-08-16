@@ -71,11 +71,11 @@ class Block:  # Main class for defining Blocks and all their attributes and meth
     def mine(self):
         potential_nonce = 0
         result = self.hasher(potential_nonce)
-        # print(result)
+        # print(result, potential_nonce)
         while (str(result).startswith(difficulty_target) != True):
             potential_nonce = potential_nonce + 1
             result = self.hasher(potential_nonce)
-            # print(result)
+            # print(result,potential_nonce)     # Enable this to see the mining process
         self.current_hash = result
         self.nonce = potential_nonce
 
