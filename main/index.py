@@ -454,7 +454,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.internal_block_counter.increase_index()
 
 
-def search_b(passed_data):
+def search_b(passed_data): #search blocks
     cb_counter = 0
     b_counter = 0
     search_result = ""
@@ -484,7 +484,7 @@ def search_b(passed_data):
         LCaaS.return_string = search_result
 
 
-def search_tb(passed_data):
+def search_tb(passed_data):  # search for terminal blocks
     cb_counter = 0
     b_counter = 0
     search_result = ""
