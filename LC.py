@@ -1,5 +1,6 @@
 from blockchain import *
-import datetime as date
+import datetime
+import csv
 
 class Index:
     def __init__(self):
@@ -86,25 +87,25 @@ def stringify_terminalblock(passed_block):
         passed_block.get_block_type())
     return terminalblock_string
 
-# class TerminalBlock(Block):  # Main class for defining Terminal Blocks (TB)  and all their attributes and methods
-#     def __init__(self, index, data, previous_hash, block_type, aggr_hash, timestamp_from, timestamp_to,
-#                  block_index_from, block_index_to):
-#         self.nonce = int
-#         self.index = index
-#         self.timestamp = date.datetime.utcnow()
-#         self.data = TB_data()
-#         self.previous_hash = previous_hash
-#         self.current_hash = str
-#         self.aggr_hash = aggr_hash
-#         self.timestamp_from = timestamp_from
-#         self.timestamp_to = timestamp_to
-#         self.block_index_from = block_index_from
-#         self.block_index_to = block_index_to
-#         self.block_type = block_type  # Not included in the content for hash generation
-#         self.content = str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + \
-#                        str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8') + str(
-#             self.aggr_hash).encode('utf-8') + \
-#                        str(self.timestamp_from).encode('utf-8') + str(self.timestamp_to).encode('utf-8') + \
-#                        str(self.block_index_from).encode('utf-8') + str(self.block_index_to).encode('utf-8')
-#
-#
+
+class timekeeper:
+
+    def __init__(self, filename):
+        self.filename = filename
+
+    def timer_start(self):
+        start_timestamp = datetime.datetime.now()
+        return start_timestamp
+
+    def timer_stop(self):
+        stop_timestamp = datetime.datetime.now()
+        return stop_timestamp
+
+    def duration(self, start, stop):
+        duration = stop - start
+        return duration
+
+    def dump_timestamp(self, description, value):
+        with open(self.filename, mode='a') as Timestamp_file:
+            timer_writer = csv.writer(Timestamp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            timer_writer.writerow(['Description', description, 'Value', value])

@@ -5,6 +5,7 @@ from LC import *
 from flask import Flask, request
 import pyrebase
 from ethereum import *
+import datetime
 
 ### Firebase Settings ####
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
@@ -102,12 +103,14 @@ def verify_tb():
 
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
 
+    LcaaS_process_start_timestamp = datetime.datetime.now()
+
     if (LCaaS.sbc_index.get_current_index() < 1):
         blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index())
     else:
         blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index() - 1)
     if ((current_block_index_value == 0) and (
-            current_cb_index_value == 0)):  # we need to generate an absolute genesis block first
+            current_cb_index_value == 0)):  # we need to generate an absolute genesis block first and then the data block
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index())
         # create a circled blockchain using index of cb

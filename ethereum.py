@@ -1,12 +1,17 @@
 import time
-import datetime
-import csv
-
+# import datetime
 
 from web3 import Web3, HTTPProvider
 import contract_abi
+from LC import *
+# with open('Timestamps.csv', mode='w') as Timestamp_file:
+#     timer_writer = csv.writer(Timestamp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
 
 ##### details that will be used to send a transaction to ethereum test blockchain
+ethereum_timer = timekeeper("ICSETimer.csv")
+
+
 
 class LC_Ethereum:
 
@@ -98,12 +103,14 @@ class LC_Ethereum:
 
         signed_txn = w3.eth.account.signTransaction(txn_dict, private_key=wallet_private_key)
 
-        before = datetime.datetime.now()
-        print("@@@@@@@@ The transaction was submitted",before)
+
+        # ethereum_submission_timestamp = datetime.datetime.now()
+        ethereum_submission_timestamp = ethereum_timer.timer_start()
+
+        print("Log: The transaction was submitted", ethereum_submission_timestamp)
         result = w3.eth.sendRawTransaction(signed_txn.rawTransaction)
 
         tx_receipt = w3.eth.getTransactionReceipt(result)
-
 
         count = 0
         while tx_receipt is None and (count < 30):
@@ -111,11 +118,19 @@ class LC_Ethereum:
 
             tx_receipt = w3.eth.getTransactionReceipt(result)
 
-
             print(tx_receipt)
-        after = datetime.datetime.now()
-        print("@@@@@@@@ The receipt was received", after)
-        print("@@@@@@@@ Total transaction time is ", (after - before),"Hour:Min:Sec:Milisecond")
+        ethereum_receipt_timestamp = ethereum_timer.timer_stop()
+        ethereum_timer.dump_timestamp(tx_receipt,ethereum_timer.duration(ethereum_submission_timestamp,ethereum_receipt_timestamp))
+            # ethereum_timer.duration(ethereum_receipt_timestamp - ethereum_submission_timestamp)
+
+
+
+        # ethereum_receipt_timestamp = datetime.datetime.now()
+        print("@@@@@@@@ The receipt was received", ethereum_receipt_timestamp)
+        print("@@@@@@@@ Total transaction time is ", (ethereum_receipt_timestamp - ethereum_submission_timestamp), "Hour:Min:Sec:Milisecond")
+        # with open('Timestamps.csv', mode='a') as Timestamp_file:
+        #     timer_writer = csv.writer(Timestamp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        #     timer_writer.writerow(['Block Details', tx_receipt, 'Block Transaction Time', (ethereum_receipt_timestamp - ethereum_submission_timestamp)])
 
         if tx_receipt is None:
             return {'status': 'failed', 'error': 'timeout'}
