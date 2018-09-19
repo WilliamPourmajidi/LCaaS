@@ -101,9 +101,11 @@ def verify_tb():
     return LCaaS.return_string, 202
 
 
+
+
 def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
 
-    LcaaS_process_start_timestamp = datetime.datetime.now()
+
 
     if (LCaaS.sbc_index.get_current_index() < 1):
         blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index())

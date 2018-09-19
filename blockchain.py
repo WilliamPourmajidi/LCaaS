@@ -2,6 +2,8 @@
 import datetime as date
 import hashlib
 import json
+from TimeKepper import *
+
 
 # Loading configuration
 with open('config.json', 'r') as f:
@@ -11,6 +13,8 @@ difficulty_target = config['BLOCK']['DIFFICULTY_TARGET']  # Difficulty target fo
 genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
 max_number_of_data_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
+
+LCaaS_timer = TimeKeeper("ICSETimerLCaaS.csv")
 
 
 class Block:  # Main class for defining Blocks and all their attributes and methods
@@ -84,11 +88,17 @@ def create_new_block(type, lastblock=None, passed_data=None):
     block_type = type
 
     if block_type == "DB":  # creates a data block
+
+        LCaaS_blockification_start_timestamp = LCaaS_timer.timer_start()  # start the timer for LCaaS
         new_index = lastblock.index + 1
         new_data = passed_data
         new_previous_hash = lastblock.current_hash
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
+        LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
+        LCaaS_timer.dump_timestamp("wow", LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+                                                               LCaaS_blockification_stop_timestamp))
+
         return newBlock
 
     elif block_type == "AGB":  # creates an Absolute Genesis Block (AGB)

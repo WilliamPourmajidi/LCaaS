@@ -1,15 +1,13 @@
 import time
 # import datetime
-
 from web3 import Web3, HTTPProvider
 import contract_abi
 from LC import *
-# with open('Timestamps.csv', mode='w') as Timestamp_file:
-#     timer_writer = csv.writer(Timestamp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+from TimeKepper import *
 
 
 ##### details that will be used to send a transaction to ethereum test blockchain
-ethereum_timer = timekeeper("ICSETimer.csv")
+ethereum_timer = TimeKeeper("ICSETimerEthereum.csv")
 
 
 
