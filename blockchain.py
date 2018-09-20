@@ -96,7 +96,7 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
         LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
-        LCaaS_timer.dump_timestamp("wow", LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
                                                                LCaaS_blockification_stop_timestamp))
 
         return newBlock

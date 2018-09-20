@@ -39,7 +39,7 @@ class LC_Ethereum:
             'to': contract_address,
             'value': amount_in_wei,
             'gas': 2000000,
-            'gasPrice': w3.toWei('40', 'gwei'),
+            'gasPrice': w3.toWei('4', 'gwei'),
             'nonce': nonce,
             'chainId': 3
         }
@@ -95,7 +95,7 @@ class LC_Ethereum:
             'chainId': 3,
             # 'value': amount_in_wei,
             'gas': 2000000,
-            'gasPrice': w3.toWei('40', 'gwei'),
+            'gasPrice': w3.toWei('6', 'gwei'),
             'nonce': nonce,
         })
 
@@ -118,8 +118,8 @@ class LC_Ethereum:
 
             print(tx_receipt)
         ethereum_receipt_timestamp = ethereum_timer.timer_stop()
-        ethereum_timer.dump_timestamp(tx_receipt,ethereum_timer.duration(ethereum_submission_timestamp,ethereum_receipt_timestamp))
-            # ethereum_timer.duration(ethereum_receipt_timestamp - ethereum_submission_timestamp)
+        ethereum_timer.dump_timestamp(submission,ethereum_timer.duration(ethereum_submission_timestamp,ethereum_receipt_timestamp))
+
 
 
 
