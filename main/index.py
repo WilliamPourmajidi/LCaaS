@@ -161,7 +161,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
 
-    # Special case, in one shot we need to generate AGB, DB, and TB
+    # Special case,  we need to generate AGB, DB, and TB in one shot
     elif ((current_block_index_value == 0) and (
             current_cb_index_value == 0) and max_number_of_blocks_in_circledblockchain == 3):
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -385,9 +385,250 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
+    # Another special case,  we need to generate RGB, DB, and TB in one shot
+    elif ((current_block_index_value != 0) and max_number_of_blocks_in_circledblockchain == 3):
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem bazam~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index())
+        # create a circled blockchain using index of cb
+        absolute_genesis_block = create_new_block(type="AGB")
+        LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+            absolute_genesis_block)  # add absolute genesis block to the current CB
+
+        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+
+        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                 user['idToken'])  # push data to Firebase
+
+        # relative_genesis_block = create_new_block("RGB", previous_block)
+        #
+        # LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+        #     relative_genesis_block)  # add relative genesis block to the current CB
+        # db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
+        #                                      'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+        #                                          LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+        #                          user['idToken'])  # push data to Firebase
+        #
+
+
+
+
+
+
+
+        print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
+        print("Log: The current internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
+        print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                  LCaaS.internal_block_counter.get_current_index()].stringify_block())
+
+        LCaaS.block_index.increase_index()
+        LCaaS.internal_block_counter.increase_index()
+
+        previous_block = absolute_genesis_block
+
+        new_block_data_element = data
+        new_block = create_new_block("DB", previous_block, new_block_data_element)
+        LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+            new_block)  # add the first data block to the current CB
+        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+
+        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                 user['idToken'])  # push data to firebase
+
+        LCaaS.return_string = str(
+            "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
+                absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to Logchain with following details:\n" + str(
+                new_block.stringify_block()))
+
+        print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
+        print("Log: The current internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
+        print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                  LCaaS.internal_block_counter.get_current_index()].stringify_block())
+        LCaaS.block_index.increase_index()
+        LCaaS.internal_block_counter.increase_index()
+
+        concatenated_hashes = ""
+        count = 0
+
+        while (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 1):
+            if (count <= len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain) - 2):
+                concatenated_hashes = concatenated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                    count].get_current_hash() + ","
+                count += 1
+            else:
+                concatenated_hashes = concatenated_hashes + LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                    count].get_current_hash()
+                count += 1
+
+        print("Log: Aggregated_hash for all blocks of this CB is ", concatenated_hashes)
+
+        timestamp_from = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+            0].get_timestamp()
+
+        timestamp_to = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+            -1].get_timestamp()
+
+        block_index_from = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+            0].get_index()
+
+        block_index_to = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+            -1].get_index()
+
+        # Here we make a hash of all hashes in the current CB
+
+        hash_of_hashes = (hashlib.sha256(str(concatenated_hashes).encode('utf-8'))).hexdigest()
+
+        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[-1]
+        new_TB_data = TB_data(hash_of_hashes, timestamp_from, timestamp_to, block_index_from, block_index_to)
+        new_TerminalBlock = create_new_block("TB", previous_block, new_TB_data)
+
+        # let's add the TB to the CB
+        print("Log: Terminal block is : ", stringify_terminalblock(new_TerminalBlock))
+
+        LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
+
+            new_TerminalBlock)  # add terminal block to CB
+
+        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
+                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
+                                 user[
+                                     'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
+
+        LCaaS.block_index.increase_index()
+        LCaaS.internal_block_counter.increase_index()
+
+        # add terminal block content to the data element of a SB and add the SB to the SBC
+        #########################################################
+        if (len(LCaaS.SBC.superchain) == 0):
+            SBC_gensis = create_new_block("SBC-GB")  # create a genesis block for the SBC
+            LCaaS.SBC.add_block_to_SBC(SBC_gensis)  # ad the SBC-GB to SBC
+            SB_GB_submission = ""
+            SB_submission = ""
+
+            db.child("SuperBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+
+            LCaaS.sbc_index.increase_index()
+
+            previous_super_block = SBC_gensis
+            new_super_block_data_element = stringify_terminalblock(
+                new_TerminalBlock)  # adding the entire terminal block as data element for superblock
+            new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
+            LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+
+            print("Log: a new SB is created: " + str(
+                LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
+            db.child("SuperBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+
+            ################################ Code for Ethereum integration #############################
+
+            if (push_to_ethereum == 'Yes'):
+
+                LCE = LC_Ethereum
+
+                if (LCE.check_whether_address_is_approved(verified_sender_address)):
+                    print(
+                        "Log: The client has already paid the membership fee and is authorized to use Logchain and Ethereum connection")
+                    SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_GB_submission)
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+                else:
+                    LCE.send_ether_to_contract(0.03)  ## membership fee
+                    print(
+                        "Log: The membership fee is now paid and the client is authorized to use Logchain and Ethereum connection")
+                    SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(SBC_gensis.stringify_block()), 0.1))
+                    print(SB_GB_submission)
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+            ##########################################################################################
+
+            LCaaS.return_string = str(
+                "The last data block for this CB is generated:\n" + str(
+                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to Logchain with following details\n" + str(
+                    stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(
+                    SB_GB_submission) + str(SB_submission))
+
+            LCaaS.sbc_index.increase_index()
+
+
+        else:
+
+            previous_super_block = LCaaS.SBC.superchain[
+                LCaaS.sbc_index.get_current_index() - 1]  # this is the previous superblock in the superblockchain for this instance of Logchain
+            new_super_block_data_element = stringify_terminalblock(
+                new_TerminalBlock)  # adding the entire terminal block as data element for superblock
+
+            new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
+            LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+
+            ################################ Code for Ethereum integration #############################
+            SB_submission = ""
+
+            if (push_to_ethereum == 'Yes'):
+
+                LCE = LC_Ethereum
+                # LTest.send_ether_to_contract(0.03)
+
+                if (LCE.check_whether_address_is_approved(verified_sender_address)):
+                    print(
+                        "Log: The client has already paid the membership fee and is authorized to use Logchain and Ethereum connection")
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+                else:
+                    LCE.send_ether_to_contract(0.03)  ## membership fee
+                    print(
+                        "Log: The membership fee is now paid and the client is authorized to use Logchain and Ethereum connection")
+                    SB_submission = "\nThe Superblock is added to the Ethereum network " + str(
+                        LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
+                    print(SB_submission)
+
+            ##########################################################################################
+
+            print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
+            db.child("SuperBlocks").push(
+                json.dumps(
+                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                user['idToken'])  # push super block to Firebase
+
+            LCaaS.return_string = str(
+                "The last data block for this CB is generated:\n" + str(
+                    new_block.stringify_block()) + "\nA Terminal Block have been successfully created and added to Logchain with following details\n" + str(
+                    stringify_terminalblock(new_TerminalBlock)) + "\n A new Super block has been created\n" + str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()) + str(SB_submission))
+
+            LCaaS.sbc_index.increase_index()
+
+
+
+
+
+    # We just need to generate data block for the current Circled Blockchain as the currenct CB has capacity for more data blocks.
     elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                         LCaaS.cb_index.get_current_index()].chain) < (
-                                                        max_number_of_blocks_in_circledblockchain - 2))):  # we just need to generate data block for the current Circled Blockchain
+                                                        max_number_of_blocks_in_circledblockchain - 2))):
 
         print("Log: A new data block is needed in the same CircledBlockchain")
         previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
@@ -414,11 +655,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
 
-
+    # We need to generate the last data block and a terminal block for the current Circled Blockchain
     elif (((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                          LCaaS.cb_index.get_current_index()].chain) < (
 
-                                                         max_number_of_blocks_in_circledblockchain - 1)))):  # we need to generate the last data block and a terminal block for the  Circled Blockchain
+                                                         max_number_of_blocks_in_circledblockchain - 1)))):
         print("Log: Last block of this CB needs to be created and added")
         print("Log: A new Terminal block is needed")
         # create the last data block for this CB
@@ -527,7 +768,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
                 LCE = LC_Ethereum
 
-                if (LCE.check_whether_address_is_approved(0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c)):
+                if (LCE.check_whether_address_is_approved(verified_sender_address)):
                     print(
                         "Log: The client has already paid the membership fee and is authorized to use Logchain and Ethereum connection")
                     SB_GB_submission = "\nThe Gensis Superblock is added to the Ethereum network " + str(
@@ -610,7 +851,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             LCaaS.sbc_index.increase_index()
 
-
+    # We have no more room left in the CB, so let's create a new one and add a new RGB for it
     elif ((current_block_index_value != 0) and (len(LCaaS.cb_array[
                                                         LCaaS.cb_index.get_current_index()].chain) == max_number_of_blocks_in_circledblockchain)):
 
