@@ -214,6 +214,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
 
+        # create a terminal block as the last block of this CB
         concatenated_hashes = ""
         count = 0
 
@@ -387,71 +388,75 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
     # Another special case,  we need to generate RGB, DB, and TB in one shot
     elif ((current_block_index_value != 0) and max_number_of_blocks_in_circledblockchain == 3):
+
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem bazam~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("Log: A new CircledBlockchain and a Relative Genesis Block (RGB) is needed")
+        print("Log: The previous CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The previous CB length is :  ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
+        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
+        print("Log: The internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
+
+        LCaaS.cb_index.increase_index()  # increase the index for CB
+        LCaaS.internal_block_counter.reset_current_index()  # reset the internal counter to 0 as new CB needs index to be 0
+
+        print("Log: The new CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
+        print("Log: The current internal block counter  is : ",
+              LCaaS.internal_block_counter.get_current_index())
+
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index())
-        # create a circled blockchain using index of cb
-        absolute_genesis_block = create_new_block(type="AGB")
+
+        print("Log: The current CB length is : ", len(LCaaS.cb_array[
+                                                          LCaaS.cb_index.get_current_index()].chain))
+        previous_block = LCaaS.cb_array[LCaaS.cb_index.get_current_index() - 1].chain[-1]
+        print("Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The block index is : ", LCaaS.block_index.get_current_index())
+        relative_genesis_block = create_new_block("RGB", previous_block)
+
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
-            absolute_genesis_block)  # add absolute genesis block to the current CB
-
-        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
-
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+            relative_genesis_block)  # add relative genesis block to the current CB
+        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                  user['idToken'])  # push data to Firebase
 
-        # relative_genesis_block = create_new_block("RGB", previous_block)
-        #
-        # LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
-        #     relative_genesis_block)  # add relative genesis block to the current CB
-        # db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
-        #                                      'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-        #                                          LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-        #                          user['idToken'])  # push data to Firebase
-        #
-
-
-
-
-
-
-
-        print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
-        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
-        print("Log: The current internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.internal_block_counter.get_current_index()].stringify_block())
+
+        print("Now the length of CB is", len(LCaaS.cb_array[
+                                                 LCaaS.cb_index.get_current_index()].chain))
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
 
-        previous_block = absolute_genesis_block
+        # LCaaS.cb_array[LCaaS.cb_index].internal_index.increase_index()
 
+        print("Log: The CB index is    : ", LCaaS.cb_index.get_current_index())
+        print("Log: The block index is : ", LCaaS.block_index.get_current_index())
+        print("*After*Log: Length of CB ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
+        previous_block = relative_genesis_block
         new_block_data_element = data
         new_block = create_new_block("DB", previous_block, new_block_data_element)
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
-            new_block)  # add the first data block to the current CB
-        # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+            new_block)  # add data block to the current CB
 
         db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to firebase
+                                 user['idToken'])  # push data to Firebase
 
         LCaaS.return_string = str(
-            "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
-                absolute_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to Logchain with following details:\n" + str(
+            "An RGB was created for the new circled blockchain. RGB details are as follows:\n" + str(
+                relative_genesis_block.stringify_block()) + "\nThe new record has been successfully received and added to Logchain with following details:\n" + str(
                 new_block.stringify_block()))
 
-        print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
-        print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
-        print("Log: The current internal block counter index is : ", LCaaS.internal_block_counter.get_current_index())
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.internal_block_counter.get_current_index()].stringify_block())
+
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
 
+        # create a terminal block as the last block of this CB
         concatenated_hashes = ""
         count = 0
 
