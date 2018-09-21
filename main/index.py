@@ -164,7 +164,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
     # Special case,  we need to generate AGB, DB, and TB in one shot
     elif ((current_block_index_value == 0) and (
             current_cb_index_value == 0) and max_number_of_blocks_in_circledblockchain == 3):
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
         print("Log: A new CircledBlockchain and a an Absolute Genesis Block (AGB) is needed")
         LCaaS.create_new_CircledBlockchain(LCaaS.cb_index.get_current_index())
         # create a circled blockchain using index of cb
@@ -384,12 +384,12 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             LCaaS.sbc_index.increase_index()
 
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
 
     # Another special case,  we need to generate RGB, DB, and TB in one shot
     elif ((current_block_index_value != 0) and max_number_of_blocks_in_circledblockchain == 3):
 
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~zayedeeem bazam~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
         print("Log: A new CircledBlockchain and a Relative Genesis Block (RGB) is needed")
         print("Log: The previous CB index is    : ", LCaaS.cb_index.get_current_index())
         print("Log: The previous CB length is :  ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))

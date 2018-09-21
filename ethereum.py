@@ -5,9 +5,19 @@ import contract_abi
 from LC import *
 from TimeKepper import *
 
+with open('config.json', 'r') as f:
+    config = json.load(f)
+verified_sender_address = config['ETHEREUM']['VERIFIED_SENDER_ADDRESS']
+gas_price = config['ETHEREUM']['GAS_PRICE']
+
+
+
 
 ##### details that will be used to send a transaction to ethereum test blockchain
 ethereum_timer = TimeKeeper("ICSETimerEthereum.csv")
+
+
+
 
 
 
@@ -39,7 +49,7 @@ class LC_Ethereum:
             'to': contract_address,
             'value': amount_in_wei,
             'gas': 2000000,
-            'gasPrice': w3.toWei('4', 'gwei'),
+            'gasPrice': w3.toWei(gas_price, 'gwei'),
             'nonce': nonce,
             'chainId': 3
         }
@@ -95,7 +105,7 @@ class LC_Ethereum:
             'chainId': 3,
             # 'value': amount_in_wei,
             'gas': 2000000,
-            'gasPrice': w3.toWei('6', 'gwei'),
+            'gasPrice': w3.toWei(gas_price, 'gwei'),
             'nonce': nonce,
         })
 
