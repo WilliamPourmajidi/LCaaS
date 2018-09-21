@@ -42,6 +42,7 @@ data_storage_option = config['BLOCK'][
 max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 push_to_ethereum = config['BLOCK']['PUSH_TO_ETHEREUM']
+push_to_firebase = config['BLOCK']['PUSH_TO_FIREBASE']
 verified_sender_address = config['ETHEREUM']['VERIFIED_SENDER_ADDRESS']
 
 # Instantiate a new object from Logchain
@@ -120,11 +121,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             absolute_genesis_block)  # add absolute genesis block to the current CB
 
         # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
-
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
         print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
@@ -143,10 +144,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             new_block)  # add the first data block to the current CB
         # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to firebase
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to firebase
 
         LCaaS.return_string = str(
             "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
@@ -174,10 +176,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "AGB",
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         print("Log: The current CB index is    : ", LCaaS.cb_index.get_current_index())
         print("Log: The current block index is : ", LCaaS.block_index.get_current_index())
@@ -196,10 +199,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             new_block)  # add the first data block to the current CB
         # db.child("Circled blockchain-0").push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to firebase
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to firebase
 
         LCaaS.return_string = str(
             "An AGB was created for the new circled blockchain. AGB details are as follows:\n" + str(
@@ -257,10 +261,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             new_TerminalBlock)  # add terminal block to CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
-                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
-                                 user[
-                                     'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
+                                                 'Content': stringify_terminalblock(new_TerminalBlock)}),
+                                     user[
+                                         'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
@@ -389,7 +394,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
     # Another special case,  we need to generate RGB, DB, and TB in one shot
     elif ((current_block_index_value != 0) and max_number_of_blocks_in_circledblockchain == 3):
 
-
         print("Log: A new CircledBlockchain and a Relative Genesis Block (RGB) is needed")
         print("Log: The previous CB index is    : ", LCaaS.cb_index.get_current_index())
         print("Log: The previous CB length is :  ", len(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain))
@@ -415,10 +419,12 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             relative_genesis_block)  # add relative genesis block to the current CB
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.internal_block_counter.get_current_index()].stringify_block())
@@ -440,7 +446,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                  user['idToken'])  # push data to Firebase
@@ -499,7 +506,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             new_TerminalBlock)  # add terminal block to CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
                                              'Content': stringify_terminalblock(new_TerminalBlock)}),
                                  user[
                                      'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
@@ -643,7 +651,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
 
@@ -677,7 +686,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add the last  data block to the current CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                  user['idToken'])  # push data to firebase
@@ -729,7 +739,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             new_TerminalBlock)  # add terminal block to CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
                                              'Content': stringify_terminalblock(new_TerminalBlock)}),
                                  user[
                                      'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
@@ -885,7 +896,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             relative_genesis_block)  # add relative genesis block to the current CB
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                  user['idToken'])  # push data to Firebase
@@ -910,7 +922,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
         LCaaS.cb_array[LCaaS.cb_index.get_current_index()].add_block_to_CB(
             new_block)  # add data block to the current CB
 
-        db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
+        if (push_to_firebase == "Yes"):
+            db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
                                              'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                                                  LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
                                  user['idToken'])  # push data to Firebase
