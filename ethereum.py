@@ -128,7 +128,7 @@ class LC_Ethereum:
 
             print(tx_receipt)
         ethereum_receipt_timestamp = ethereum_timer.timer_stop()
-        ethereum_timer.dump_timestamp(submission,ethereum_timer.duration(ethereum_submission_timestamp,ethereum_receipt_timestamp))
+        ethereum_timer.dump_timestamp(submission,ethereum_submission_timestamp,ethereum_receipt_timestamp,ethereum_timer.duration(ethereum_submission_timestamp,ethereum_receipt_timestamp))
 
 
 

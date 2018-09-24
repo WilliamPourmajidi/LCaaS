@@ -19,7 +19,7 @@ class TimeKeeper:
         duration = stop - start
         return duration
 
-    def dump_timestamp(self, description, value):
+    def dump_timestamp(self, description, start_time, end_time ,duration):
         with open(self.filename, mode='a') as Timestamp_file:
             timer_writer = csv.writer(Timestamp_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            timer_writer.writerow(['Task', description, 'Duration', value])
+            timer_writer.writerow(['Task', description,'Start_time', start_time ,'End_time', end_time,'Duration', duration])

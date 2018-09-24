@@ -96,20 +96,28 @@ def create_new_block(type, lastblock=None, passed_data=None):
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
         LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
-        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_blockification_start_timestamp, LCaaS_blockification_stop_timestamp, LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
                                                                LCaaS_blockification_stop_timestamp))
 
         return newBlock
 
     elif block_type == "AGB":  # creates an Absolute Genesis Block (AGB)
+        LCaaS_blockification_start_timestamp = LCaaS_timer.timer_start()  # start the timer for LCaaS
         new_index = 0
         new_data = str("Absolute Genesis Block")
         new_previous_hash = genesis_hash
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
+        LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
+        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_blockification_start_timestamp,
+                                   LCaaS_blockification_stop_timestamp,
+                                   LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+                                                        LCaaS_blockification_stop_timestamp))
+
         return newBlock
 
     elif block_type == "SBC-GB":  # creates a Genesis Block (GB) for a Superblolchain
+
         new_index = 0
         new_data = str("A Genesis Block for Superblockchain")
         new_previous_hash = genesis_hash
@@ -119,20 +127,35 @@ def create_new_block(type, lastblock=None, passed_data=None):
 
     elif block_type == "RGB":  # creates a Relative Genesis Block (RGB)
 
+        LCaaS_blockification_start_timestamp = LCaaS_timer.timer_start()  # start the timer for LCaaS
         new_index = lastblock.index + 1
         new_data = str("Relative Genesis Block")
         new_previous_hash = lastblock.current_hash
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
+        LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
+        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_blockification_start_timestamp,
+                                   LCaaS_blockification_stop_timestamp,
+                                   LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+                                                        LCaaS_blockification_stop_timestamp))
+
         return newBlock
 
     elif block_type == "TB":  # creates a terminal block
+        LCaaS_blockification_start_timestamp = LCaaS_timer.timer_start()  # start the timer for LCaaS
         new_index = lastblock.index + 1
         new_data = passed_data
         new_previous_hash = lastblock.current_hash
         newBlock = Block(new_index, new_data, new_previous_hash, block_type)
         newBlock.mine()
+        LCaaS_blockification_stop_timestamp = LCaaS_timer.timer_stop()  # stop the timer for LCaaS
+        LCaaS_timer.dump_timestamp(newBlock.stringify_block(), LCaaS_blockification_start_timestamp,
+                                   LCaaS_blockification_stop_timestamp,
+                                   LCaaS_timer.duration(LCaaS_blockification_start_timestamp,
+                                                        LCaaS_blockification_stop_timestamp))
+
         return newBlock
+
 
     elif block_type == "SB":  # creates a supoer block
         new_index = lastblock.index + 1

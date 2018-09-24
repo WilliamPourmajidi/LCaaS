@@ -278,7 +278,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             SB_GB_submission = ""
             SB_submission = ""
 
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -294,7 +295,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -375,7 +377,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             ##########################################################################################
 
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -523,7 +526,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             SB_GB_submission = ""
             SB_submission = ""
 
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -539,7 +543,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -620,7 +625,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             ##########################################################################################
 
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -756,7 +762,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             SB_GB_submission = ""
             SB_submission = ""
 
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -772,7 +779,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             print("Log: a new SB is created: " + str(
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
@@ -853,7 +861,8 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             ##########################################################################################
 
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
-            db.child("SuperBlocks").push(
+            if (push_to_firebase == "Yes"):
+                db.child("SuperBlocks").push(
                 json.dumps(
                     {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                      'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
