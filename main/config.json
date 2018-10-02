@@ -11,6 +11,6 @@
   },
   "ETHEREUM": {
     "VERIFIED_SENDER_ADDRESS": "0x3f4f9bb697f84a26fbc85883f2ff4d31a36ed83c",
-    "GAS_PRICE": 20
+    "GAS_PRICE": 6
   }
 }
