@@ -1,7 +1,5 @@
 # LCaaS
 
-# LCaaS
-
 LCaaS is a Python-based blockchain tool. It receives data through its API and then use its internal blockchain framework to convert data to blocks and then pushes them to blockchain by establishing hash-binding relationship among blogs. 
 
 Furthermore, LCaaS, introduces a solution for the common capacity challenges of the blockchains. In LCaaS, we have introduced a novel solution referred to as “Hierarchical ledger” or also known as “Multi-dimensional blockchains”.  For more information, navigate to google scholar page and search for “Logchain as a service” and have your fingers crossed, if you see something along the following lines, you are good to go! 
@@ -124,3 +122,7 @@ curl -X POST \
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+   
+   
+   
+   Good luck on your jounrey and 
