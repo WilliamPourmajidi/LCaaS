@@ -125,4 +125,6 @@ curl -X POST \
    
    
    
-   Good luck on your jounrey and 
+Comments and suggestions or questions? please send them to me at William.pourmajidi@gmail.com
+
+
