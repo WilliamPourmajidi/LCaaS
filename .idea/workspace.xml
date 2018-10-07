@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1538774825727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$LCaaS.coverage" NAME="LCaaS Coverage Results" MODIFIED="1529021825772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contract_abi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contract_abi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2079">
+              <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ethereum.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ethereum.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="not_in_use_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/not_in_use_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LC.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blockchain.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blockchain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeKepper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TimeKepper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="648">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Added_screenshots___Infura.patch" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Added_screenshots___Infura.patch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>search</find>
+      <find>submit_a_superblock</find>
+      <find>@@@@@@@@@@@@@@@@</find>
+      <find>bef</find>
+      <find>??</find>
+      <find>before</find>
+      <find>after</find>
+      <find>timestamp</find>
+      <find>timer</find>
+      <find>ethereum_receipt_timestamp</find>
+      <find>csv</find>
+      <find>LcaaS_process_start_timestamp</find>
+      <find>create_new_block(&quot;DB&quot;</find>
+      <find>sto[</find>
+      <find>!!!!!!!!</find>
+      <find>LCaaS.sbc_index.increase_index()</find>
+      <find>LCaaS.SBC.add_block_to_SBC(new_super_block)</find>
+      <find>rgb</find>
+      <find>specia</find>
+      <find>create_new_block(type=&quot;RGB&quot;)</find>
+      <find>RGB</find>
+      <find>genesis_block</find>
+      <find>another</find>
+      <find>concatenated_hashes</find>
+      <find>another</find>
+      <find>zaye</find>
+      <find>db.child(blockname)</find>
+      <find>db.child</find>
+      <find>timeke</find>
+      <find>Submitted a Superblock to ethereum</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LC</replace>
+      <replace>'Index'</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main/main.py" />
+        <option value="$PROJECT_DIR$/main/block.py" />
+        <option value="$PROJECT_DIR$/block.py" />
+        <option value="$PROJECT_DIR$/LCaaS.py" />
+        <option value="$PROJECT_DIR$/../BCaaS/Blockchain.py" />
+        <option value="$PROJECT_DIR$/main/not_in_user_block.py" />
+        <option value="$PROJECT_DIR$/main/serviceAccountCredentials.json" />
+        <option value="$PROJECT_DIR$/main/LCaaS.postman_collection.json" />
+        <option value="$PROJECT_DIR$/main/ethereum.py" />
+        <option value="$PROJECT_DIR$/main/contract_abi.py" />
+        <option value="$PROJECT_DIR$/contract_abi.py" />
+        <option value="$PROJECT_DIR$/Superblock.sol" />
+        <option value="$PROJECT_DIR$/main/test.py" />
+        <option value="$PROJECT_DIR$/main/not_in_use_main.py" />
+        <option value="$PROJECT_DIR$/LC.py" />
+        <option value="$PROJECT_DIR$/main/index.py" />
+        <option value="$PROJECT_DIR$/TimeKepper.py" />
+        <option value="$PROJECT_DIR$/blockchain.py" />
+        <option value="$PROJECT_DIR$/ethereum.py" />
+        <option value="$PROJECT_DIR$/main/test.sql" />
+        <option value="$PROJECT_DIR$/main/config.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="6" />
+    <option name="width" value="1145" />
+    <option name="height" value="839" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LCaaS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LCaaS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LCaaS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LCaaS" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LCaaS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LCaaS" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LCaaS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LCaaS" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="API-Test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LCaaS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LCaaS" type="462c0819:PsiDirectoryNode" />
+              <item name="Screenshots" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main\API-Test" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="index" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\William\William\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LCaaS" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/index.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.index" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="" />
+      <created>1529020276884</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529020276884</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Adding Logic for Firebase Support">
+      <created>1529970826431</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1529970826431</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Adding Logic for Firebase Support">
+      <created>1530006244726</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1530006244726</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Adding Logic for Firebase Support">
+      <created>1530006985392</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1530006985392</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Adding Logic for Firebase Support">
+      <created>1530011148795</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1530011148795</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
+      <created>1530024611680</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1530024611680</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
+      <created>1530051172175</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1530051172175</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
+      <created>1530069296620</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1530069296621</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
+      <created>1530073427346</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1530073427346</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Basic Logic for submit_digest to detect the length of digest and reject if it's not 64  (sha256)">
+      <created>1530075856968</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1530075856968</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Logic for accepting digest">
+      <created>1530111924102</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1530111924102</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Adding verify_raw logic">
+      <created>1530264756724</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1530264756724</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Adding verify_raw logic">
+      <created>1530281666800</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1530281666800</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Complete Verification methods &#10;1) Verify_raw&#10;2) Verify_digest&#10;3) Verify_TB">
+      <created>1530291182180</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1530291182180</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Adding the Postman file - Sample API Calls">
+      <created>1530291611062</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1530291611062</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Adding Logic to add TB to SB and SB to SBC">
+      <created>1530356511142</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1530356511142</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Adding Logic to add TB to SB and SB to SBC">
+      <created>1530361877778</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1530361877778</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Adding Logic to add TB to SB and SB to SBC">
+      <created>1530445143075</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1530445143075</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add logic for Ethereum Support">
+      <created>1531151864711</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1531151864711</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Add logic for Ethereum Support">
+      <created>1531151963388</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1531151963388</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Successful interaction with Ethereum Test Network is now implemented">
+      <created>1531185413380</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1531185413380</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Adding a switch to control ethereum integration from config.json file">
+      <created>1531194762790</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1531194762790</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Extended submission of SB to Ethereum for all conditions">
+      <created>1531195156161</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1531195156161</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Complete Ethereum Integration with configurable settings.">
+      <created>1531196758137</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1531196758137</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Completed the ToDo(s)">
+      <created>1531197211616</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1531197211616</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update Formats">
+      <created>1531239033316</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1531239033316</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Fixing Counter for Circled Blockchain in Firebase">
+      <created>1531482405949</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1531482405949</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Add Superblock.sol (Smart Contract Source Code) to this git repo.">
+      <created>1531509097374</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1531509097374</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Add Superblock.sol (Smart Contract Source Code) to this git repo">
+      <created>1531509160761</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1531509160761</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Added screenshot for Firebase dashboard">
+      <created>1531509429329</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1531509429329</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Added screenshots:&#10;&#10;Remix&#10;Etherscan&#10;Firebase">
+      <created>1531509824012</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1531509824012</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added screenshots:&#10;&#10;Infura">
+      <created>1531559939784</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1531559939784</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Added screenshots:&#10;&#10;Infura">
+      <created>1531559944991</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1531559944991</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Added screenshots:&#10;&#10;Infura">
+      <created>1531573756696</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1531573756696</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Matching words with the ones in the Thesis!">
+      <created>1532474244262</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1532474244263</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Matching words with the ones in the Thesis!">
+      <created>1532511492602</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1532511492602</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Matching words with the ones in the Thesis!">
+      <created>1534254184676</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1534254184677</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Final Touches">
+      <created>1534419994343</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1534419994344</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Final Touches">
+      <created>1535467024640</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1535467024640</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Final Touches">
+      <created>1536934679779</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1536934679780</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Final Touches">
+      <created>1537102898186</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1537102898186</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Final Touches">
+      <created>1537390454054</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1537390454054</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Final Touches">
+      <created>1537481208998</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1537481208998</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Final Touches">
+      <created>1537497215786</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1537497215787</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Final Touches">
+      <created>1537498312525</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1537498312525</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Final Touches">
+      <created>1537499564052</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1537499564052</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Final Touches">
+      <created>1537557082056</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1537557082056</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Minor Fixes for 3 block CBs">
+      <created>1537828753974</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1537828753974</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Added Evaluation Test Scenarios">
+      <created>1538485759846</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1538485759861</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Added Evaluation Test Scenarios">
+      <created>1538485892124</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1538485892124</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="2418" height="1331" extended-state="7" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49658412" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844827" sideWeight="0.5034159" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33614153" sideWeight="0.4944492" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49626866" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4811321" sideWeight="0.9269855" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19427839" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978651" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42467248" sideWeight="0.49829206" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49658412" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32878152" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding Logic for Firebase Support" />
+    <MESSAGE value="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes" />
+    <MESSAGE value="Basic Logic for submit_digest to detect the length of digest and reject if it's not 64  (sha256)" />
+    <MESSAGE value="Logic for accepting digest" />
+    <MESSAGE value="Adding verify_raw logic" />
+    <MESSAGE value="Complete Verification methods &#10;1) Verify_raw&#10;2) Verify_digest&#10;3) Verify_TB" />
+    <MESSAGE value="Adding the Postman file - Sample API Calls" />
+    <MESSAGE value="Adding Logic to add TB to SB and SB to SBC" />
+    <MESSAGE value="Add logic for Ethereum Support" />
+    <MESSAGE value="Successful interaction with Ethereum Test Network is now implemented" />
+    <MESSAGE value="Adding a switch to control ethereum integration from config.json file" />
+    <MESSAGE value="Extended submission of SB to Ethereum for all conditions" />
+    <MESSAGE value="Complete Ethereum Integration with configurable settings." />
+    <MESSAGE value="Completed the ToDo(s)" />
+    <MESSAGE value="Update Formats" />
+    <MESSAGE value="Fixing Counter for Circled Blockchain in Firebase" />
+    <MESSAGE value="Add Superblock.sol (Smart Contract Source Code) to this git repo." />
+    <MESSAGE value="Add Superblock.sol (Smart Contract Source Code) to this git repo" />
+    <MESSAGE value="Added screenshot for Firebase dashboard" />
+    <MESSAGE value="Added screenshots:&#10;&#10;Remix&#10;Etherscan&#10;Firebase" />
+    <MESSAGE value="Added screenshots:&#10;&#10;Infura" />
+    <MESSAGE value="Matching words with the ones in the Thesis!" />
+    <MESSAGE value="Final Touches" />
+    <MESSAGE value="Minor Fixes for 3 block CBs" />
+    <MESSAGE value="Added Evaluation Test Scenarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Evaluation Test Scenarios" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="17" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>LCaaS.cb_array</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/not_in_user_block.py" />
+    <entry file="file://$PROJECT_DIR$/main/not_in_use_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/BBasicAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/BBasicAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/BBasicAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BasicAPI/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyvenv.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockchain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1956">
+          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-993">
+          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="1798" column="0" lean-forward="false" selection-start-line="1798" selection-start-column="0" selection-end-line="1798" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BCaaS/BC.py" />
+    <entry file="file://$PROJECT_DIR$/../LCaasOld-beforeAPI/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../BCaaS/Blockchain.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/oauth2client/service_account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5616">
+          <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/not_in_user_block.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/pyrebase/pyrebase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="447" column="0" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4833">
+          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/LC.LogChain">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>LC.LogChain</OriginalElement>
+          <nodes>
+            <node x="27.5" y="172.0">LC.LogChain</node>
+            <node x="0.0" y="0.0">_collections_abc.Hashable</node>
+            <node x="47.0" y="86.0">object</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="object" target="_collections_abc.Hashable">
+              <point x="0.0" y="-18.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+            <edge source="LC.LogChain" target="object">
+              <point x="0.0" y="-18.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-547.0" y="35.0" />
+          <SelectedNodes>
+            <node>LC.LogChain</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/William/PycharmProjects/LCaaS/LC.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/William/PycharmProjects/LCaaS/LC.py</OriginalElement>
+          <nodes>
+            <node x="516.0" y="415.0">LC.SuperBlockchain</node>
+            <node x="705.0" y="334.0">LC.LogChain</node>
+            <node x="356.0" y="0.0">_collections_abc.Hashable</node>
+            <node x="393.0" y="428.5">LC.Index</node>
+            <node x="373.5" y="113.0">object</node>
+            <node x="197.0" y="374.5">LC.TB_data</node>
+            <node x="0.0" y="415.0">LC.CircledBlockchain</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="object" target="_collections_abc.Hashable">
+              <point x="0.0" y="-85.5" />
+              <point x="0.0" y="31.5" />
+            </edge>
+            <edge source="LC.SuperBlockchain" target="object">
+              <point x="0.0" y="-45.0" />
+              <point x="600.5" y="314.0" />
+              <point x="472.9" y="314.0" />
+              <point x="28.399999999999977" y="85.5" />
+            </edge>
+            <edge source="LC.LogChain" target="object">
+              <point x="0.0" y="-126.0" />
+              <point x="812.5" y="304.0" />
+              <point x="501.29999999999995" y="304.0" />
+              <point x="56.799999999999955" y="85.5" />
+            </edge>
+            <edge source="LC.CircledBlockchain" target="object">
+              <point x="0.0" y="-45.0" />
+              <point x="88.5" y="304.0" />
+              <point x="387.7" y="304.0" />
+              <point x="-56.80000000000001" y="85.5" />
+            </edge>
+            <edge source="LC.TB_data" target="object">
+              <point x="0.0" y="-85.5" />
+              <point x="285.0" y="314.0" />
+              <point x="416.1" y="314.0" />
+              <point x="-28.399999999999977" y="85.5" />
+            </edge>
+            <edge source="LC.Index" target="object">
+              <point x="0.0" y="-31.5" />
+              <point x="0.0" y="85.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.4000000000000004" x="124.0" y="151.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/William/PycharmProjects/LCaaS/main/index.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/William/PycharmProjects/LCaaS/main/index.py</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.8000000000000007" x="490.0" y="321.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/William/PycharmProjects/LCaaS/blockchain.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/William/PycharmProjects/LCaaS/blockchain.py</OriginalElement>
+          <nodes>
+            <node x="90.5" y="0.0">_collections_abc.Hashable</node>
+            <node x="47.5" y="168.0">object</node>
+            <node x="0.0" y="822.0">blockchain.Block</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="object" target="_collections_abc.Hashable">
+              <point x="0.0" y="-302.0" />
+              <point x="0.0" y="59.0" />
+            </edge>
+            <edge source="blockchain.Block" target="object">
+              <point x="0.0" y="-315.5" />
+              <point x="0.0" y="302.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-912.0" y="414.0" />
+          <SelectedNodes>
+            <node>blockchain.Block</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/-1692005730/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="793" column="0" lean-forward="true" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/contract_abi.py" />
+    <entry file="file://$PROJECT_DIR$/main/ethereum.py" />
+    <entry file="file://$PROJECT_DIR$/pip-selfcheck.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Superblock.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/test.py" />
+    <entry file="file://$PROJECT_DIR$/Screenshots/Remix-IDE-Solidity.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Screenshots/Infura.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/serviceAccountCredentials.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Screenshots/EtherScan.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/API-Test/LCaaS.postman_collection.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/not_in_use_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/William/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1376">
+          <caret line="2298" column="0" lean-forward="false" selection-start-line="2298" selection-start-column="0" selection-end-line="2298" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract_abi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2079">
+          <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeKepper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/test.sql" />
+    <entry file="file://$PROJECT_DIR$/Added_screenshots___Infura.patch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blockchain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ethereum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
