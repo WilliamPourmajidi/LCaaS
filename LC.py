@@ -2,6 +2,7 @@ from blockchain import *
 import datetime
 import csv
 
+
 class Index:
     def __init__(self):
         self.index = 0
@@ -86,4 +87,3 @@ def stringify_terminalblock(passed_block):
         passed_block.get_current_hash(), passed_block.get_previous_hash(), passed_block.get_nonce(),
         passed_block.get_block_type())
     return terminalblock_string
-

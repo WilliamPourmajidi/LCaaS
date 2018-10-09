@@ -1,5 +1,4 @@
 # This  is the Main file for the LCaaS project
-# Designed and implemented by William Pourmajidi - 2018 - Canada Ontario
 
 from LC import *
 from flask import Flask, request
