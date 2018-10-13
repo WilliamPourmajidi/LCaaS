@@ -56,7 +56,7 @@ You should see the following message on your web-broswer indicating that LCaaS i
 
 ### API Signature Examples:
 
-*submit_raw (to submit the actual logs to LCaaS)
+##submit_raw (to submit the actual logs to LCaaS)
  ```sh
 curl -X POST \
   http://127.0.0.1:5000/submit_raw \
@@ -69,7 +69,7 @@ curl -X POST \
 
  
  
- submit_digest (to submit the digest of logs to LCaaS)
+ ##submit_digest (to submit the digest of logs to LCaaS)
  ```sh
 curl -X POST \
   http://127.0.0.1:5000/submit_digest \
@@ -78,7 +78,7 @@ curl -X POST \
   -H 'postman-token: 60dc220e-d201-91e5-c331-6d456cb2a57e' \
   -d '{"digest": "10E721E49C013F00C62CF59F2163542A9D8DF02464EFEB615D31051B0FDDC327" }'
  ```
-verify_raw to verify that if an actual raw log file is submitted to the LCaaS before or not. 
+##verify_raw to verify that if an actual raw log file is submitted to the LCaaS before or not. 
  
   ```sh
  curl -X POST \
@@ -89,7 +89,7 @@ verify_raw to verify that if an actual raw log file is submitted to the LCaaS be
   -d '{"Log": "User William formatted C Drive at 7:52 AM , Aug 16th, 2018"}'
   ```
   
-  verify_digest to verify that if the digest of a log file is submitted to the LCaaS before or not. 
+##verify_digest to verify that if the digest of a log file is submitted to the LCaaS before or not. 
  
   ```sh
 curl -X POST \
@@ -99,7 +99,7 @@ curl -X POST \
   -H 'postman-token: aa9bb524-11e4-74ea-d61c-e0c7f7c2fb10' \
   -d '{"digest": "10E721E49C013F00C62CF59F2163542A9D8DF02464EFEB615D31051B0FDDC327" }'
   ```
-  verify_tb to verify the terminal block and ensure that the entire blocks in a circled blockchain are not tampered. 
+##verify_tb to verify the terminal block and ensure that the entire blocks in a circled blockchain are not tampered. 
   Did not understand a word? read the paper!  
  
  ```sh 
