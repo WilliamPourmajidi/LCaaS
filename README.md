@@ -65,6 +65,8 @@ curl -X POST \
   -H 'postman-token: bd3bf06b-5d56-b35f-972f-31f104aea47b' \
   -d '{"Log": "User William formatted C Drive at 7:52 AM , Aug 16th, 2018"}' 
  ```
+ ![submit_raw_optimized](https://user-images.githubusercontent.com/18631688/46905815-fc819f80-cec6-11e8-9e11-f2fe3aff2f33.gif)
+
  
  
  submit_digest (to submit the digest of logs to LCaaS)
