@@ -78,6 +78,8 @@ curl -X POST \
   -H 'postman-token: 60dc220e-d201-91e5-c331-6d456cb2a57e' \
   -d '{"digest": "10E721E49C013F00C62CF59F2163542A9D8DF02464EFEB615D31051B0FDDC327" }'
  ```
+ 
+ 
 ## verify_raw to verify that if an actual raw log file is submitted to the LCaaS before or not. 
  
   ```sh
@@ -88,7 +90,8 @@ curl -X POST \
   -H 'postman-token: 23b7ce69-cbc3-e8dc-2e5c-bf4e1b44d9d4' \
   -d '{"Log": "User William formatted C Drive at 7:52 AM , Aug 16th, 2018"}'
   ```
-  
+  ![verify_raw_optimized](https://user-images.githubusercontent.com/18631688/46905897-4e76f500-cec8-11e8-926f-b56be15744bd.gif)
+
 ## verify_digest to verify that if the digest of a log file is submitted to the LCaaS before or not. 
  
   ```sh
@@ -110,7 +113,8 @@ curl -X POST \
   -H 'postman-token: adfacf8b-1292-8644-574a-f6b959418727' \
   -d '{"tb_hash": "4aadc7120cf783fa3ce0b961edc12229aa2900c0d0d7238369181877e7892178" }'  
  ```
- 
+ ![verify_tb_optimized](https://user-images.githubusercontent.com/18631688/46905914-664e7900-cec8-11e8-8844-73820778672e.gif)
+
  
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
