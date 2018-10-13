@@ -56,7 +56,7 @@ You should see the following message on your web-broswer indicating that LCaaS i
 
 ### API Signature Examples:
 
-submit_raw (to submit the actual logs to LCaaS)
+*submit_raw (to submit the actual logs to LCaaS)
  ```sh
 curl -X POST \
   http://127.0.0.1:5000/submit_raw \
