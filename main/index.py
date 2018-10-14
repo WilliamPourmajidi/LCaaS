@@ -1,4 +1,7 @@
 # This  is the Main file for the LCaaS project
+# added the upper level directory in the path
+import sys
+sys.path.append('../')
 
 from LC import *
 from flask import Flask, request
