@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum.py" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +109,7 @@
       <workItem from="1570135413195" duration="1944000" />
       <workItem from="1570138302881" duration="3702000" />
       <workItem from="1570202818375" duration="1751000" />
+      <workItem from="1570304382474" duration="1187000" />
     </task>
     <task id="LOCAL-00022" summary="Adding Logic for Firebase Support">
       <created>1530011148795</created>

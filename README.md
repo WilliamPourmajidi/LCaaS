@@ -32,6 +32,7 @@ LCaaS is designed and developed with Python 3.6 and make use of the following Py
 * json
 * web3
 * contract_abi
+* datetime
 
 ### Installation
 
