@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -109,14 +106,7 @@
       <workItem from="1570135413195" duration="1944000" />
       <workItem from="1570138302881" duration="3702000" />
       <workItem from="1570202818375" duration="1751000" />
-      <workItem from="1570304382474" duration="1187000" />
-    </task>
-    <task id="LOCAL-00022" summary="Adding Logic for Firebase Support">
-      <created>1530011148795</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1530011148795</updated>
+      <workItem from="1570304382474" duration="2900000" />
     </task>
     <task id="LOCAL-00023" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
       <created>1530024611680</created>
@@ -454,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539437023011</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+      <created>1570305818626</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1570305818626</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -483,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes" />
     <MESSAGE value="Basic Logic for submit_digest to detect the length of digest and reject if it's not 64  (sha256)" />
     <MESSAGE value="Logic for accepting digest" />
     <MESSAGE value="Adding verify_raw logic" />
@@ -508,7 +504,8 @@
     <MESSAGE value="Minor Fixes for 3 block CBs" />
     <MESSAGE value="Added Evaluation Test Scenarios" />
     <MESSAGE value="Fixed comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed comments" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
