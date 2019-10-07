@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/not_in_use_main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,14 +129,7 @@
       <workItem from="1570458403959" duration="3060000" />
       <workItem from="1570465896670" duration="2361000" />
       <workItem from="1570475127610" duration="1532000" />
-      <workItem from="1570477594452" duration="3197000" />
-    </task>
-    <task id="LOCAL-00027" summary="Basic Logic for submit_digest to detect the length of digest and reject if it's not 64  (sha256)">
-      <created>1530075856968</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1530075856968</updated>
+      <workItem from="1570477594452" duration="3246000" />
     </task>
     <task id="LOCAL-00028" summary="Logic for accepting digest">
       <created>1530111924102</created>
@@ -475,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570480075072</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+      <created>1570480815272</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1570480815272</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">

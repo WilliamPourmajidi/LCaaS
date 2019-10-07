@@ -1,4 +1,5 @@
 # This  is the Main file for the LCaaS project
+# Please make sure you have configured the LCaaS via editing config.json
 # added the upper level directory in the path
 import sys
 sys.path.append('../')
