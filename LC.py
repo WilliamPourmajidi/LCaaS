@@ -2,6 +2,7 @@ from blockchain import *
 import datetime
 import csv
 
+
 class Index:
     def __init__(self):
         self.index = 0
