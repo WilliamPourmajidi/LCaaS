@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +28,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/main/index.py" />
@@ -128,14 +127,7 @@
       <workItem from="1570458403959" duration="3060000" />
       <workItem from="1570465896670" duration="2361000" />
       <workItem from="1570475127610" duration="1532000" />
-      <workItem from="1570477594452" duration="2137000" />
-    </task>
-    <task id="LOCAL-00024" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
-      <created>1530051172175</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1530051172175</updated>
+      <workItem from="1570477594452" duration="2388000" />
     </task>
     <task id="LOCAL-00025" summary="Adding details to TB when adding it to Firebase by narrowing down the TB_data object to its attributes">
       <created>1530069296620</created>
@@ -473,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570478908800</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+      <created>1570479836933</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1570479836933</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
