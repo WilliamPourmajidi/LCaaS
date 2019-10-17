@@ -2,6 +2,7 @@
 # Please make sure you have configured the LCaaS via editing config.json
 # added the upper level directory in the path
 import sys
+
 sys.path.append('../')
 
 from LC import *
@@ -107,7 +108,7 @@ def verify_tb():
     return LCaaS.return_string, 202
 
 
-def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function
+def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function i can write anything
 
     # We need to generate an absolute genesis block first and then a data block with the received data
     if (LCaaS.sbc_index.get_current_index() < 1):
@@ -283,10 +284,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(),
+                         'Type': "SBC-GB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.sbc_index.increase_index()
 
@@ -300,10 +302,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             ################################ Code for Ethereum integration #############################
 
@@ -382,10 +384,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
@@ -454,9 +456,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         LCaaS.return_string = str(
             "An RGB was created for the new circled blockchain. RGB details are as follows:\n" + str(
@@ -514,9 +516,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
-                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
-                                 user[
-                                     'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
+                                                 'Content': stringify_terminalblock(new_TerminalBlock)}),
+                                     user[
+                                         'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
@@ -531,10 +533,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(),
+                         'Type': "SBC-GB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.sbc_index.increase_index()
 
@@ -548,10 +551,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             ################################ Code for Ethereum integration #############################
 
@@ -630,10 +633,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
@@ -662,10 +665,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
 
-                                 user['idToken'])  # push data to Firebase
+                                     user['idToken'])  # push data to Firebase
         LCaaS.return_string = str(
             "The new record has been successfully received and added to Logchain with following details:\n" + str(
                 new_block.stringify_block()))
@@ -697,9 +700,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to firebase
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to firebase
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
@@ -750,9 +753,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "TB",
-                                             'Content': stringify_terminalblock(new_TerminalBlock)}),
-                                 user[
-                                     'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
+                                                 'Content': stringify_terminalblock(new_TerminalBlock)}),
+                                     user[
+                                         'idToken'])  # push terminal block to Firebase (it is stringied so it can be viewed properly)
 
         LCaaS.block_index.increase_index()
         LCaaS.internal_block_counter.increase_index()
@@ -767,10 +770,11 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SBC-GB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(),
+                         'Type': "SBC-GB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.sbc_index.increase_index()
 
@@ -784,10 +788,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             ################################ Code for Ethereum integration #############################
 
@@ -866,10 +870,10 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             print("Log: " + str(LCaaS.SBC.superchain[LCaaS.cb_index.get_current_index()].stringify_block()))
             if (push_to_firebase == "Yes"):
                 db.child("SuperBlocks").push(
-                json.dumps(
-                    {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
-                     'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
-                user['idToken'])  # push super block to Firebase
+                    json.dumps(
+                        {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
+                         'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
+                    user['idToken'])  # push super block to Firebase
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
@@ -910,9 +914,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             relative_genesis_block)  # add relative genesis block to the current CB
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "RGB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         print(LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
                   LCaaS.internal_block_counter.get_current_index()].stringify_block())
@@ -936,9 +940,9 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
         if (push_to_firebase == "Yes"):
             db.child(blockname).push(json.dumps({'Index': LCaaS.block_index.get_current_index(), 'Type': "DB",
-                                             'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
-                                                 LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
-                                 user['idToken'])  # push data to Firebase
+                                                 'Content': LCaaS.cb_array[LCaaS.cb_index.get_current_index()].chain[
+                                                     LCaaS.internal_block_counter.get_current_index()].stringify_block()}),
+                                     user['idToken'])  # push data to Firebase
 
         LCaaS.return_string = str(
             "An RGB was created for the new circled blockchain. RGB details are as follows:\n" + str(
