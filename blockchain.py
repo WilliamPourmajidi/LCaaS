@@ -14,7 +14,7 @@ genesis_hash = config['BLOCK']['GENESIS_HASH']  # Genesis block value for blocks
 max_number_of_data_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 
-LCaaS_timer = TimeKeeper("ICSETimerLCaaS.csv")
+LCaaS_timer = TimeKeeper("Process-timestamps-LCaaS.csv")
 
 
 class Block:  # Main class for defining Blocks and all their attributes and methods

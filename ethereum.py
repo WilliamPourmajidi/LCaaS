@@ -11,7 +11,7 @@ verified_sender_address = config['ETHEREUM']['VERIFIED_SENDER_ADDRESS']
 gas_price = config['ETHEREUM']['GAS_PRICE']
 
 ##### details that will be used to send a transaction to ethereum test blockchain
-ethereum_timer = TimeKeeper("ICSETimerEthereum.csv")
+ethereum_timer = TimeKeeper("Submission-timestamps-Ethereum.csv")
 
 
 

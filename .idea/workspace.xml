@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
-      <change afterPath="$PROJECT_DIR$/main/Test1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IBMBlockchain-submission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ethereum.py" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/API-Test/LCaaS.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/API-Test(Postman)/LCaaS.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/ICSETimerLCaaS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/ICSETimerLCaaS.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/Test1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,13 +52,13 @@
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\William\PycharmProjects\LCaaS" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main\API-Test" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
     </key>
   </component>
@@ -136,14 +139,8 @@
       <workItem from="1570475127610" duration="1532000" />
       <workItem from="1570477594452" duration="5615000" />
       <workItem from="1570737063767" duration="5236000" />
-      <workItem from="1571334117514" duration="552000" />
-    </task>
-    <task id="LOCAL-00029" summary="Adding verify_raw logic">
-      <created>1530264756724</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1530264756724</updated>
+      <workItem from="1571334117514" duration="1805000" />
+      <workItem from="1571959444212" duration="3613000" />
     </task>
     <task id="LOCAL-00030" summary="Adding verify_raw logic">
       <created>1530281666800</created>
@@ -481,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570480865117</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+      <created>1571334687491</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1571334687492</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +533,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1571334608059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572012672124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
