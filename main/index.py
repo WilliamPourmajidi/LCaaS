@@ -29,7 +29,7 @@ config = {
     "serviceAccount": "serviceAccountCredentials.json"
 }
 # Link to our node.js API that will take the data and submits it to the IBM blockchain
-IBMBC_url = 'http://9.42.19.179:8080/api'
+IBMBC_url = 'http://9.42.19.179:8081/api'
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
@@ -310,24 +310,27 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                          'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
                     user['idToken'])  # push super block to Firebase
 
-            ################################ Code for Ethereum integration #############################
+
+
+            ########################## Code for IBM Blockchain integration starts ####################
             if (push_to_IBMBC == "Yes"):
                 print("We need to submit to IBM Blockchain")
                 print("This needs to be added to the cloud: ",
                       LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
-                to_be_submitted_to_IBMBC = str(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
 
                 # mydata = '''This submission works'''
                 mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
 
-                print("wooww", mydata)
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
                 # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
                 # response = requests.post(url, json={"title": "William Book is Awesome"})
                 response = requests.post(IBMBC_url, json={"title": mydata})
-
-
                 print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
 
+            ############################## Code for Ethereum integration #############################
             if (push_to_ethereum == 'Yes'):
 
                 LCE = LC_Ethereum
