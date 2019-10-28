@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
-      <change afterPath="$PROJECT_DIR$/IBMBlockchain-submission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ethereum.py" beforeDir="false" afterPath="$PROJECT_DIR$/ethereum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/API-Test/LCaaS.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/API-Test(Postman)/LCaaS.postman_collection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/ICSETimerLCaaS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/ICSETimerLCaaS.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Test1.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/ICSETimerEthereum.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/Timestamps-Archive/ICSETimerEthereum.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/ICSETimerLCaaS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/Timestamps-Archive/ICSETimerLCaaS.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +46,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -57,6 +54,7 @@
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main\Timestamps-Archive" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main\API-Test" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
@@ -140,14 +138,7 @@
       <workItem from="1570477594452" duration="5615000" />
       <workItem from="1570737063767" duration="5236000" />
       <workItem from="1571334117514" duration="1805000" />
-      <workItem from="1571959444212" duration="3613000" />
-    </task>
-    <task id="LOCAL-00030" summary="Adding verify_raw logic">
-      <created>1530281666800</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1530281666800</updated>
+      <workItem from="1571959444212" duration="25252000" />
     </task>
     <task id="LOCAL-00031" summary="Complete Verification methods &#10;1) Verify_raw&#10;2) Verify_digest&#10;3) Verify_TB">
       <created>1530291182180</created>
@@ -485,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571334687492</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+      <created>1572015914028</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1572015914029</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,8 +530,19 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main/index.py</url>
+          <line>820</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572012672124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572280980241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">

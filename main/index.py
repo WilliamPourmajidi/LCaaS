@@ -9,7 +9,7 @@ from LC import *
 from flask import Flask, request
 import pyrebase
 from ethereum import *
-import datetime
+import requests
 
 ### Firebase Settings ####
 # Link: https://bcaas-2018.firebaseio.com/Blocks.json
@@ -28,6 +28,8 @@ config = {
     "messagingSenderId": "568088402855",
     "serviceAccount": "serviceAccountCredentials.json"
 }
+# Link to our node.js API that will take the data and submits it to the IBM blockchain
+IBMBC_url = 'http://9.42.19.179:8080/api'
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
@@ -47,6 +49,7 @@ max_number_of_blocks_in_circledblockchain = config['BLOCKCHAIN'][
     'MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN']  # Capacity of a Blockchain
 push_to_ethereum = config['BLOCK']['PUSH_TO_ETHEREUM']
 push_to_firebase = config['BLOCK']['PUSH_TO_FIREBASE']
+push_to_IBMBC = config['BLOCK']['PUSH_TO_IBM_Blockchain']
 verified_sender_address = config['ETHEREUM']['VERIFIED_SENDER_ADDRESS']
 
 # Instantiate a new object from Logchain
@@ -308,6 +311,22 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                     user['idToken'])  # push super block to Firebase
 
             ################################ Code for Ethereum integration #############################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("wooww", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata})
+
+
+                print(response.content)
 
             if (push_to_ethereum == 'Yes'):
 
@@ -334,7 +353,7 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                         LCE.submit_a_superblock(str(new_super_block.stringify_block()), 0.1))
                     print(SB_submission)
 
-            ##########################################################################################
+            # Send back the response to the API Call so sender knows what's happening ##################
 
             LCaaS.return_string = str(
                 "The last data block for this CB is generated:\n" + str(
