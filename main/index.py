@@ -52,6 +52,8 @@ push_to_firebase = config['BLOCK']['PUSH_TO_FIREBASE']
 push_to_IBMBC = config['BLOCK']['PUSH_TO_IBM_Blockchain']
 verified_sender_address = config['ETHEREUM']['VERIFIED_SENDER_ADDRESS']
 
+
+
 # Instantiate a new object from Logchain
 LCaaS = LogChain(500747320)
 
@@ -73,7 +75,6 @@ def submit_raw():
 @app.route('/submit_digest', methods=['POST'])  # handles submit_digest method
 def submit_digest():
     # print("We received: ", request.get_json())
-
     received_data = request.get_json()
     print(received_data)
     passed_digest_value = received_data['digest']
@@ -111,8 +112,8 @@ def verify_tb():
     return LCaaS.return_string, 202
 
 
-def blockify(current_block_index_value, current_cb_index_value, data):  # Helper function i can write anything
-
+def blockify(current_block_index_value, current_cb_index_value, data):
+    IBMBC_start_block_id = 7000
     # We need to generate an absolute genesis block first and then a data block with the received data
     if (LCaaS.sbc_index.get_current_index() < 1):
         blockname = "Circled blockchain-" + str(LCaaS.sbc_index.get_current_index())
@@ -310,8 +311,6 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                          'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
                     user['idToken'])  # push super block to Firebase
 
-
-
             ########################## Code for IBM Blockchain integration starts ####################
             if (push_to_IBMBC == "Yes"):
                 print("We need to submit to IBM Blockchain")
@@ -326,11 +325,12 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                 print("We are going to submit this to IBM Blockchain platform: ", mydata)
                 # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
                 # response = requests.post(url, json={"title": "William Book is Awesome"})
-                response = requests.post(IBMBC_url, json={"title": mydata})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id  + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
                 print(response.content)
             ########################## Code for IBM Blockchain integration ends ####################
 
-            ############################## Code for Ethereum integration #############################
+            ############################## Code for Ethereum integration starts######################
             if (push_to_ethereum == 'Yes'):
 
                 LCE = LC_Ethereum
@@ -378,6 +378,24 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
             new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
 
+            ########################## Code for IBM Blockchain integration starts ####################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
+                print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
             ################################ Code for Ethereum integration #############################
             SB_submission = ""
 
@@ -577,6 +595,24 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                         {'Index': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].get_index(), 'Type': "SB",
                          'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
                     user['idToken'])  # push super block to Firebase
+            ########################## Code for IBM Blockchain integration starts ####################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id  + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
+                print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
 
             ################################ Code for Ethereum integration #############################
 
@@ -626,6 +662,25 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+
+            ########################## Code for IBM Blockchain integration starts ####################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id  + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
+                print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
 
             ################################ Code for Ethereum integration #############################
             SB_submission = ""
@@ -815,6 +870,25 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
                          'Content': LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()}),
                     user['idToken'])  # push super block to Firebase
 
+            ########################## Code for IBM Blockchain integration starts ####################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id  + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
+                print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
+
             ################################ Code for Ethereum integration #############################
 
             if (push_to_ethereum == 'Yes'):
@@ -863,6 +937,24 @@ def blockify(current_block_index_value, current_cb_index_value, data):  # Helper
 
             new_super_block = create_new_block("SB", previous_super_block, new_super_block_data_element)
             LCaaS.SBC.add_block_to_SBC(new_super_block)  # add the super block to the SBC
+            ########################## Code for IBM Blockchain integration starts ####################
+            if (push_to_IBMBC == "Yes"):
+                print("We need to submit to IBM Blockchain")
+                print("This needs to be added to the cloud: ",
+                      LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+                to_be_submitted_to_IBMBC = str(
+                    LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                # mydata = '''This submission works'''
+                mydata = json.dumps(LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block())
+
+                print("We are going to submit this to IBM Blockchain platform: ", mydata)
+                # data = LCaaS.SBC.superchain[LCaaS.sbc_index.get_current_index()].stringify_block()
+                # response = requests.post(url, json={"title": "William Book is Awesome"})
+                response = requests.post(IBMBC_url, json={"title": mydata, "bl_id": IBMBC_start_block_id + LCaaS.sbc_index.get_current_index()})
+                # IBMBC_block_id += 1
+                print(response.content)
+            ########################## Code for IBM Blockchain integration ends ####################
 
             ################################ Code for Ethereum integration #############################
             SB_submission = ""

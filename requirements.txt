@@ -95,7 +95,6 @@ rsa==3.4.2
 Send2Trash==1.5.0
 setuptools-git==1.2
 six==1.11.0
-SQLAlchemy==1.1.15
 terminado==0.8.2
 testpath==0.4.2
 toolz==0.10.0

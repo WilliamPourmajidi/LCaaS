@@ -158,6 +158,7 @@ def create_new_block(type, lastblock=None, passed_data=None):
 
 
     elif block_type == "SB":  # creates a supoer block
+        LCaaS_blockification_start_timestamp = LCaaS_timer.timer_start()  # start the timer for LCaaS
         new_index = lastblock.index + 1
         new_data = passed_data
         new_previous_hash = lastblock.current_hash
