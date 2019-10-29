@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "0fa34c82-eeff-4a35-b1b7-f71b5ee5cb5e",
+		"name": "LCaaS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Submit_raw_records_to_LCaaS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Log\": \"User William formatted C Drive at 7:35 AM , June 10th, 2018\" }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/submit_raw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"submit_raw"
+					]
+				},
+				"description": "This is a test API tester"
+			},
+			"response": []
+		},
+		{
+			"name": "Verify_raw_records_to_LCaaS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Log\": \"User William formatted C Drive at 7:35 AM , June 10th, 2018\" }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/verify_raw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"verify_raw"
+					]
+				},
+				"description": "This API call tests the verification of a block"
+			},
+			"response": []
+		},
+		{
+			"name": "Submit_digest_records_to_LCaaS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"digest\": \"C38B226D489D312EE7FC940C42E5651046F8827AFF9D8226CF06BAFA6591B217\" }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/submit_digest",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"submit_digest"
+					]
+				},
+				"description": "This is a test API tester"
+			},
+			"response": []
+		},
+		{
+			"name": "Verify_digest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Log\": \"User William formatted C Drive at 7:35 AM , June 10th, 2018\" }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/verify_digest",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"verify_digest"
+					]
+				},
+				"description": "This API call tests the verification of a block"
+			},
+			"response": []
+		},
+		{
+			"name": "Verify_tb",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"tb_hash\": \"User William formatted C Drive at 7:35 AM , June 10th, 2018\" }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/verify_tb",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"verify_tb"
+					]
+				},
+				"description": "This API call tests the verification of a block"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
