@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc">
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Added IBM-Blockchain Submission Integration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IBMBlockchain-submission.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/main/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +135,8 @@
       <workItem from="1570477594452" duration="5615000" />
       <workItem from="1570737063767" duration="5236000" />
       <workItem from="1571334117514" duration="1805000" />
-      <workItem from="1571959444212" duration="47937000" />
-    </task>
-    <task id="LOCAL-00033" summary="Adding Logic to add TB to SB and SB to SBC">
-      <created>1530356511142</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1530356511142</updated>
+      <workItem from="1571959444212" duration="48149000" />
+      <workItem from="1572354683442" duration="49000" />
     </task>
     <task id="LOCAL-00034" summary="Adding Logic to add TB to SB and SB to SBC">
       <created>1530361877778</created>
@@ -485,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572284670025</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Added IBM-Blockchain Submission Integration">
+      <created>1572352976910</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1572352976910</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Basic Logic for submit_digest to detect the length of digest and reject if it's not 64  (sha256)" />
     <MESSAGE value="Logic for accepting digest" />
     <MESSAGE value="Adding verify_raw logic" />
     <MESSAGE value="Complete Verification methods &#10;1) Verify_raw&#10;2) Verify_digest&#10;3) Verify_TB" />
@@ -530,7 +525,8 @@
     <MESSAGE value="Added Evaluation Test Scenarios" />
     <MESSAGE value="Fixed comments" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/LC.cpython-36.pyc" />
+    <MESSAGE value="Added IBM-Blockchain Submission Integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added IBM-Blockchain Submission Integration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

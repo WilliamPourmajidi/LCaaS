@@ -5,7 +5,7 @@
     "DATA_STORAGE_OPTION": "actual_data",
     "PUSH_TO_ETHEREUM": "No",
     "PUSH_TO_FIREBASE": "No",
-    "PUSH_TO_IBM_Blockchain": "Yes"
+    "PUSH_TO_IBM_Blockchain": "No"
   },
   "BLOCKCHAIN": {
     "MAX_NUMBER_OF_BLOCKS_IN_CIRCLED_BLOCKCHAIN": 102
