@@ -108,7 +108,7 @@ print(vertical_stack_subset.shape)
 # print(vertical_stack_subset)
 
 # Export to CSV
-export_csv = vertical_stack_subset.to_csv(r'C:\Users\william\Desktop\vertical_stack.csv', index=None,
+export_csv = vertical_stack_subset.to_csv(r'c:\users\william\desktop\vertical_stack.csv', index=None,
                                           header=True)  # Don't forget to add '.csv' at the end of the path
-
+print(cwd())
 ######################################

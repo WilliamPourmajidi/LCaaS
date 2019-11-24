@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Set the configuration to default &amp; Submit evaluation scenarios">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_IBMBC_1000_01_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_IBMBC_1000_01_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_IBMBC_200_01_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_IBMBC_200_01_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_IBMBC_200_01_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_IBMBC_200_01_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_LCaaS_1000_01_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_LCaaS_1000_01_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_LCaaS_200_01_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_LCaaS_200_01_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/01TPS/Timestamps_LCaaS_200_01_10..csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/01TPS/Timestamps_LCaaS_200_01_10..csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_IBMBC_1000_100_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_IBMBC_1000_100_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_IBMBC_200_100_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_IBMBC_200_100_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_IBMBC_200_100_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_IBMBC_200_100_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_LCaaS_1000_100_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_LCaaS_1000_100_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_LCaaS_200_100_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_LCaaS_200_100_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/100TPS/Timestamps_LCaaS_200_100_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/100TPS/Timestamps_LCaaS_200_100_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_IBMBC_1000_10_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_IBMBC_1000_10_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_IBMBC_200_10_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_IBMBC_200_10_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_IBMBC_200_10_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_IBMBC_200_10_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_LCaaS_1000_10_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_LCaaS_1000_10_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_LCaaS_200_10_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_LCaaS_200_10_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/10TPS/Timestamps_LCaaS_200_10_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/10TPS/Timestamps_LCaaS_200_10_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_IBMBC_1000_1_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_IBMBC_1000_1_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_IBMBC_200_1_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_IBMBC_200_1_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_IBMBC_200_1_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_IBMBC_200_1_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_LCaaS_1000_1_100.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_LCaaS_1000_1_100.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_LCaaS_200_1_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_LCaaS_200_1_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/1TPS/Timestamps_LCaaS_200_1_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/1TPS/Timestamps_LCaaS_200_1_10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM Blockchain/Scenarios.docx" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/LCaaS-IBM-Blockchain/Scenarios.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -226,14 +199,7 @@
       <workItem from="1572366959875" duration="347000" />
       <workItem from="1572616322884" duration="246000" />
       <workItem from="1574437372214" duration="5693000" />
-      <workItem from="1574453919218" duration="17696000" />
-    </task>
-    <task id="LOCAL-00038" summary="Successful interaction with Ethereum Test Network is now implemented">
-      <created>1531185413380</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1531185413380</updated>
+      <workItem from="1574453919218" duration="18783000" />
     </task>
     <task id="LOCAL-00039" summary="Adding a switch to control ethereum integration from config.json file">
       <created>1531194762790</created>
@@ -571,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572367278014</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Set the configuration to default &amp; Submit evaluation scenarios">
+      <created>1574613664131</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1574613664132</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +603,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LCaaS$EvaluationScenarios.coverage" NAME="EvaluationScenarios Coverage Results" MODIFIED="1574613483482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$EvaluationScenarios.coverage" NAME="EvaluationScenarios Coverage Results" MODIFIED="1574614167468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572319459419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/LCaaS$DataVisualization.coverage" NAME="DataVisualization Coverage Results" MODIFIED="1574438910338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
