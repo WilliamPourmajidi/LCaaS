@@ -29,7 +29,7 @@ gcloud==0.17.0
 googleapis-common-protos==1.5.3
 hexbytes==0.2.0
 holidays==0.9.9
-httplib2==0.10.3
+httplib2==0.18.0
 idna==2.8
 importlib-metadata==0.23
 ipfshttpclient==0.4.12
