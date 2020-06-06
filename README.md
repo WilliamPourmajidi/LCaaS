@@ -6,13 +6,21 @@ Furthermore, LCaaS, introduces a solution for the common capacity challenges of 
 
 ![screenshot](https://user-images.githubusercontent.com/18631688/46560397-9fcc2680-c8c1-11e8-9052-1beeb996d281.png)
 
-LCaaS includes:
+#### LCaaS includes:
 
    - API for incoming traffic
    - Proprietary private blockchain implementation 
    - Integration with Firebase Realtime Database
    - Integration with Ethereum Test Network (Ropsten)
    - Configurable functionalities (check config.json for more information) 
+
+#### Blockchain Integration
+
+As LCaaS, is a hirarchical blockchain, it can use itself as the upper-level blockchain or it can use private or publuc blockchains to store superblocks. Currently, the following blockchains are support:
+
+   - IBM Blockchain (Private, Permissioned)
+   - Ethereum (Public, Permission-less)
+
 
 ### Tech
 
