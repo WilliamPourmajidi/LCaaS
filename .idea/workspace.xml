@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Set the configuration to default &amp; Submit evaluation scenarios" />
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Set the configuration to default &amp; Submit evaluation scenarios">
+      <change afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LCaaS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LCaaS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +36,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="e996f323-5502-4cae-bc8f-318c5b20150a" />
   <component name="ProjectId" id="1Ri25HLyLFgNJVlnpUFfjAPcU6O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,9 +48,10 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,23 +59,24 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios-Analysis" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios\LCaaS-IBM Blockchain" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main\Timestamps-Archive" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\William\PycharmProjects\LCaaS\API-Test(Postman)" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios\LCaaS-IBM Blockchain" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\main\Timestamps-Archive" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\main\API-Test" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.EvaluationScenarios">
+  <component name="RunManager" selected="Python.EvaluationScenario_Analysis">
     <configuration name="DataVisualization" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LCaaS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,20 +99,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="EvaluationScenarios" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="EvaluationScenario_Analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LCaaS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\William\PycharmProjects\LCaaS\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\Users\William\Anaconda3\envs\William-ML1\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,9 +165,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.index" />
+      <item itemvalue="Python.DataVisualization" />
+      <item itemvalue="Python.EvaluationScenario_Analysis" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.EvaluationScenarios" />
+        <item itemvalue="Python.EvaluationScenario_Analysis" />
         <item itemvalue="Python.DataVisualization" />
       </list>
     </recent_temporary>
@@ -189,6 +204,7 @@
       <workItem from="1574437372214" duration="5693000" />
       <workItem from="1574453919218" duration="18783000" />
       <workItem from="1591535400854" duration="32000" />
+      <workItem from="1591889198970" duration="19402000" />
     </task>
     <task id="LOCAL-00039" summary="Adding a switch to control ethereum integration from config.json file">
       <created>1531194762790</created>
@@ -537,7 +553,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -579,6 +595,36 @@
     <MESSAGE value="Set the configuration to default &amp; Submit evaluation scenarios" />
     <option name="LAST_COMMIT_MESSAGE" value="Set the configuration to default &amp; Submit evaluation scenarios" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591902875043">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591902875043" />
+    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1591902872815">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591902872815" />
+    <state width="1877" height="432" key="GridCell.Tab.0.bottom" timestamp="1591912663325">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="432" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
+    <state width="1877" height="432" key="GridCell.Tab.0.center" timestamp="1591912663325">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="432" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
+    <state width="1877" height="432" key="GridCell.Tab.0.left" timestamp="1591912663325">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="432" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
+    <state width="1877" height="432" key="GridCell.Tab.0.right" timestamp="1591912663325">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="432" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
+    <state x="461" y="184" key="SettingsEditor" timestamp="1591899142760">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591899142760" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -593,6 +639,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LCaaS$DataVisualization.coverage" NAME="DataVisualization Coverage Results" MODIFIED="1574438910338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572319459419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$result_analysis.coverage" NAME="EvaluationScenario_Analysis Coverage Results" MODIFIED="1591912663315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
     <SUITE FILE_PATH="coverage/LCaaS$EvaluationScenarios.coverage" NAME="EvaluationScenarios Coverage Results" MODIFIED="1574614167468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
   <component name="debuggerHistoryManager">

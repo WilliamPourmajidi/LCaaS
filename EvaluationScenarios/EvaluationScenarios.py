@@ -14,7 +14,7 @@ def cwd():
 
 data_columns = ["BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data",
                 "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data",
-                "Start_time", "End_time", "Duration"]
+                "Start_time", "End_time", "Duration","FileName"]
 
 # 0.1 TPS
 df_IBMBC_200_01_1 = pd.read_csv(cwd() + '\\LCaaS-IBM-Blockchain\\01TPS\\Timestamps_IBMBC_200_01_1.csv')
