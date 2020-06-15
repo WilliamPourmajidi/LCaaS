@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Set the configuration to default &amp; Submit evaluation scenarios">
-      <change afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LCaaS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LCaaS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios/EvaluationScenarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\William\Anaconda3\envs\William-ML1\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\William\PycharmProjects\LCaaS\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -204,14 +203,10 @@
       <workItem from="1574437372214" duration="5693000" />
       <workItem from="1574453919218" duration="18783000" />
       <workItem from="1591535400854" duration="32000" />
-      <workItem from="1591889198970" duration="19402000" />
-    </task>
-    <task id="LOCAL-00039" summary="Adding a switch to control ethereum integration from config.json file">
-      <created>1531194762790</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1531194762790</updated>
+      <workItem from="1591889198970" duration="19640000" />
+      <workItem from="1591985986111" duration="1118000" />
+      <workItem from="1592054803222" duration="14603000" />
+      <workItem from="1592084016384" duration="24343000" />
     </task>
     <task id="LOCAL-00040" summary="Extended submission of SB to Ethereum for all conditions">
       <created>1531195156161</created>
@@ -549,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574613664132</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Set the configuration to default &amp; Submit evaluation scenarios">
+      <created>1591966059450</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1591966059451</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,34 +598,78 @@
     <option name="LAST_COMMIT_MESSAGE" value="Set the configuration to default &amp; Submit evaluation scenarios" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591902875043">
+    <state x="847" y="376" key="#Notifications" timestamp="1591966090724">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591902875043" />
-    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1591902872815">
+    <state x="847" y="376" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1591966090724" />
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592057881616">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591902872815" />
-    <state width="1877" height="432" key="GridCell.Tab.0.bottom" timestamp="1591912663325">
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592057881616" />
+    <state x="785" y="434" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1592254037851">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="432" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
-    <state width="1877" height="432" key="GridCell.Tab.0.center" timestamp="1591912663325">
+    <state x="785" y="434" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592254037851" />
+    <state x="521" y="37" key="CommitChangelistDialog2" timestamp="1591966058336">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="432" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
-    <state width="1877" height="432" key="GridCell.Tab.0.left" timestamp="1591912663325">
+    <state x="521" y="37" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1591966058336" />
+    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1592057297804">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="432" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
-    <state width="1877" height="432" key="GridCell.Tab.0.right" timestamp="1591912663325">
+    <state x="740" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592057297804" />
+    <state width="1877" height="609" key="GridCell.Tab.0.bottom" timestamp="1592257726406">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="432" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591912663325" />
-    <state x="461" y="184" key="SettingsEditor" timestamp="1591899142760">
+    <state width="1877" height="197" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592247554701" />
+    <state width="1493" height="432" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1591995135160" />
+    <state width="1877" height="609" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592257726406" />
+    <state width="1877" height="609" key="GridCell.Tab.0.center" timestamp="1592257726406">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591899142760" />
+    <state width="1877" height="197" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592247554701" />
+    <state width="1493" height="432" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1591995135160" />
+    <state width="1877" height="609" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592257726406" />
+    <state width="1877" height="609" key="GridCell.Tab.0.left" timestamp="1592257726405">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="197" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592247554701" />
+    <state width="1493" height="432" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1591995135159" />
+    <state width="1877" height="609" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592257726405" />
+    <state width="1877" height="609" key="GridCell.Tab.0.right" timestamp="1592257726406">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="197" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592247554701" />
+    <state width="1493" height="432" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1591995135160" />
+    <state width="1877" height="609" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592257726406" />
+    <state width="1877" height="355" key="GridCell.Tab.1.bottom" timestamp="1592242248627">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="355" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592242248627" />
+    <state width="1877" height="355" key="GridCell.Tab.1.center" timestamp="1592242248627">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="355" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592242248627" />
+    <state width="1877" height="355" key="GridCell.Tab.1.left" timestamp="1592242248627">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="355" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592242248627" />
+    <state width="1877" height="355" key="GridCell.Tab.1.right" timestamp="1592242248627">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="355" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592242248627" />
+    <state x="461" y="184" key="SettingsEditor" timestamp="1592229439960">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592229439960" />
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1591966072301">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591966072301" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1591966101951">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591966101951" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,6 +685,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LCaaS$DataVisualization.coverage" NAME="DataVisualization Coverage Results" MODIFIED="1574438910338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
     <SUITE FILE_PATH="coverage/LCaaS$index.coverage" NAME="index Coverage Results" MODIFIED="1572319459419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/LCaaS$EvaluationScenario_Analysis.coverage" NAME="EvaluationScenario_Analysis Coverage Results" MODIFIED="1592258096591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
     <SUITE FILE_PATH="coverage/LCaaS$result_analysis.coverage" NAME="EvaluationScenario_Analysis Coverage Results" MODIFIED="1591912663315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EvaluationScenarios-Analysis" />
     <SUITE FILE_PATH="coverage/LCaaS$EvaluationScenarios.coverage" NAME="EvaluationScenarios Coverage Results" MODIFIED="1574614167468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>

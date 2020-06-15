@@ -1,6 +1,9 @@
 import pandas as pd
 import glob
-import matplotlib.pyplot as plot
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+
 import os
 
 ## Settings for Panda dataframe displays
@@ -17,8 +20,8 @@ pd.options.display.max_columns = 100
 # path_for_IBMBC_integration =  r"\combined"
 # print(path_for_IBMBC_integration)
 
-all_IBMBC_files = glob.glob("*IBM*.csv")
-all_Ethereum_files = glob.glob("*Ether*.csv")
+all_IBMBC_files = glob.glob("*Timestamps_IBMBC*.csv")
+all_Ethereum_files = glob.glob("*Timestamps_Ether*.csv")
 
 print("All LCaaS-IBM Blockchain files are: ", all_IBMBC_files)
 print("All LCaaS-Ethereum files are: ", all_Ethereum_files)
@@ -39,37 +42,69 @@ def extract_scenarios(filename):
 
     # Getting the substrings from the file name with _ as seperator
     filename_without_extension_seperated = filename_without_extension.split('_')
-
+    # print(type(filename_without_extension_seperated))
     TNoDB = filename_without_extension_seperated[2]  # total number of data blocks
-    TPS = filename_without_extension_seperated[3]  # transaction per second
+    if (filename_without_extension_seperated[3] == "01"):
+        TPS = 0.1
+    else:
+        TPS = filename_without_extension_seperated[3]  # transaction per second
     NoDBinCB = filename_without_extension_seperated[4]  # Number of data blocks in a circled blockchain
 
     return TNoDB, TPS, NoDBinCB
 
 
-## Sanity Test for the extract_scenarios module
-# my_string = extract_scenarios("Timestamps_Ether_200_01_1_6.csv")
-# print("This is my original return", my_string)
-# print("here you go:", my_string[2])
-
-## Master dataframe
-aggregated_IBMC_df = pd.DataFrame()
+## Aggregated dataframe from all CSVs
+aggregated_IBMBC_df = pd.DataFrame()
 
 for filename in all_IBMBC_files:
-    IBMC_df = pd.read_csv(filename, index_col=None, header=0)
-    IBMC_df.columns = data_columns
-    IBMC_df['Filename'] = filename
+    IBMBC_df = pd.read_csv(filename, index_col=None, header=0)
+    IBMBC_df.columns = data_columns
     scenario_details = extract_scenarios(filename)
-    IBMC_df['TNoDB'] = int(scenario_details[0])
-    IBMC_df['TPS'] = int(scenario_details[1])
-    IBMC_df['NoDBinCB'] = int(scenario_details[2])
-    # print(df)
+    IBMBC_df['Filename'] = filename
+    IBMBC_df['TNoDB'] = int(scenario_details[0])
+    # IBMBC_df['TPS'] = float(scenario_details[1])
+    IBMBC_df['TPS'] = round(float(scenario_details[1]), 1)
+    IBMBC_df['NoDBinCB'] = int(scenario_details[2])
+    # IBMBC_df['Duration_Mean'] = IBMBC_df['Duration'].mean()
+
+    # print(IBMBC_df)
     # print("next iteration")
-    aggregated_IBMC_df = aggregated_IBMC_df.append(IBMC_df)
+    aggregated_IBMBC_df = aggregated_IBMBC_df.append(IBMBC_df)
 
-print(type(aggregated_IBMC_df))
-print(aggregated_IBMC_df)
+# print(aggregated_IBMBC_df.info())
+# print(aggregated_IBMBC_df)
 
-aggregated_IBMC_df.plot.bar(x="TNoDB", y="TPS", rot=70, title="Number of tourist visits - Year 2018");
+## Convert to CSV
+# aggregated_IBMBC_df.to_csv('aggregated_IBMC_df.csv')
 
-plot.show(block=True);
+grouped_df = aggregated_IBMBC_df.groupby(['Filename']).mean()
+# print("grouped_df is \n", grouped_df)
+tps_01 = []
+tps_1 = []
+tps_10 = []
+tps_100 = []
+for index, row in grouped_df.iterrows():
+    if (row['TPS'] < 1):
+        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+        tps_01.append(row['Duration'])
+    elif (row['TPS'] == 1):
+        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+        tps_1.append(row['Duration'])
+    elif (row['TPS'] == 10):
+        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+        tps_10.append(row['Duration'])
+    elif (row['TPS'] == 100):
+        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+        tps_100.append(row['Duration'])
+IBMBC_Graph_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
+                   '10 TPS': tps_10, '100 TPS': tps_100})
+print("before pivot\n", IBMBC_Graph_df)
+IBMBC_Graph_df_t = IBMBC_Graph_df.T  # transpose the df
+fig, ax = plt.subplots(figsize=(12, 8))
+
+
+df_t_columns = ["TNoDB=200, NoDBinCB=1", "TNoDB=200, NoDBinCB=10", "TNoDB=1000, NoDBinCB=100"]
+IBMBC_Graph_df_t.columns = df_t_columns
+print("after pivot\n", IBMBC_Graph_df_t)
+IBMBC_Graph_df_t.plot(kind='bar')
+plt.show()
