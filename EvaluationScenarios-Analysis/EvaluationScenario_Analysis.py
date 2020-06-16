@@ -11,21 +11,13 @@ pd.options.display.width = 1200
 pd.options.display.max_colwidth = 100
 pd.options.display.max_columns = 100
 
-# def cwd():
-#     return os.path.dirname(os.path.realpath(__import__("__main__").__file__))
-
-
-# print("The current working directory is: ", cwd())
-
-# path_for_IBMBC_integration =  r"\combined"
-# print(path_for_IBMBC_integration)
-
 all_IBMBC_files = glob.glob("*Timestamps_IBMBC*.csv")
 all_Ethereum_files = glob.glob("*Timestamps_Ether*.csv")
 
-print("All LCaaS-IBM Blockchain files are: ", all_IBMBC_files)
-print("All LCaaS-Ethereum files are: ", all_Ethereum_files)
+# print("All LCaaS-IBM Blockchain files are: ", all_IBMBC_files)
+# print("All LCaaS-Ethereum files are: ", all_Ethereum_files)
 
+## declaring columns for all the panda dataframes
 data_columns = ["BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data",
                 "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data",
                 "Start_time", "End_time", "Duration"]
@@ -99,13 +91,15 @@ for index, row in grouped_df.iterrows():
         tps_100.append(row['Duration'])
 IBMBC_Graph_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
                                '10 TPS': tps_10, '100 TPS': tps_100})
-print("before pivot\n", IBMBC_Graph_df)
+# print("before pivot\n", IBMBC_Graph_df)
 IBMBC_Graph_df_t = IBMBC_Graph_df.T  # transpose the df
-fig, ax = plt.subplots(figsize=(12, 8))
-
 df_t_columns = ["TNoDB=200, NoDBinCB=1", "TNoDB=200, NoDBinCB=10", "TNoDB=1000, NoDBinCB=100"]
 IBMBC_Graph_df_t.columns = df_t_columns
-print("after pivot\n", IBMBC_Graph_df_t)
+# print("after pivot\n", IBMBC_Graph_df_t)
 IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='True', figsize=[15, 8])
 
+ax = IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='False', figsize=[15, 8])
+ax.set_xlabel("x")
+ax.set_ylabel("y")
 plt.show()
+
