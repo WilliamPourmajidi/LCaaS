@@ -56,6 +56,7 @@ def extract_scenarios(filename):
 ## Aggregated dataframe from all CSVs
 aggregated_IBMBC_df = pd.DataFrame()
 
+# TODO: Convert this to a function that can be called for both IBM and Ethereum
 for filename in all_IBMBC_files:
     IBMBC_df = pd.read_csv(filename, index_col=None, header=0)
     IBMBC_df.columns = data_columns
@@ -97,14 +98,14 @@ for index, row in grouped_df.iterrows():
         # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
         tps_100.append(row['Duration'])
 IBMBC_Graph_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
-                   '10 TPS': tps_10, '100 TPS': tps_100})
+                               '10 TPS': tps_10, '100 TPS': tps_100})
 print("before pivot\n", IBMBC_Graph_df)
 IBMBC_Graph_df_t = IBMBC_Graph_df.T  # transpose the df
 fig, ax = plt.subplots(figsize=(12, 8))
 
-
 df_t_columns = ["TNoDB=200, NoDBinCB=1", "TNoDB=200, NoDBinCB=10", "TNoDB=1000, NoDBinCB=100"]
 IBMBC_Graph_df_t.columns = df_t_columns
 print("after pivot\n", IBMBC_Graph_df_t)
-IBMBC_Graph_df_t.plot(kind='bar')
+IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='True', figsize=[15, 8])
+
 plt.show()
