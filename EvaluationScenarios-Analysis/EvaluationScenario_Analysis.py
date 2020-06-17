@@ -96,10 +96,11 @@ IBMBC_Graph_df_t = IBMBC_Graph_df.T  # transpose the df
 df_t_columns = ["TNoDB=200, NoDBinCB=1", "TNoDB=200, NoDBinCB=10", "TNoDB=1000, NoDBinCB=100"]
 IBMBC_Graph_df_t.columns = df_t_columns
 # print("after pivot\n", IBMBC_Graph_df_t)
-IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='True', figsize=[15, 8])
+# IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='True', figsize=[15, 8])
 
 ax = IBMBC_Graph_df_t.plot(kind='bar', grid='True', title='IBM Blockchain Submission', legend='False', figsize=[15, 8])
-ax.set_xlabel("x")
-ax.set_ylabel("y")
+ax.set_xlabel("Transaction per second(TPS)")
+ax.set_ylabel("Submission Duration(ms)")
+plt.xticks(rotation=0)
 plt.show()
 
