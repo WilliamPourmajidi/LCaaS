@@ -105,4 +105,3 @@ ax.set_xlabel("Transaction per second(TPS)")
 ax.set_ylabel("Submission Duration(ms)")
 plt.xticks(rotation=0)
 plt.show()
-
