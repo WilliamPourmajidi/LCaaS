@@ -26,6 +26,8 @@ data_columns = ["BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data"
 def extract_scenarios(filename):
     """
     :param filename:
+        the name of the filename that we want to extract details from
+
     :return: substrings seperated by the seperator. Returning the Total number of data blocks(TNoDB), Transaction per second (TPS),
      Number of data blocks in a circled blockchain (NoDBinCB)
     """
