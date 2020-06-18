@@ -79,7 +79,8 @@ aggregated_IBMBC_df = parse_log_files(all_IBMBC_files)
 
 print(aggregated_IBMBC_df.info())
 print(aggregated_IBMBC_df)
-#
+
+
 # ## Convert to CSV
 # # aggregated_IBMBC_df.to_csv('aggregated_IBMC_df.csv')
 
