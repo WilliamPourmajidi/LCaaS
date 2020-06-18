@@ -14,7 +14,6 @@ pd.options.display.max_columns = 100
 all_IBMBC_files = glob.glob("*Timestamps_IBMBC*.csv")
 all_Ethereum_files = glob.glob("*Timestamps_Ether*.csv")
 
-
 # print("All LCaaS-IBM Blockchain files are: ", all_IBMBC_files)
 # print("All LCaaS-Ethereum files are: ", all_Ethereum_files)
 
@@ -53,7 +52,7 @@ def parse_log_files(list_of_files: list) -> str:
     :param list_of_files: This is a list containing all the .csv files that we need to parse and extract data from
     This function loads the list of csv files
 
-    :return: array of strings
+    :return: pandas dataframes
     """
     aggregated_df = pd.DataFrame()
     for filename in list_of_files:
@@ -65,47 +64,38 @@ def parse_log_files(list_of_files: list) -> str:
         df['TNoDB'] = int(extracted_scenario_details[0])
         df['TPS'] = round(float(extracted_scenario_details[1]), 1)
         df['NoDBinCB'] = int(extracted_scenario_details[2])
-        print(df)
-        print("next iteration")
         aggregated_df = aggregated_df.append(df)
-    return aggregated_df
+        aggregated_grouped_df = aggregated_df.groupby(['Filename']).mean()
+        # Empty lists for columns of the grouped dataframe
+        tps_01, tps_1, tps_10, tps_100 = ([] for i in range(4))
 
-aggregated_IBMBC_df = parse_log_files(all_IBMBC_files)
+        for index, row in aggregated_grouped_df.iterrows():
+            if (row['TPS'] < 1):
+                # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+                tps_01.append(row['Duration'])
+            elif (row['TPS'] == 1):
+                # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+                tps_1.append(row['Duration'])
+            elif (row['TPS'] == 10):
+                # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+                tps_10.append(row['Duration'])
+            elif (row['TPS'] == 100):
+                # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+                tps_100.append(row['Duration'])
+
+    aggregated_grouped_graphable_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
+                                                    '10 TPS': tps_10, '100 TPS': tps_100})
+    ## Convert to CSV
+    # aggregated_df.to_csv('aggregated_df.csv')
+    return aggregated_grouped_graphable_df
 
 
-
-## Aggregated dataframe from all CSVs
-# aggregated_IBMBC_df = pd.DataFrame()
-
-print(aggregated_IBMBC_df.info())
-print(aggregated_IBMBC_df)
+IBMBC_Graph_df = parse_log_files(all_IBMBC_files)
+print("XXXXXXXXX", IBMBC_Graph_df)
+# print(aggregated_IBMBC_df.info())
+# print(aggregated_IBMBC_df)
 
 
-# ## Convert to CSV
-# # aggregated_IBMBC_df.to_csv('aggregated_IBMC_df.csv')
-
-grouped_df = aggregated_IBMBC_df.groupby(['Filename']).mean()
-# print("grouped_df is \n", grouped_df)
-tps_01 = []
-tps_1 = []
-tps_10 = []
-tps_100 = []
-for index, row in grouped_df.iterrows():
-    if (row['TPS'] < 1):
-        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
-        tps_01.append(row['Duration'])
-    elif (row['TPS'] == 1):
-        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
-        tps_1.append(row['Duration'])
-    elif (row['TPS'] == 10):
-        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
-        tps_10.append(row['Duration'])
-    elif (row['TPS'] == 100):
-        # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
-        tps_100.append(row['Duration'])
-IBMBC_Graph_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
-                               '10 TPS': tps_10, '100 TPS': tps_100})
-# print("before pivot\n", IBMBC_Graph_df)
 IBMBC_Graph_df_t = IBMBC_Graph_df.T  # transpose the df
 df_t_columns = ["TNoDB=200, NoDBinCB=1", "TNoDB=200, NoDBinCB=10", "TNoDB=1000, NoDBinCB=100"]
 IBMBC_Graph_df_t.columns = df_t_columns
@@ -118,11 +108,38 @@ ax.set_ylabel("Submission Duration(ms)")
 plt.xticks(rotation=0)
 plt.show()
 
+#
+# To be removed started
+# grouped_df = aggregated_IBMBC_df.groupby(['Filename']).mean()
+# print("grouped_df is \n", grouped_df)
+# tps_01 = []
+# tps_1 = []
+# tps_10 = []
+# tps_100 = []
+# for index, row in grouped_df.iterrows():
+#     if (row['TPS'] < 1):
+#         # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+#         tps_01.append(row['Duration'])
+#     elif (row['TPS'] == 1):
+#         # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+#         tps_1.append(row['Duration'])
+#     elif (row['TPS'] == 10):
+#         # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+#         tps_10.append(row['Duration'])
+#     elif (row['TPS'] == 100):
+#         # print(row['TNoDB'], row['TPS'], row['NoDBinCB'], row['Duration'])
+#         tps_100.append(row['Duration'])
+# IBMBC_Graph_df = pd.DataFrame({'0.1 TPS': tps_01, '1 TPS': tps_1,
+#                                '10 TPS': tps_10, '100 TPS': tps_100})
+# print("before pivot\n", IBMBC_Graph_df)
+# To be removed ended here
 
 
 # not in use - delete as you wish
 
 
+## Aggregated dataframe from all CSVs
+# aggregated_IBMBC_df = pd.DataFrame()
 
 # for filename in all_IBMBC_files:
 #     IBMBC_df = pd.read_csv(filename, index_col=None, header=0)
