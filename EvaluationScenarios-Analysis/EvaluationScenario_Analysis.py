@@ -14,6 +14,7 @@ pd.options.display.max_columns = 100
 all_IBMBC_files = glob.glob("*Timestamps_IBMBC*.csv")
 all_Ethereum_files = glob.glob("*Timestamps_Ether*.csv")
 
+
 # print("All LCaaS-IBM Blockchain files are: ", all_IBMBC_files)
 # print("All LCaaS-Ethereum files are: ", all_Ethereum_files)
 
@@ -26,7 +27,7 @@ data_columns = ["BC_data", "BC_data", "BC_data", "BC_data", "BC_data", "BC_data"
 def extract_scenarios(filename):
     """
     :param filename:
-        the name of the filename that we want to extract details from
+    the name of the filename that we want to extract details from
 
     :return: substrings seperated by the seperator. Returning the Total number of data blocks(TNoDB), Transaction per second (TPS),
      Number of data blocks in a circled blockchain (NoDBinCB)
@@ -47,30 +48,40 @@ def extract_scenarios(filename):
     return TNoDB, TPS, NoDBinCB
 
 
+def parse_log_files(list_of_files: list) -> str:
+    """
+    :param list_of_files: This is a list containing all the .csv files that we need to parse and extract data from
+    This function loads the list of csv files
+
+    :return: array of strings
+    """
+    aggregated_df = pd.DataFrame()
+    for filename in list_of_files:
+        df = pd.read_csv(filename, index_col=None, header=0)
+        df.columns = data_columns
+        ## Extracting details from each file
+        extracted_scenario_details = extract_scenarios(filename)
+        df['Filename'] = filename
+        df['TNoDB'] = int(extracted_scenario_details[0])
+        df['TPS'] = round(float(extracted_scenario_details[1]), 1)
+        df['NoDBinCB'] = int(extracted_scenario_details[2])
+        print(df)
+        print("next iteration")
+        aggregated_df = aggregated_df.append(df)
+    return aggregated_df
+
+aggregated_IBMBC_df = parse_log_files(all_IBMBC_files)
+
+
+
 ## Aggregated dataframe from all CSVs
-aggregated_IBMBC_df = pd.DataFrame()
+# aggregated_IBMBC_df = pd.DataFrame()
 
-# TODO: Convert this to a function that can be called for both IBM and Ethereum
-for filename in all_IBMBC_files:
-    IBMBC_df = pd.read_csv(filename, index_col=None, header=0)
-    IBMBC_df.columns = data_columns
-    scenario_details = extract_scenarios(filename)
-    IBMBC_df['Filename'] = filename
-    IBMBC_df['TNoDB'] = int(scenario_details[0])
-    # IBMBC_df['TPS'] = float(scenario_details[1])
-    IBMBC_df['TPS'] = round(float(scenario_details[1]), 1)
-    IBMBC_df['NoDBinCB'] = int(scenario_details[2])
-    # IBMBC_df['Duration_Mean'] = IBMBC_df['Duration'].mean()
-
-    # print(IBMBC_df)
-    # print("next iteration")
-    aggregated_IBMBC_df = aggregated_IBMBC_df.append(IBMBC_df)
-
-# print(aggregated_IBMBC_df.info())
-# print(aggregated_IBMBC_df)
-
-## Convert to CSV
-# aggregated_IBMBC_df.to_csv('aggregated_IBMC_df.csv')
+print(aggregated_IBMBC_df.info())
+print(aggregated_IBMBC_df)
+#
+# ## Convert to CSV
+# # aggregated_IBMBC_df.to_csv('aggregated_IBMC_df.csv')
 
 grouped_df = aggregated_IBMBC_df.groupby(['Filename']).mean()
 # print("grouped_df is \n", grouped_df)
@@ -105,3 +116,25 @@ ax.set_xlabel("Transaction per second(TPS)")
 ax.set_ylabel("Submission Duration(ms)")
 plt.xticks(rotation=0)
 plt.show()
+
+
+
+# not in use - delete as you wish
+
+
+
+# for filename in all_IBMBC_files:
+#     IBMBC_df = pd.read_csv(filename, index_col=None, header=0)
+#     IBMBC_df.columns = data_columns
+#     scenario_details = extract_scenarios(filename)
+#     IBMBC_df['Filename'] = filename
+#     IBMBC_df['TNoDB'] = int(scenario_details[0])
+#     # IBMBC_df['TPS'] = float(scenario_details[1])
+#     IBMBC_df['TPS'] = round(float(scenario_details[1]), 1)
+#     IBMBC_df['NoDBinCB'] = int(scenario_details[2])
+#     # IBMBC_df['Duration_Mean'] = IBMBC_df['Duration'].mean()
+#
+#     # print(IBMBC_df)
+#     # print("next iteration")
+#     aggregated_IBMBC_df = aggregated_IBMBC_df.append(IBMBC_df)
+# #
