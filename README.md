@@ -22,6 +22,13 @@ As LCaaS, is a hirarchical blockchain, it can use itself as the upper-level bloc
    - Ethereum (Public, Permission-less)
 
 
+#### Blockchain Integration Analysis
+
+As LCaaS can be integrated with different blockchain vendors, it is useful to analyze the performance of each integration by using the 'submission time' as a common factor. The following depicts the comparison between LCaaS-IBM Blockchain and LCaaS-Ethereum integrations.
+
+![IBM-Ethereumomparison](https://user-images.githubusercontent.com/18631688/85209292-b409be80-b304-11ea-8f45-98b1156eeb2f.gif)
+
+
 ### Tech
 
 LCaaS uses a number of projects:
