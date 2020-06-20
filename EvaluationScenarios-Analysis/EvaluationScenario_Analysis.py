@@ -126,8 +126,8 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
 
     ## Plotting efforts
     ax = aggregated_grouped_graphable_df_t.plot(kind='bar', grid='True', title=graph_title,
-                                                            legend='False',
-                                                            figsize=[15, 8])
+                                                legend='False',
+                                                figsize=[15, 8])
     ax.set_xlabel("Transaction per second (TPS)")
     ax.set_ylabel("Submission Duration (ms)")
     plt.xticks(rotation=0)
@@ -136,17 +136,7 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
     return aggregated_grouped_graphable_df_t
 
 
-# IBM_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_IBMBC_files, 21)
-Ethereum_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_Ethereum_files, 8, "Ethereum Blockchain Submissions")
-
-
-
-## Plotting efforts (IBM)
-# ax = Ethereum_BC_aggregated_grouped_graphable_df_t .plot(kind='bar', grid='True', title='IBM Blockchain Submission',
-#                                                    legend='False',
-#                                                    figsize=[15, 8])
-# ax.set_xlabel("Transaction per second (TPS)")
-# ax.set_ylabel("Submission Duration (ms)")
-# plt.xticks(rotation=0)
-# plt.show()
-
+## calling the main function
+IBM_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_IBMBC_files, 21, "IBM Blockchain Submissions")
+Ethereum_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_Ethereum_files, 8,
+                                                                "Ethereum Blockchain Submissions")
