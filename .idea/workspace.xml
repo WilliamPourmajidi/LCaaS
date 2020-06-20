@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Moving the business logic for file parsing to function.">
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="all business logics were moved to the functions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +58,17 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\API-Test(Postman)" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
+      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios-Analysis" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\EvaluationScenarios\LCaaS-IBM Blockchain" />
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main\Timestamps-Archive" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\API-Test(Postman)" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS" />
-      <recent name="C:\Users\William\PycharmProjects\LCaaS\main" />
     </key>
   </component>
   <component name="RunManager" selected="Python.EvaluationScenario_Analysis">
@@ -206,28 +205,7 @@
       <workItem from="1592084016384" duration="26036000" />
       <workItem from="1592331117280" duration="5305000" />
       <workItem from="1592338438279" duration="43755000" />
-      <workItem from="1592607641338" duration="10589000" />
-    </task>
-    <task id="LOCAL-00051" summary="Added screenshots:&#10;&#10;Infura">
-      <created>1531573756696</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1531573756696</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Matching words with the ones in the Thesis!">
-      <created>1532474244262</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1532474244263</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Matching words with the ones in the Thesis!">
-      <created>1532511492602</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1532511492602</updated>
+      <workItem from="1592607641338" duration="11361000" />
     </task>
     <task id="LOCAL-00054" summary="Matching words with the ones in the Thesis!">
       <created>1534254184676</created>
@@ -551,7 +529,28 @@
       <option name="project" value="LOCAL" />
       <updated>1592677842820</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="all business logics were moved to the functions.">
+      <created>1592678090613</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1592678090613</updated>
+    </task>
+    <task id="LOCAL-00101" summary="all business logics were moved to the functions.">
+      <created>1592678265776</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1592678265777</updated>
+    </task>
+    <task id="LOCAL-00102" summary="all business logics were moved to the functions.">
+      <created>1592678283250</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1592678283250</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +569,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding a switch to control ethereum integration from config.json file" />
     <MESSAGE value="Extended submission of SB to Ethereum for all conditions" />
     <MESSAGE value="Complete Ethereum Integration with configurable settings." />
     <MESSAGE value="Completed the ToDo(s)" />
@@ -595,7 +593,8 @@
     <MESSAGE value="Fix the direction of titlesq" />
     <MESSAGE value="convert manual extraction of details from files to a helper function" />
     <MESSAGE value="Moving the business logic for file parsing to function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving the business logic for file parsing to function." />
+    <MESSAGE value="all business logics were moved to the functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="all business logics were moved to the functions." />
   </component>
   <component name="WindowStateProjectService">
     <state x="847" y="376" key="#Notifications" timestamp="1592500437809">
@@ -610,10 +609,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="785" y="434" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592254037851" />
-    <state x="521" y="37" key="CommitChangelistDialog2" timestamp="1592677842111">
+    <state x="521" y="37" key="CommitChangelistDialog2" timestamp="1592678282462">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="521" y="37" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592677842111" />
+    <state x="521" y="37" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592678282462" />
     <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1592677976892">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -682,10 +681,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="783" y="155" key="VCS.ChangeListViewerDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592500331327" />
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1592677849628">
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1592678284666">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592677849628" />
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592678284666" />
     <state x="565" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592258057538">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

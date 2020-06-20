@@ -138,6 +138,7 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
 
 
 ## calling the main function
-IBM_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_IBMBC_files, 21, "IBM Blockchain Submissions")
+IBM_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_IBMBC_files, 21,
+                                                           "IBM Blockchain Submissions")
 Ethereum_BC_aggregated_grouped_graphable_df_t = parse_log_files(all_Ethereum_files, 8,
                                                                 "Ethereum Blockchain Submissions")
