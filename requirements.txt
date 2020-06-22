@@ -52,7 +52,7 @@ lesscpy==0.13.0
 lru-dict==1.1.6
 lunardate==0.2.0
 MarkupSafe==1.1.1
-matplotlib==3.0.2
+matplotlib~=3.2.1
 mistune==0.8.4
 more-itertools==7.2.0
 multiaddr==0.0.8
@@ -60,9 +60,9 @@ nbconvert==5.6.0
 nbformat==4.4.0
 netaddr==0.7.19
 notebook==6.0.1
-numpy==1.16.0
+numpy~=1.18.5
 oauth2client==3.0.0
-pandas==0.23.4
+pandas~=1.0.4
 pandocfilters==1.4.2
 parsimonious==0.8.1
 parso==0.5.1
@@ -94,7 +94,7 @@ rlp==1.1.0
 rsa==3.4.2
 Send2Trash==1.5.0
 setuptools-git==1.2
-six==1.11.0
+six~=1.15.0
 terminado==0.8.2
 testpath==0.4.2
 toolz==0.10.0
@@ -109,3 +109,5 @@ websockets==7.0
 Werkzeug==0.16.0
 widgetsnbextension==3.5.1
 zipp==0.6.0
+
+pip~=20.1.1

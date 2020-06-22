@@ -130,7 +130,7 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
                                                 legend='False',
                                                 figsize=[15, 8])
     ax.set_xlabel("Transaction per second (TPS)")
-    ax.set_ylabel("Submission Duration (ms)")
+    ax.set_ylabel("SB Processing time (ms)")
     plt.xticks(rotation=0)
     plt.show()
 
