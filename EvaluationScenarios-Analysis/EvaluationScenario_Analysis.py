@@ -4,6 +4,8 @@ import glob
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+
 ## Settings for Panda dataframe displays
 pd.options.display.width = 1200
 pd.options.display.max_colwidth = 100
@@ -126,11 +128,12 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
                                                  "TNoDB=1000, NoDBinCB=100"]
 
     ## Plotting efforts
-    ax = aggregated_grouped_graphable_df_t.plot(kind='bar', grid='True', title=graph_title,
+    ax = aggregated_grouped_graphable_df_t.plot(kind='bar', grid='True',
                                                 legend='False',
-                                                figsize=[15, 8])
-    ax.set_xlabel("Transaction per second (TPS)")
-    ax.set_ylabel("SB Processing time (ms)")
+                                                figsize=[15, 8], fontsize=16)
+    ax.set_title(graph_title, fontsize=30)  # title of plot
+    ax.set_xlabel("Transaction per second (TPS)", fontsize=22)
+    ax.set_ylabel("SB Processing time (ms)", fontsize=22)
     plt.xticks(rotation=0)
     plt.show()
 
