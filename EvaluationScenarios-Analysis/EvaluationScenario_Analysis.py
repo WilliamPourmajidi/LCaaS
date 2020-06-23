@@ -134,7 +134,7 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
     ax.set_xlabel("Transaction per second (TPS)", fontsize=22)
     ax.set_ylabel("SB Processing time (ms)", fontsize=22)
     ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
-                  ncol=2, fancybox=True, shadow=True)
+                  ncol=3, fancybox=True, shadow=True)
     plt.xticks(rotation=0)
 
     # plt.show()
@@ -170,7 +170,7 @@ ax_Etherum = Ethereum_BC_files.plot(kind='line', grid='True',legend='False',figs
 ax_IBM.set_xlabel("SB Processing time comparison (Ethereum vs. IBM Blockchain)" , fontsize=22)
 ax_IBM.set_ylabel("SB Processing time (ms)", fontsize=22)
 ax_IBM.legend(loc='lower center', bbox_to_anchor=(0.5, 1.05),
-          ncol=3, fancybox=True )
+          ncol=2, fancybox=True)
 plt.xticks(rotation=0)
 plt.show()
 
