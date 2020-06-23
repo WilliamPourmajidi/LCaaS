@@ -140,13 +140,9 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
 
     # plt.show()
 
-    # print(f"The mean for all SB processing time for {graph_title}: ", aggregated_df['Submission_Duration'].mean())
-    # print(f"The minimum for all SB processing time for {graph_title} is", aggregated_df['Submission_Duration'].min)
-    # print(f"The maximum for all SB processing time for {graph_title} is", aggregated_df['Submission_Duration'].describe())
 
-    mydf = aggregated_df['Submission_Duration'].describe()
-    print(mydf, type(mydf))
 
+    print(f"Descriptive Stats for {graph_title}:", aggregated_df['Submission_Duration'].describe())
     return aggregated_grouped_graphable_df_t
 
 
