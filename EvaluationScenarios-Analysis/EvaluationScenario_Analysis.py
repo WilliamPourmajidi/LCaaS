@@ -123,7 +123,8 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
 
     aggregated_grouped_graphable_df_t = aggregated_grouped_graphable_df.T  # transpose the df
 
-    aggregated_grouped_graphable_df_t.columns = [f"{graph_title} : TNoDB=200, NoDBinCB=1", f"{graph_title} : TNoDB=200, NoDBinCB=10",
+    aggregated_grouped_graphable_df_t.columns = [f"{graph_title} : TNoDB=200, NoDBinCB=1",
+                                                 f"{graph_title} : TNoDB=200, NoDBinCB=10",
                                                  f"{graph_title} : TNoDB=1000, NoDBinCB=100"]
 
     ## Plotting efforts
@@ -134,13 +135,18 @@ def parse_log_files(list_of_files: list, number_of_columns: int, graph_title: st
     ax.set_xlabel("Transaction per second (TPS)", fontsize=22)
     ax.set_ylabel("SB Processing time (ms)", fontsize=22)
     ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
-                  ncol=3, fancybox=True, shadow=True)
+              ncol=3, fancybox=True, shadow=True)
     plt.xticks(rotation=0)
 
     # plt.show()
 
-    # return aggregated_df.groupby(['Filename']).mean()
-    # return aggregated_df['Submission_Duration'].mean()
+    # print(f"The mean for all SB processing time for {graph_title}: ", aggregated_df['Submission_Duration'].mean())
+    # print(f"The minimum for all SB processing time for {graph_title} is", aggregated_df['Submission_Duration'].min)
+    # print(f"The maximum for all SB processing time for {graph_title} is", aggregated_df['Submission_Duration'].describe())
+
+    mydf = aggregated_df['Submission_Duration'].describe()
+    print(mydf, type(mydf))
+
     return aggregated_grouped_graphable_df_t
 
 
@@ -155,22 +161,20 @@ Ethereum_BC_files = parse_log_files(all_Ethereum_files, 8,
                                     "Ethereum Blockchain Submissions")
 # print("Ethereum Superblock Processing Time (mean)", Ethereum_BC_files)
 
-merged_df = pd.DataFrame()
-merged_df = merged_df.append(IBM_BC_files)
-
-print("merged", merged_df)
-print(merged_df.info())
-
+# merged_df = pd.DataFrame()
+# merged_df = merged_df.append(IBM_BC_files)
+#
+# print("merged", merged_df)
+# print(merged_df.info())
 
 ## Plotting efforts
-ax_IBM = IBM_BC_files.plot(kind='line', grid='True',legend='False',figsize=[15, 8], fontsize=16, linewidth=2, marker='o')
-
-
-ax_Etherum = Ethereum_BC_files.plot(kind='line', grid='True',legend='False',figsize=[15, 8], fontsize=16,linestyle='--',marker='s',ax=ax_IBM)
-ax_IBM.set_xlabel("SB Processing time comparison (Ethereum vs. IBM Blockchain)" , fontsize=22)
+ax_IBM = IBM_BC_files.plot(kind='line', grid='True', legend='False', figsize=[15, 8], fontsize=16, linewidth=2,
+                           marker='o')
+ax_Etherum = Ethereum_BC_files.plot(kind='line', grid='True', legend='False', figsize=[15, 8], fontsize=16,
+                                    linestyle='--', marker='s', ax=ax_IBM)
+ax_IBM.set_xlabel("SB Processing time comparison (Ethereum vs. IBM Blockchain)", fontsize=22)
 ax_IBM.set_ylabel("SB Processing time (ms)", fontsize=22)
 ax_IBM.legend(loc='lower center', bbox_to_anchor=(0.5, 1.05),
-          ncol=2, fancybox=True)
+              ncol=2, fancybox=True)
 plt.xticks(rotation=0)
 plt.show()
-
