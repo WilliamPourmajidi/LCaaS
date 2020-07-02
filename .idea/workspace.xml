@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="all business logics were moved to the functions.">
-      <change afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/Ethereum-vs-IBM-SBProcessingTime.png" afterDir="false" />
+    <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Finalizing Descriptive stats for Dataframes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/EvaluationScenarios-Analysis/EvaluationScenario_Analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,14 +206,8 @@
       <workItem from="1592331117280" duration="5305000" />
       <workItem from="1592338438279" duration="43755000" />
       <workItem from="1592607641338" duration="15164000" />
-      <workItem from="1592844645627" duration="22251000" />
-    </task>
-    <task id="LOCAL-00057" summary="Final Touches">
-      <created>1536934679779</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1536934679780</updated>
+      <workItem from="1592844645627" duration="23090000" />
+      <workItem from="1593118603020" duration="323000" />
     </task>
     <task id="LOCAL-00058" summary="Final Touches">
       <created>1537102898186</created>
@@ -553,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592919274491</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Finalizing Descriptive stats for Dataframes">
+      <created>1592938588538</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1592938588538</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +571,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Extended submission of SB to Ethereum for all conditions" />
     <MESSAGE value="Complete Ethereum Integration with configurable settings." />
     <MESSAGE value="Completed the ToDo(s)" />
     <MESSAGE value="Update Formats" />
@@ -597,7 +595,8 @@
     <MESSAGE value="convert manual extraction of details from files to a helper function" />
     <MESSAGE value="Moving the business logic for file parsing to function." />
     <MESSAGE value="all business logics were moved to the functions." />
-    <option name="LAST_COMMIT_MESSAGE" value="all business logics were moved to the functions." />
+    <MESSAGE value="Finalizing Descriptive stats for Dataframes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizing Descriptive stats for Dataframes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="847" y="376" key="#Notifications" timestamp="1592500437809">
@@ -612,45 +611,45 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="785" y="434" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592861066742" />
-    <state x="521" y="37" key="CommitChangelistDialog2" timestamp="1592919273831">
+    <state x="521" y="37" key="CommitChangelistDialog2" timestamp="1592938586508">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="521" y="37" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592919273831" />
+    <state x="521" y="37" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592938586508" />
     <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1592919236707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="294" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592919236707" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1592938324458">
+    <state width="1877" height="163" key="GridCell.Tab.0.bottom" timestamp="1592941179019">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1537" height="807" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592588981375" />
     <state width="1491" height="131" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1592779881098" />
     <state width="1877" height="654" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1592602410005" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592938324458" />
+    <state width="1877" height="163" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592941179019" />
     <state width="1537" height="778" key="GridCell.Tab.0.bottom/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1592593299670" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1592938324456">
+    <state width="1877" height="163" key="GridCell.Tab.0.center" timestamp="1592941179019">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1537" height="807" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592588981374" />
     <state width="1491" height="131" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1592779881098" />
     <state width="1877" height="654" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1592602410004" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592938324456" />
+    <state width="1877" height="163" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592941179019" />
     <state width="1537" height="778" key="GridCell.Tab.0.center/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1592593299669" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1592938324452">
+    <state width="1877" height="163" key="GridCell.Tab.0.left" timestamp="1592941179019">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1537" height="807" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592588981374" />
     <state width="1491" height="131" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1592779881098" />
     <state width="1877" height="654" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1592602410004" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592938324452" />
+    <state width="1877" height="163" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592941179019" />
     <state width="1537" height="778" key="GridCell.Tab.0.left/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1592593299669" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1592938324456">
+    <state width="1877" height="163" key="GridCell.Tab.0.right" timestamp="1592941179019">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1537" height="807" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1592588981375" />
     <state width="1491" height="131" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1592779881098" />
     <state width="1877" height="654" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1592602410005" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592938324456" />
+    <state width="1877" height="163" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592941179019" />
     <state width="1537" height="778" key="GridCell.Tab.0.right/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1592593299670" />
     <state width="1877" height="654" key="GridCell.Tab.1.bottom" timestamp="1592602410005">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -684,10 +683,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="783" y="155" key="VCS.ChangeListViewerDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592500331327" />
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1592919275655">
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1592938589934">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592919275655" />
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592938589934" />
+    <state x="832" y="384" key="cloudConfig.SelfSettingsDialog" timestamp="1592938420656">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="832" y="384" key="cloudConfig.SelfSettingsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592938420656" />
     <state x="565" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592258057538">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
