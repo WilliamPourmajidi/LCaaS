@@ -29,12 +29,12 @@ config = {
     "serviceAccount": "serviceAccountCredentials.json"
 }
 # Link to our node.js API that will take the data and submits it to the IBM blockchain
-IBMBC_url = 'http://9.42.19.179:8081/api'
+IBMBC_url = 'http://255.255.255.255:8081/api'  # replace with the IP address of the server
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 # # authenticate a user
-user = auth.sign_in_with_email_and_password("william.pourmajidi@gmail.com", "bcaas2018Pass")
+user = auth.sign_in_with_email_and_password("william.pourmajidi@gmail.com", "replace_with_password")
 
 # user['idToken']
 db = firebase.database()

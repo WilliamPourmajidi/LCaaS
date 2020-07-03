@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6268b6a6-44b6-4d90-ac83-54f728ffda9b" name="Default" comment="Finalizing Descriptive stats for Dataframes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/index.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <recent name="C:\Users\William\PycharmProjects\LCaaS\main\Timestamps-Archive" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.EvaluationScenario_Analysis">
+  <component name="RunManager" selected="Python.index">
     <configuration name="DataVisualization" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LCaaS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,6 +209,7 @@
       <workItem from="1592607641338" duration="15164000" />
       <workItem from="1592844645627" duration="23090000" />
       <workItem from="1593118603020" duration="323000" />
+      <workItem from="1593799448479" duration="1131000" />
     </task>
     <task id="LOCAL-00058" summary="Final Touches">
       <created>1537102898186</created>
