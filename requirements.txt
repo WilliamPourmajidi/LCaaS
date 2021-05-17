@@ -91,7 +91,7 @@ qtconsole==4.5.5
 requests==2.22.0
 requests-toolbelt==0.7.0
 rlp==1.1.0
-rsa==4.1
+rsa==4.7
 Send2Trash==1.5.0
 setuptools-git==1.2
 six~=1.15.0
