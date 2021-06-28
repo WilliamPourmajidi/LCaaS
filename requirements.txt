@@ -105,7 +105,7 @@ varint==1.0.2
 wcwidth==0.1.7
 web3==5.2.0
 webencodings==0.5.1
-websockets==7.0
+websockets==9.1
 Werkzeug==0.16.0
 widgetsnbextension==3.5.1
 zipp==0.6.0
