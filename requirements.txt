@@ -84,7 +84,7 @@ pystan==2.18.1.0
 python-dateutil==2.7.5
 python-jwt==2.0.1
 pytz==2018.9
-pywin32==225
+pywin32==301
 pywinpty==0.5.5
 pyzmq==18.1.0
 qtconsole==4.5.5
