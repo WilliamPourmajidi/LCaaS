@@ -82,7 +82,7 @@ Pyrebase==3.0.27
 pyrsistent==0.15.4
 pystan==2.18.1.0
 python-dateutil==2.7.5
-python-jwt==2.0.1
+python-jwt==3.3.4
 pytz==2018.9
 pywin32==225
 pywinpty==0.5.5
