@@ -70,7 +70,7 @@ pickleshare==0.7.5
 ply==3.11
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
-protobuf==3.5.1
+protobuf==3.18.3
 pyasn1==0.4.2
 pyasn1-modules==0.2.1
 pycryptodome==3.9.0
